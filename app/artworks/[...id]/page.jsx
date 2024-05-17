@@ -1,3 +1,5 @@
+'use client';
+
 const ArtworkPage = () => {
 	return <div>ArtworkPage</div>;
 };
