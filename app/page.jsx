@@ -1,4 +1,6 @@
-import Link from 'next/link';
+import Hero from '../components/Hero';
+import InfoBoxes from '@/components/InfoBoxes';
+import Footer from '@/components/Footer';
 
 export const metadata = {
 	title: "Fusco's Art Gallery | Home",
@@ -7,10 +9,11 @@ export const metadata = {
 
 const HomePage = () => {
 	return (
-		<div>
-			<h1 className='text-3xl'>Welcome</h1>
-			<Link href='/artworks'>Artworks</Link>
-		</div>
+		<>
+			<Hero />
+			<InfoBoxes />
+			<Footer />
+		</>
 	);
 };
 

@@ -15,7 +15,7 @@ const Navbar = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
 
 	return (
-		<nav className='bg-purple-400 border-b border-blue-500'>
+		<nav className='bg-purple-800 border-b border-purple-900'>
 			<div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
 				<div className='relative flex h-20 items-center justify-between'>
 					<div className='absolute inset-y-0 left-0 flex items-center'>
