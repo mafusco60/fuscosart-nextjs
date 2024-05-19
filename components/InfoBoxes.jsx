@@ -7,7 +7,7 @@ const InfoBoxes = () => {
 				<div className='grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg'>
 					<InfoBox
 						heading='For Browsers and Buyers'
-						backgroundColor='bg-purple-100'
+						backgroundColor='bg-gray-300'
 						buttonInfo={{
 							text: 'Browse Artworks',
 							link: '/artworks',
@@ -18,11 +18,11 @@ const InfoBoxes = () => {
 					</InfoBox>
 					<InfoBox
 						heading='For Website Admins'
-						backgroundColor='bg-purple-100'
+						backgroundColor='bg-purple-200'
 						buttonInfo={{
 							text: 'Add Artwork',
 							link: '/artworks/add',
-							backgroundColor: 'bg-purple-500',
+							backgroundColor: 'bg-purple-900',
 						}}
 					>
 						List your artworks and reach potential buyers.
