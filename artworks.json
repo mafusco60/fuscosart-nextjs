@@ -39,6 +39,7 @@
 			"email": "john@gmail.com",
 			"phone": "617-555-5555"
 		},
+
 		"images": ["cornfield.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-01T00:00:00.000Z",
@@ -48,7 +49,7 @@
 		"_id": "2",
 		"owner": "1",
 		"name": "Dreamy Dancer",
-		"type": "Mixed Media",
+		"type": "Acrylic Mixed Media",
 		"description": "Inspired by the love of dance and the beauty of the human form. Reference photo by Pexels.",
 		"location": {
 			"street": "45 Main Street",
@@ -163,7 +164,7 @@
 			"email": "emily@gmail.com",
 			"phone": "512-555-5555"
 		},
-		"images": ["d1.jpg", "d2.jpg", "d3.jpg"],
+		"images": ["kitten.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-04T00:00:00.000Z",
 		"updatedAt": "2024-01-04T00:00:00.000Z"
@@ -278,7 +279,7 @@
 	{
 		"_id": "8",
 		"owner": "5",
-		"name": "Sly Fox Cub",
+		"name": "Shy Fox Cub",
 		"type": "Digital Art",
 		"description": "Fox digitally painted in a whimsical style. Reference photo by Pexels.",
 		"location": {
@@ -376,7 +377,7 @@
 			"email": "matthew@gmail.com",
 			"phone": "215-555-5555"
 		},
-		"images": ["Delighted.jpg"],
+		"images": ["Delighted.png"],
 		"is_featured": true,
 		"createdAt": "2024-01-10T00:00:00.000Z",
 		"updatedAt": "2024-01-10T00:00:00.000Z"
