@@ -243,7 +243,7 @@
 	{
 		"_id": "7",
 		"owner": "4",
-		"name": "Anxiously Awaiting",
+		"name": "Impatiently Awaiting",
 		"type": "Graphite Pencil",
 		"description": "Beautiful woman anxiously awaiting an unknown outcome. Reference photo by Pexels.",
 		"location": {
@@ -280,7 +280,7 @@
 		"owner": "5",
 		"name": "Sly Fox Cub",
 		"type": "Digital Art",
-		"description": "Fox digitally hand painted in a whimsical style. Reference photo by Pexels.",
+		"description": "Fox digitally painted in a whimsical style. Reference photo by Pexels.",
 		"location": {
 			"street": "321 Mountain Road",
 			"city": "Aspen",

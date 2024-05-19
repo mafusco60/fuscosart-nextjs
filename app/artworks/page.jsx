@@ -10,7 +10,7 @@ const ArtworksPage = () => {
 				) : (
 					<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
 						{artworks.map((artwork, index) => (
-							<ArtworkCard artwork={artwork} key={index} />
+							<ArtworkCard key={artwork._id} artwork={artwork} />
 						))}
 					</div>
 				)}
