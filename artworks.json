@@ -90,6 +90,50 @@
 		"updatedAt": "2024-01-02T00:00:00.000Z"
 	},
 	{
+		"_id": "11",
+		"owner": "1",
+		"name": "Darriia",
+		"type": "Acrylic Mixed Media",
+		"description": " Reference photo by Sktchy.",
+		"location": {
+			"street": "45 Main Street",
+			"city": "New York",
+			"state": "NY",
+			"zipcode": "10001"
+		},
+		"beds": 1,
+		"baths": 1,
+		"square_feet": 1800,
+		"amenities": [
+			"Wifi",
+			"Full kitchen",
+			"Washer & Dryer",
+			"Free Parking",
+			"Hot Tub",
+			"24/7 Security",
+			"Wheelchair Accessible",
+			"Elevator Access",
+			"Dishwasher",
+			"High-Speed Internet",
+			"Air Conditioning",
+			"Smart TV",
+			"Outdoor Grill/BBQ"
+		],
+		"rates": {
+			"weekly": 1000,
+			"monthly": 4000
+		},
+		"seller_info": {
+			"name": "Jane Smith",
+			"email": "jane@gmail.com",
+			"phone": "212-555-5555"
+		},
+		"images": ["Clip-Small-Darriia.jpg"],
+		"is_featured": false,
+		"createdAt": "2024-01-02T00:00:00.000Z",
+		"updatedAt": "2024-01-02T00:00:00.000Z"
+	},
+	{
 		"_id": "3",
 		"owner": "2",
 		"name": "Red",
@@ -200,7 +244,7 @@
 			"email": "michael@gmail.com",
 			"phone": "312-555-5555"
 		},
-		"images": ["marcy.jpg"],
+		"images": ["Clip-Small-Marcy.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-05T00:00:00.000Z",
 		"updatedAt": "2024-01-05T00:00:00.000Z"
@@ -236,7 +280,7 @@
 			"email": "sarah@gmail.com",
 			"phone": "305-555-5555"
 		},
-		"images": ["Clip-BabyDoll.jpg"],
+		"images": ["Clip-Small-BabyDoll.jpg"],
 		"is_featured": false,
 		"createdAt": "2024-01-06T00:00:00.000Z",
 		"updatedAt": "2024-01-06T00:00:00.000Z"
@@ -342,7 +386,7 @@
 			"email": "lisa@gmail.com",
 			"phone": "303-555-5555"
 		},
-		"images": ["giraffe.jpg"],
+		"images": ["Clip-Small-Giraffe.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-09T00:00:00.000Z",
 		"updatedAt": "2024-01-09T00:00:00.000Z"

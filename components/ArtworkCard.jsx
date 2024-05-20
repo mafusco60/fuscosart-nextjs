@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const ArtworkCard = ({ artwork }) => {
 	return (
-		<div className='rounded-xl shadow-md relative'>
+		<div className='rounded-xl shadow-lg bg-white relative'>
 			<Image
 				src={`/images/artworks/${artwork.images[0]}`}
 				alt=''
@@ -26,7 +26,7 @@ const ArtworkCard = ({ artwork }) => {
 			</div>
 			<Link
 				href={`/artworks/${artwork._id}`}
-				className='h-[36px] bg-rose-950 hover:bg-rose-700 text-white px-4 py-2 rounded-lg text-center text-sm'
+				className='h-[36px] bg-rose-950 hover:bg-rose-700 text-white px-4 py-2 rounded-lg text-center center text-sm'
 			>
 				Details
 			</Link>
