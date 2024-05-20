@@ -40,7 +40,7 @@
 			"phone": "617-555-5555"
 		},
 
-		"images": ["cornfield.jpg"],
+		"images": ["Clip-Small-Cornfield.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-01T00:00:00.000Z",
 		"updatedAt": "2024-01-01T00:00:00.000Z"
@@ -84,7 +84,7 @@
 			"email": "jane@gmail.com",
 			"phone": "212-555-5555"
 		},
-		"images": ["dancer1.jpg"],
+		"images": ["Clip-Small-DreamyDancer.jpeg"],
 		"is_featured": false,
 		"createdAt": "2024-01-02T00:00:00.000Z",
 		"updatedAt": "2024-01-02T00:00:00.000Z"
@@ -130,7 +130,7 @@
 			"email": "david@gmail.com",
 			"phone": "213-555-5555"
 		},
-		"images": ["RedHeadPortrait.jpg"],
+		"images": ["Clip-Small-Red.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-03T00:00:00.000Z",
 		"updatedAt": "2024-01-03T00:00:00.000Z"
@@ -236,7 +236,7 @@
 			"email": "sarah@gmail.com",
 			"phone": "305-555-5555"
 		},
-		"images": ["babygirlportrait.jpg"],
+		"images": ["Clip-BabyDoll.jpg"],
 		"is_featured": false,
 		"createdAt": "2024-01-06T00:00:00.000Z",
 		"updatedAt": "2024-01-06T00:00:00.000Z"
@@ -271,7 +271,7 @@
 			"email": "robert@gmail.com",
 			"phone": "303-555-5555"
 		},
-		"images": ["Denim-Hat.jpg"],
+		"images": ["Clip-Small-Awaiting.jpg"],
 		"is_featured": false,
 		"createdAt": "2024-01-07T00:00:00.000Z",
 		"updatedAt": "2024-01-07T00:00:00.000Z"
@@ -306,7 +306,7 @@
 			"email": "jennifer@gmail.com",
 			"phone": "970-555-5555"
 		},
-		"images": ["Fox.jpg"],
+		"images": ["Clip-Small-ShyFoxCub.jpg"],
 		"is_featured": false,
 		"createdAt": "2024-01-08T00:00:00.000Z",
 		"updatedAt": "2024-01-08T00:00:00.000Z"
