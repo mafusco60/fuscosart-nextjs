@@ -15,7 +15,7 @@ const Navbar = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
 
 	return (
-		<nav className='bg-purple-800 border-b border-purple-900'>
+		<nav className='bg-rose-950 '>
 			<div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
 				<div className='relative flex h-20 items-center justify-between'>
 					<div className='absolute inset-y-0 left-0 flex items-center'>
@@ -23,7 +23,7 @@ const Navbar = () => {
 						<button
 							type='button'
 							id='mobile-dropdown-button'
-							className='relative inline-flex items-center justify-center rounded-md p-2 text-purple-600 hover:bg-purple-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white md:hidden'
+							className='relative inline-flex items-center justify-center rounded-md p-2 text-rose-600 hover:bg-rose-950 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white md:hidden'
 							aria-controls='mobile-menu'
 							aria-expanded='false'
 							onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -61,24 +61,24 @@ const Navbar = () => {
 								<Link
 									href='/'
 									className={`${
-										pathname === '/' ? 'bg-purple-900' : ''
-									} text-white hover:bg-purple-700 hover:text-white rounded-md px-3 py-2`}
+										pathname === '/' ? 'bg-rose-950' : ''
+									} text-white hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
 								>
 									Home
 								</Link>
 								<Link
 									href='/artworks'
-									className={`${pathname === '/artworks' ? 'bg-purple-900' : ''}
-                  text-white hover:bg-purple-700 hover:text-white rounded-md px-3 py-2`}
+									className={`${pathname === '/artworks' ? 'bg-rose-950' : ''}
+                  text-white hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
 								>
 									Artworks
 								</Link>
 								<Link
 									href='/artworks/add'
 									className={`${
-										pathname === '/artworks/add' ? 'bg-purple-900' : ''
+										pathname === '/artworks/add' ? 'bg-rose-950' : ''
 									}
-                  text-white hover:bg-purple-700 hover:text-white rounded-md px-3 py-2`}
+                  text-white hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
 								>
 									Add Artwork
 								</Link>
@@ -89,7 +89,7 @@ const Navbar = () => {
 					{!isLoggedIn && (
 						<div className='hidden md:block md:ml-6'>
 							<div className='flex items-center'>
-								<button className='flex items-center text-white bg-purple-600 hover:bg-purple-900 hover:text-white rounded-md px-3 py-2'>
+								<button className='flex items-center text-white bg-rose-600 hover:bg-rose-950 hover:text-white rounded-md px-3 py-2'>
 									<FaGoogle className='fa-brands fa-google text-white mr-2'></FaGoogle>
 									<span>Login or Register</span>
 								</button>
@@ -102,7 +102,7 @@ const Navbar = () => {
 							<Link href='/messages' className='relative group'>
 								<button
 									type='button'
-									className='relative rounded-full bg-purple-800 p-1 text--400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-800'
+									className='relative rounded-full bg-rose-800 p-1 text--400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-800'
 								>
 									<span className='absolute -inset-1.5'></span>
 									<span className='sr-only'>View notifications</span>
@@ -131,7 +131,7 @@ const Navbar = () => {
 								<div>
 									<button
 										type='button'
-										className='relative flex rounded-full bg-purple-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-purple-800'
+										className='relative flex rounded-full bg-rose-950 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-800'
 										id='user-menu-button'
 										aria-expanded='false'
 										aria-haspopup='true'
@@ -151,7 +151,7 @@ const Navbar = () => {
 								{isProfileMenuOpen && (
 									<div
 										id='user-menu'
-										className=' absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-purple ring-opacity-5 focus:outline-none'
+										className=' absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-rose ring-opacity-5 focus:outline-none'
 										role='menu'
 										aria-orientation='vertical'
 										aria-labelledby='user-menu-button'
@@ -159,7 +159,7 @@ const Navbar = () => {
 									>
 										<Link
 											href='/profile'
-											className='block px-4 py-2 text-sm text-purple-700'
+											className='block px-4 py-2 text-sm text-rose-700'
 											role='menuitem'
 											tabIndex='-1'
 											id='user-menu-item-0'
@@ -168,7 +168,7 @@ const Navbar = () => {
 										</Link>
 										<Link
 											href='/Artworks/saved'
-											className='block px-4 py-2 text-sm text-purple-700'
+											className='block px-4 py-2 text-sm text-rose-700'
 											role='menuitem'
 											tabIndex='-1'
 											id='user-menu-item-2'
@@ -176,7 +176,7 @@ const Navbar = () => {
 											Saved Artworks
 										</Link>
 										<button
-											className='block px-4 py-2 text-sm text-purple-700'
+											className='block px-4 py-2 text-sm text-rose-700'
 											role='menuitem'
 											tabIndex='-1'
 											id='user-menu-item-2'
@@ -198,7 +198,7 @@ const Navbar = () => {
 						<Link
 							href='/'
 							className={`${
-								pathname === '/' ? 'bg-purple-900' : ''
+								pathname === '/' ? 'bg-rose-950' : ''
 							} text-white block rounded-md px-3 py-2 text-base font-medium`}
 						>
 							Home
@@ -206,7 +206,7 @@ const Navbar = () => {
 						<Link
 							href='/artworks'
 							className={`${
-								pathname === '/artworks' ? 'bg-purple-900' : ''
+								pathname === '/artworks' ? 'bg-rose-950' : ''
 							} text-white block rounded-md px-3 py-2 text-base font-medium`}
 						>
 							Artworks
@@ -215,7 +215,7 @@ const Navbar = () => {
 							<Link
 								href='/artworks/add'
 								className={`${
-									pathname === '/artworks/add' ? 'bg-purple-900' : ''
+									pathname === '/artworks/add' ? 'bg-rose-950' : ''
 								} text-white block rounded-md px-3 py-2 text-base font-medium`}
 							>
 								Add Artworks
@@ -223,7 +223,7 @@ const Navbar = () => {
 						)}
 
 						{!isLoggedIn && (
-							<button className='flex items-center text-white bg-purple-700 hover:bg-purple hover:text-white rounded-md px-3 py-2 my-4'>
+							<button className='flex items-center text-white bg-rose-700 hover:bg-rose hover:text-white rounded-md px-3 py-2 my-4'>
 								<FaGoogle className='fa-brands fa-google mr-2'></FaGoogle>
 								<span>Login or Register</span>
 							</button>

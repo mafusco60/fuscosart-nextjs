@@ -85,14 +85,14 @@
 			"phone": "212-555-5555"
 		},
 		"images": ["dancer1.jpg"],
-		"is_featured": true,
+		"is_featured": false,
 		"createdAt": "2024-01-02T00:00:00.000Z",
 		"updatedAt": "2024-01-02T00:00:00.000Z"
 	},
 	{
 		"_id": "3",
 		"owner": "2",
-		"name": "Sweet Ginger Woman",
+		"name": "Red",
 		"type": "Acrylic Mixed Media",
 		"description": "Reference photo by Pexels.",
 		"location": {
@@ -138,7 +138,7 @@
 	{
 		"_id": "4",
 		"owner": "2",
-		"name": "Ginger Kitten",
+		"name": "Sweet Ginger Kitten",
 		"type": "Digital Art",
 		"description": "Captivating portrait of a sweet kitten. Reference photo by Pexels.",
 		"location": {
@@ -237,7 +237,7 @@
 			"phone": "305-555-5555"
 		},
 		"images": ["babygirlportrait.jpg"],
-		"is_featured": true,
+		"is_featured": false,
 		"createdAt": "2024-01-06T00:00:00.000Z",
 		"updatedAt": "2024-01-06T00:00:00.000Z"
 	},
@@ -272,7 +272,7 @@
 			"phone": "303-555-5555"
 		},
 		"images": ["Denim-Hat.jpg"],
-		"is_featured": true,
+		"is_featured": false,
 		"createdAt": "2024-01-07T00:00:00.000Z",
 		"updatedAt": "2024-01-07T00:00:00.000Z"
 	},

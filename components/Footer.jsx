@@ -5,12 +5,12 @@ const Footer = () => {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className='bg-purple-200 py-4 mt-24'>
+		<footer className='bg-rose-200 py-4 mt-24'>
 			<div className='container mx-auto flex flex-col md:flex-row items-center justify-between px-4'>
 				<div className='mb-4 md:mb-0'>
 					<Image src={logo} alt='Logo' className='h-8 w-auto' />
 				</div>
-				<div className='flex flex-wrap justify-center md:justify-start mb-4 md:mb-0 text-purple-900'>
+				<div className='flex flex-wrap justify-center md:justify-start mb-4 md:mb-0 text-rose-950'>
 					<ul className='flex space-x-4'>
 						<li>
 							<a href='/artworks'>Artworks</a>
@@ -21,7 +21,7 @@ const Footer = () => {
 					</ul>
 				</div>
 				<div>
-					<p className='text-sm text-purple-500 mt-2 md:mt-0'>
+					<p className='text-sm text-rose-500 mt-2 md:mt-0'>
 						&copy; {currentYear} Fusco's Art. All rights reserved.
 					</p>
 				</div>
