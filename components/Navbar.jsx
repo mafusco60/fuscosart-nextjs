@@ -15,7 +15,7 @@ const Navbar = () => {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
 
 	return (
-		<nav className='bg-rose-950 '>
+		<nav className='bg-rose-950 border-b border-red-950'>
 			<div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
 				<div className='relative flex h-20 items-center justify-between'>
 					<div className='absolute inset-y-0 left-0 flex items-center'>
@@ -61,24 +61,26 @@ const Navbar = () => {
 								<Link
 									href='/'
 									className={`${
-										pathname === '/' ? 'bg-rose-950' : ''
-									} text-white hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
+										pathname === '/' ? 'text-rose-600' : 'text-white'
+									} hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
 								>
 									Home
 								</Link>
 								<Link
 									href='/artworks'
-									className={`${pathname === '/artworks' ? 'bg-rose-950' : ''}
-                  text-white hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
+									className={`${
+										pathname === '/artworks' ? 'text-rose-600' : 'text-white'
+									} hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
 								>
 									Artworks
 								</Link>
 								<Link
 									href='/artworks/add'
 									className={`${
-										pathname === '/artworks/add' ? 'bg-rose-950' : ''
-									}
-                  text-white hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
+										pathname === '/artworks/add'
+											? 'text-rose-600'
+											: 'text-white'
+									} hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
 								>
 									Add Artwork
 								</Link>
@@ -190,24 +192,24 @@ const Navbar = () => {
 					)}
 				</div>
 			</div>
-
 			{/* <!-- Mobile menu, show/hide based on menu state. --> */}
+
 			{isMobileMenuOpen && (
 				<div id='mobile-menu'>
-					<div className='space-y-1 px-2 pb-3 pt-2'>
+					<div className='space-y-1 px-2 pb-3 pt-2 lg:hidden'>
 						<Link
 							href='/'
 							className={`${
-								pathname === '/' ? 'bg-rose-950' : ''
-							} text-white block rounded-md px-3 py-2 text-base font-medium`}
+								pathname === '/' ? 'text-rose-600' : ' text-white'
+							} block rounded-md px-3 py-2 text-base font-medium`}
 						>
 							Home
 						</Link>
 						<Link
 							href='/artworks'
 							className={`${
-								pathname === '/artworks' ? 'bg-rose-950' : ''
-							} text-white block rounded-md px-3 py-2 text-base font-medium`}
+								pathname === '/artworks' ? 'text-rose-600' : ' text-white'
+							} block rounded-md px-3 py-2 text-base font-medium`}
 						>
 							Artworks
 						</Link>
@@ -215,8 +217,8 @@ const Navbar = () => {
 							<Link
 								href='/artworks/add'
 								className={`${
-									pathname === '/artworks/add' ? 'bg-rose-950' : ''
-								} text-white block rounded-md px-3 py-2 text-base font-medium`}
+									pathname === '/artworks/add' ? 'text-rose-600' : ' text-white'
+								} block rounded-md px-3 py-2 text-base font-medium`}
 							>
 								Add Artworks
 							</Link>
