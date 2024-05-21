@@ -14,22 +14,7 @@
 		"beds": 2,
 		"baths": 1,
 		"square_feet": 1500,
-		"amenities": [
-			"Wifi",
-			"Full kitchen",
-			"Washer & Dryer",
-			"Free Parking",
-			"Hot Tub",
-			"24/7 Security",
-			"Wheelchair Accessible",
-			"Elevator Access",
-			"Dishwasher",
-			"Gym/Fitness Center",
-			"Air Conditioning",
-			"Balcony/Patio",
-			"Smart TV",
-			"Coffee Maker"
-		],
+		"amenities": ["Wifi", "Coffee Maker"],
 		"rates": {
 			"weekly": 1100,
 			"monthly": 4200
@@ -60,21 +45,7 @@
 		"beds": 1,
 		"baths": 1,
 		"square_feet": 1800,
-		"amenities": [
-			"Wifi",
-			"Full kitchen",
-			"Washer & Dryer",
-			"Free Parking",
-			"Hot Tub",
-			"24/7 Security",
-			"Wheelchair Accessible",
-			"Elevator Access",
-			"Dishwasher",
-			"High-Speed Internet",
-			"Air Conditioning",
-			"Smart TV",
-			"Outdoor Grill/BBQ"
-		],
+		"amenities": ["Wifi", "Outdoor Grill/BBQ"],
 		"rates": {
 			"weekly": 1000,
 			"monthly": 4000
@@ -84,7 +55,7 @@
 			"email": "jane@gmail.com",
 			"phone": "212-555-5555"
 		},
-		"images": ["Clip-Small-DreamyDancer.jpeg"],
+		"images": ["Clip-Small-DreamyDancer.jpg"],
 		"is_featured": false,
 		"createdAt": "2024-01-02T00:00:00.000Z",
 		"updatedAt": "2024-01-02T00:00:00.000Z"
@@ -104,21 +75,7 @@
 		"beds": 1,
 		"baths": 1,
 		"square_feet": 1800,
-		"amenities": [
-			"Wifi",
-			"Full kitchen",
-			"Washer & Dryer",
-			"Free Parking",
-			"Hot Tub",
-			"24/7 Security",
-			"Wheelchair Accessible",
-			"Elevator Access",
-			"Dishwasher",
-			"High-Speed Internet",
-			"Air Conditioning",
-			"Smart TV",
-			"Outdoor Grill/BBQ"
-		],
+		"amenities": ["Wifi", "Outdoor Grill/BBQ"],
 		"rates": {
 			"weekly": 1000,
 			"monthly": 4000
@@ -148,22 +105,7 @@
 		"beds": 3,
 		"baths": 2,
 		"square_feet": 2200,
-		"amenities": [
-			"Wifi",
-			"Full kitchen",
-			"Washer & Dryer",
-			"Free Parking",
-			"Hot Tub",
-			"24/7 Security",
-			"Wheelchair Accessible",
-			"Elevator Access",
-			"Dishwasher",
-			"Swimming Pool",
-			"Gym/Fitness Center",
-			"Air Conditioning",
-			"Smart TV",
-			"Coffee Maker"
-		],
+		"amenities": ["Wifi", "Coffee Maker"],
 		"rates": {
 			"nightly": 200,
 			"weekly": 750,
@@ -182,7 +124,7 @@
 	{
 		"_id": "4",
 		"owner": "2",
-		"name": "Sweet Ginger Kitten",
+		"name": "Cute Ginger Kitten",
 		"type": "Digital Art",
 		"description": "Captivating portrait of a sweet kitten. Reference photo by Pexels.",
 		"location": {
@@ -194,12 +136,7 @@
 		"beds": 1,
 		"baths": 1,
 		"square_feet": 900,
-		"amenities": [
-			"Fireplace",
-			"Outdoor Grill/BBQ",
-			"Balcony/Patio",
-			"Coffee Maker"
-		],
+		"amenities": ["Fireplace", "Coffee Maker"],
 		"rates": {
 			"weekly": 2000
 		},
@@ -208,7 +145,7 @@
 			"email": "emily@gmail.com",
 			"phone": "512-555-5555"
 		},
-		"images": ["kitten.jpg"],
+		"images": ["Clip-Small-CuteGingerKitten.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-04T00:00:00.000Z",
 		"updatedAt": "2024-01-04T00:00:00.000Z"
@@ -228,13 +165,7 @@
 		"beds": 1,
 		"baths": 1,
 		"square_feet": 900,
-		"amenities": [
-			"High-Speed Internet",
-			"Smart TV",
-			"Air Conditioning",
-			"Gym/Fitness Center",
-			"Outdoor Grill/BBQ"
-		],
+		"amenities": ["High-Speed Internet", "Outdoor Grill/BBQ"],
 		"rates": {
 			"weekly": 1100,
 			"monthly": 4200
@@ -264,13 +195,7 @@
 		"beds": 4,
 		"baths": 3,
 		"square_feet": 2800,
-		"amenities": [
-			"Beach Access",
-			"Swimming Pool",
-			"Balcony/Patio",
-			"Smart TV",
-			"Outdoor Grill/BBQ"
-		],
+		"amenities": ["Beach Access", "Outdoor Grill/BBQ"],
 		"rates": {
 			"nightly": 500,
 			"weekly": 2500
@@ -280,7 +205,7 @@
 			"email": "sarah@gmail.com",
 			"phone": "305-555-5555"
 		},
-		"images": ["Clip-Small-BabyDoll.jpg"],
+		"images": ["Clip-Small-DollBaby.jpg"],
 		"is_featured": false,
 		"createdAt": "2024-01-06T00:00:00.000Z",
 		"updatedAt": "2024-01-06T00:00:00.000Z"
@@ -288,7 +213,7 @@
 	{
 		"_id": "7",
 		"owner": "4",
-		"name": "Impatiently Awaiting",
+		"name": "Nervously Awaiting",
 		"type": "Graphite Pencil",
 		"description": "Beautiful woman anxiously awaiting an unknown outcome. Reference photo by Pexels.",
 		"location": {
@@ -300,12 +225,7 @@
 		"beds": 2,
 		"baths": 1,
 		"square_feet": 1100,
-		"amenities": [
-			"Fireplace",
-			"Outdoor Grill/BBQ",
-			"Hiking Trails Access",
-			"Pet-Friendly"
-		],
+		"amenities": ["Fireplace", "Pet-Friendly"],
 		"rates": {
 			"nightly": 475,
 			"weekly": 2000
@@ -335,12 +255,7 @@
 		"beds": 3,
 		"baths": 2,
 		"square_feet": 1800,
-		"amenities": [
-			"Ski Equipment Storage",
-			"Fireplace",
-			"Balcony/Patio",
-			"Smart TV"
-		],
+		"amenities": ["Ski Equipment Storage", "Smart TV"],
 		"rates": {
 			"nightly": 300,
 			"weekly": 1100
@@ -370,13 +285,7 @@
 		"beds": 4,
 		"baths": 3,
 		"square_feet": 2400,
-		"amenities": [
-			"Mountain View",
-			"Hiking Trails Access",
-			"Air Conditioning",
-			"Smart TV",
-			"Outdoor Grill/BBQ"
-		],
+		"amenities": ["Mountain View", "Outdoor Grill/BBQ"],
 		"rates": {
 			"weekly": 1000,
 			"monthly": 3800
@@ -406,12 +315,7 @@
 		"beds": 2,
 		"baths": 1,
 		"square_feet": 1200,
-		"amenities": [
-			"High-Speed Internet",
-			"Air Conditioning",
-			"Smart TV",
-			"Coffee Maker"
-		],
+		"amenities": ["High-Speed Internet", "Coffee Maker"],
 		"rates": {
 			"weekly": 550,
 			"monthly": 2100
@@ -421,7 +325,7 @@
 			"email": "matthew@gmail.com",
 			"phone": "215-555-5555"
 		},
-		"images": ["Delighted.png"],
+		"images": ["Clip-Small-Delighted.jpg"],
 		"is_featured": true,
 		"createdAt": "2024-01-10T00:00:00.000Z",
 		"updatedAt": "2024-01-10T00:00:00.000Z"
