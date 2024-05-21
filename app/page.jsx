@@ -8,7 +8,9 @@ export const metadata = {
 	description: 'Find Your Favorite Artwork',
 };
 
-const HomePage = () => {
+const HomePage =  () => {
+	
+
 	return (
 		<>
 			<Hero />

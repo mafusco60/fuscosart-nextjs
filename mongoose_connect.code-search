@@ -1,0 +1,10 @@
+# Query: mongoose.connect
+# Flags: CaseSensitive WordMatch RegExp
+# ContextLines: 1
+
+1 result - 1 file
+
+config/database.js:
+  18  try {
+  19:     await mongoose.connect('process.env.MONGODB_URI')
+  20      connected = true;
