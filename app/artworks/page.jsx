@@ -1,21 +1,15 @@
 import ArtworkCard from '@/components/ArtworkCard';
-import artworks from '@/artworks.json';
+import { fetchArtworks } from '@/utils/requests';
 
-async function fetchArtworks() {
-	try {
-	  const res = await fetch('http://localhost:3000/api/artworks', { cache: 'no-store' });
-  
-	  if (!res.ok) {
-		throw new Error('Failed to fetch data');
-	  }
-  
-	  return await res.json();
-	} catch (error) {
-	  console.log(error);
-	}
-  }
 
-const ArtworksPage = () => {
+
+const ArtworksPage = async() => {
+	const artworks = await fetchArtworks();
+
+
+	// Sort the artworks by create date
+	artworks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
 	return (
 		<section className='px-4 py-6'>
 			<div className='container-xl lg:container m-auto px-4 py-6'>

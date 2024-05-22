@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+
 const ArtworkCard = ({ artwork }) => {
 	return (
 		<div className='rounded-xl shadow-lg bg-rose-100 relative'>

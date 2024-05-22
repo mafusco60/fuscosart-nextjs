@@ -1,7 +1,7 @@
 import { Schema, model, models } from 'mongoose';
 
 const UserSchema = new Schema(
-  { isadmin: {
+  { is_admin: {
     type: Boolean,
     default: false,
     },
@@ -14,7 +14,7 @@ const UserSchema = new Schema(
       type: String,
       required: [true, 'Username is required!'],
     },
-    userlocation: {
+    user_location: {
         street: {
           type: String,
         },
@@ -36,7 +36,7 @@ const UserSchema = new Schema(
     bookmarks: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Property',
+        ref: 'Artwork',
       },
     ],
   },
