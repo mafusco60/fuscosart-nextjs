@@ -1,5 +1,19 @@
-import artworks from '@/artworks.json';
 import ArtworkCard from '@/components/ArtworkCard';
+import artworks from '@/artworks.json';
+
+async function fetchArtworks() {
+	try {
+	  const res = await fetch('http://localhost:3000/api/artworks', { cache: 'no-store' });
+  
+	  if (!res.ok) {
+		throw new Error('Failed to fetch data');
+	  }
+  
+	  return await res.json();
+	} catch (error) {
+	  console.log(error);
+	}
+  }
 
 const ArtworksPage = () => {
 	return (
@@ -9,10 +23,10 @@ const ArtworksPage = () => {
 					<p>No artworks found</p>
 				) : (
 					<div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-						{artworks.map((artwork, index) => (
-							<ArtworkCard key={artwork._id} artwork={artwork} />
-						))}
-					</div>
+            {artworks.map((artwork, index) => (
+              <ArtworkCard artwork={artwork} key={index} />
+            ))}
+          </div>
 				)}
 			</div>
 		</section>
