@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 /**@type {import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')}**/
+/**@type {import url('https://fonts.googleapis.com/css2?family=Italiano&display=swap')}**/
 
 module.exports = {
 	content: [
@@ -10,7 +11,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Poppins', 'sans-serif, Italiano, sans-serif'],
+				sans: ['Poppins', 'sans-serif', 'Italiano'],
 			},
 			gridTemplateColumns: {
 				'70/30': '70% 28%',
