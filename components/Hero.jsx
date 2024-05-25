@@ -43,6 +43,7 @@ const Hero = () => {
 							</option>
 							<option value='Pastel Painting'>Pastel Painting</option>
 							<option value='Mixed Media Painting'>Mixed Media</option>
+							<option value='Watercolor Painting'>Watercolor Painting</option>
 							<option value='Other'>Other</option>
 						</select>
 					</div>
