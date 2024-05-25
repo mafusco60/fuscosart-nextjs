@@ -7,8 +7,10 @@ import profileDefault from '@/assets/images/profile.png';
 import Link from 'next/link';
 import { FaGoogle, FaSleigh } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
+import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
 const Navbar = () => {
+	const { data: session } = useSession(); 
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 	const pathname = usePathname();
@@ -88,7 +90,7 @@ const Navbar = () => {
 						</div>
 					</div>
 					{/* <!-- Right Side Menu (Logged Out) --> */}
-					{!isLoggedIn && (
+					{!session && (
 						<div className='hidden md:block md:ml-6'>
 							<div className='flex items-center'>
 								<button className='flex items-center text-white bg-rose-600 hover:bg-rose-950 hover:text-white rounded-md px-3 py-2'>
@@ -99,7 +101,7 @@ const Navbar = () => {
 						</div>
 					)}
 					{/* <!-- Right Side Menu (Logged In) --> */}{' '}
-					{isLoggedIn && (
+					{session && (
 						<div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
 							<Link href='/messages' className='relative group'>
 								<button
