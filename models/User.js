@@ -14,22 +14,7 @@ const UserSchema = new Schema(
       type: String,
       required: [true, 'Username is required!'],
     },
-    user_location: {
-        street: {
-          type: String,
-        },
-        city: {
-          type: String,
-          required: true,
-        },
-        state: {
-          type: String,
-          required: true,
-        },
-        zipcode: {
-          type: String,
-        },
-    },
+   
     image: {
       type: String,
     },

@@ -27,7 +27,7 @@ const HomeArtworks = async () => {
 			<section className='m-auto max-w-lg my-10 px-6'>
 				<Link
 					href='/artworks'
-					className='block  bg-rose-950 text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700'
+					className='block  bg-rose-950 text-white text-center py-4 px-6 rounded-xl hover:bg-rose-700'
 				>
 					View All Artworks
 				</Link>

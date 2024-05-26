@@ -2,7 +2,7 @@ import { Schema, model, models } from 'mongoose';
 
 const ArtworkSchema = new Schema(
   {
-  admin: {
+  user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
       required: true,
