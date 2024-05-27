@@ -157,14 +157,14 @@ if (!artwork && !loading) {
                 </div>
               </form>
             </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-
-		</>
-	)}
-	</>
+            </aside>
+              </div>
+            </div>
+          </section>
+        
+          </>
+      )}
+    </>
+  
 };
 export default ArtworkPage;
