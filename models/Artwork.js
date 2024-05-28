@@ -5,7 +5,7 @@ const ArtworkSchema = new Schema(
   user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
+      
     },
     name: {
       type: String,
@@ -18,18 +18,16 @@ const ArtworkSchema = new Schema(
     description: {
       type: String,
     },
+    descriptive_words: [
+    {
+      type: [String],
+    }
+  ],
     
-    rates: {
-      nightly: {
-        type: Number,
-      },
-      weekly: {
-        type: Number,
-      },
-      monthly: {
-        type: Number,
-      },
+    price_original: {
+      type: Number,
     },
+    
     
     images: [
       {

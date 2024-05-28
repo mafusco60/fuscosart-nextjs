@@ -3,18 +3,94 @@ import { useState, useEffect } from 'react';
 
 const ArtworkAddForm = () => {
     const [mounted, setMounted] = useState(false);
-    const [fields, setFields] = useState({}) // rest of fields
-      
-    useEffect(() => {
-      setMounted(true);
-    }, []);
+    const [fields, setFields] = useState({
+        type: 'Oil Painting',
+        name: 'Tessy',
+        description: '',
+        price_original: '200',
+        images: [],
+      });
+    
+      useEffect(() => {
+        setMounted(true);
+      }, []);
   
-    const handleChange = () => {};
-    const handleAmenitiesChange = () => {};
-    const handleImageChange = () => {};
+    
 
-  return (
-<form>
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+       
+
+    if (name.includes('.')) {
+        const [outerKey, innerKey] = name.split('.');
+    
+        setFields((prevFields) => ({
+          ...prevFields,
+          [outerKey]: {
+            ...prevFields[outerKey],
+            [innerKey]: value,
+          },
+        }));
+      } else {
+        // If it's a top-level artwork, update it directly.
+        setFields((prevFields) => ({
+          ...prevFields,
+          [name]: value,
+        }));
+      }
+    };
+
+    const handleAmenitiesChange = (e) => {
+      const { value, checked } = e.target;
+
+      //Clone current a array
+      const updatedAmenities = [...fields.amenities];
+      if (checked){
+        updatedAmenities.push(value);
+      }
+      else {
+        //Remove the value from the array
+        const index = updatedAmenities.indexOf(value);
+        if (index !== -1){
+          updatedAmenities.splice(index, 1);
+
+        }
+      }
+      //Update the state with the updated array of amenities
+      setFields((prevFields) => ({
+        ...prevFields,
+        amenities: updatedAmenities,
+      }))
+    }
+
+    const handleImageChange = (e) => {
+      const { files } = e.target;
+
+      // Clone the current images array
+      const updatedImages = [...fields.images];
+    
+      // Add the new files to the array
+      for (const file of files) {
+        updatedImages.push(file);
+      }
+    
+      // Update the state with the updated array of images
+      setFields((prevFields) => ({
+        ...prevFields,
+        images: updatedImages,
+      }));
+    
+      
+    };
+  return mounted && (
+    
+    <form 
+    
+        action="/api/artworks" 
+        method="POST" 
+        encType='multipart/form-data'>
+
+
             <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
               Add Artwork
             </h2>
@@ -26,10 +102,13 @@ const ArtworkAddForm = () => {
                 Artwork Type
               </label>
               <select
-                id='artwork_type'
-                name='artwork_type'
-                className='border rounded w-full py-2 px-3'
+                id='type'
+                name='type'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 required
+                value={ fields.type }
+                onChange={ handleChange }
+
               >
                 <option value='Graphite Drawing'>Graphite Drawing</option>
                 <option value='Colored Pencil Drawing'>Colored Pencil</option>
@@ -37,7 +116,7 @@ const ArtworkAddForm = () => {
                 <option value='Oil Pastels'>Oil Pastels</option>
                 <option value='Pastels'>Pastels</option>
                 <option value='Alcohol Markers'>Alcohol Markers</option>
-                <option value='Oil Painting'>Oil ainting</option><option value='Pastels'>Room</option>
+                <option value='Oil Painting'>Oil Painting</option><option value='Pastels'>Room</option>
                 <option value='Acrylic Painting'>Acrylic Painting</option>
                 <option value='Watercolor Painting'>Watercolor</option>
                 <option value='Mixed Media'>Mixed Media</option>
@@ -53,9 +132,11 @@ const ArtworkAddForm = () => {
                 type='text'
                 id='name'
                 name='name'
-                className='border rounded w-full py-2 px-3 mb-2'
+                className='border rounded w-full py-2 px-3 mb-2 focus:outline-rose-900 focus:shadow-outline'
                 placeholder='eg. Poppy Field'
                 required
+                value={ fields.name }
+                onChange={ handleChange }
               />
             </div>
             <div className='mb-4'>
@@ -68,62 +149,35 @@ const ArtworkAddForm = () => {
               <textarea
                 id='description'
                 name='description'
-                className='border rounded w-full py-2 px-3'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 rows='4'
-                placeholder='Description of your artwork'
+                placeholder='Description of artwork'
+                required
+                value={ fields.description }
+                onChange={ handleChange }
               ></textarea>
             </div>
 
-            
-             
 
-            
-              
-
-            
-
-            <div className='mb-4 bg-rose-50 p-4'>
-              <label className='block text-gray-700 font-bold mb-2'>
-                Rates (Leave blank if not applicable)
+            <div className='mb-4'>
+              <label
+                htmlFor='price_original'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Price for Original Artwork
               </label>
-              <div className='flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4'>
-                <div className='flex items-center'>
-                  <label htmlFor='weekly_rate' className='mr-2'>
-                    Weekly
-                  </label>
-                  <input
-                    type='number'
-                    id='weekly_rate'
-                    name='rates.weekly'
-                    className='border rounded w-full py-2 px-3'
-                  />
-                </div>
-                <div className='flex items-center'>
-                  <label htmlFor='monthly_rate' className='mr-2'>
-                    Monthly
-                  </label>
-                  <input
-                    type='number'
-                    id='monthly_rate'
-                    name='rates.monthly'
-                    className='border rounded w-full py-2 px-3'
-                  />
-                </div>
-                <div className='flex items-center'>
-                  <label htmlFor='nightly_rate' className='mr-2'>
-                    Nightly
-                  </label>
-                  <input
-                    type='number'
-                    id='nightly_rate'
-                    name='rates.nightly'
-                    className='border rounded w-full py-2 px-3'
-                  />
-                </div>
-              </div>
+              <input
+                type='number'
+                id='price_original'
+                name='price_original'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                placeholder='Original Price'
+                value={ fields.price_original }
+                onChange={ handleChange }
+              />
             </div>
-
             
+
 
             <div className='mb-4'>
               <label
@@ -140,8 +194,11 @@ const ArtworkAddForm = () => {
                 accept='image/*'
                 multiple
                 required
+                onChange={ handleImageChange }
               />
             </div>
+           
+
 
             <div>
               <button
@@ -151,9 +208,12 @@ const ArtworkAddForm = () => {
                 <i className='fas fa-plus-circle mr-2'></i> Add Artwork
               </button>
             </div>
-            </form>
-                
-    );
+            
+          
+    </form>
+    
+  )               
+    
 }
 
 
