@@ -1,5 +1,8 @@
 import connectDB from '@/config/database';
 import Artwork from '@/models/Artwork';
+import { getSessionUser } from '@/utils/getSessionUser';
+
+ 
 
 // GET /api/artworks
 export const GET = async (request) => {
@@ -19,6 +22,16 @@ export const GET = async (request) => {
 
 export const POST = async (request) => {
   try {
+    await connectDB();
+   
+    const sessionUser = await getSessionUser();
+    if (!sessionUser || !sessionUser.userId) {
+      return new Response('User ID is required', { status: 401 });
+
+      const { userId } = sessionUser;
+
+    }
+
     const formData = await request.formData();
 
 //Access all values from  images
@@ -31,10 +44,11 @@ export const POST = async (request) => {
       name: formData.get('name'),
       description: formData.get('description'),
       price_original: formData.get('price_original'),
+      admin: userId,
       images
     }
     console.log(artworkData);
-    
+
     return new Response(JSON.stringify({ message: 'Success' }), {
       status: 201,
     });

@@ -6,7 +6,7 @@ const ArtworkAddForm = () => {
     const [fields, setFields] = useState({
         type: 'Oil Painting',
         name: 'Tessy',
-        description: '',
+        description: 'Young Lady',
         price_original: '200',
         images: [],
       });

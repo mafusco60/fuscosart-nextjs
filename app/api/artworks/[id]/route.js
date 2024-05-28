@@ -1,6 +1,8 @@
 import connectDB from '@/config/database';
 import Artwork from '@/models/Artwork';
 
+
+
 // GET /api/artworks/:id
 export const GET = async (request, { params }) => {
   try {
