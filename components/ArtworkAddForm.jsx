@@ -176,6 +176,26 @@ const ArtworkAddForm = () => {
                 onChange={ handleChange }
               />
             </div>
+            <div className='mb-4'>
+              <label
+                htmlFor='original_available'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Original Available?
+              </label>
+            <input
+                    type='checkbox'
+                    id='original_available'
+                    name='original.available'
+                    value= {fields.available}
+                    className='mr-2'
+                  />
+
+            </div>
+
+            
+          
+              
             
 
 

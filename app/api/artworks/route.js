@@ -44,7 +44,6 @@ export const POST = async (request) => {
       name: formData.get('name'),
       description: formData.get('description'),
       price_original: formData.get('price_original'),
-      admin: userId,
       images
     }
     console.log(artworkData);

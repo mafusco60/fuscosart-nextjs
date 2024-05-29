@@ -28,7 +28,17 @@ const ArtworkSchema = new Schema(
       type: Number,
     },
     
+    original: {
+        available: {
+          type: Boolean,
+          default: true,
+        },
+        price: {
+          type: Number,
+        },
+      },
     
+
     images: [
       {
         type: String,

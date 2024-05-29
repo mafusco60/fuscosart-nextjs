@@ -3,6 +3,18 @@ import Link from 'next/link';
 
 
 const ArtworkCard = ({ artwork }) => {
+
+
+	const isThereAnOriginal = () => {
+		const { original } = artwork;
+		if (original.available) {
+		  return `Original - $${original.price.toLocaleString()}`;
+		} else  {
+		  return `${'Original Not Available'}`;
+		} 
+	  };
+
+
 	return (
 		<div className='rounded-xl shadow-lg bg-rose-100 relative'>
 			<Image
@@ -26,9 +38,13 @@ const ArtworkCard = ({ artwork }) => {
 						Details
 					</Link>
 				</div>
+				
 				<h3 className='absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-rose-950 font-bold text-right md:text-center lg:text-right'>
-					Starting at ${}
+					
+					{isThereAnOriginal()}
 				</h3>
+				
+				
 			</div>
 		</div>
 	);
