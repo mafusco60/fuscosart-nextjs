@@ -1,6 +1,7 @@
 import connectDB from '@/config/database';
 import Artwork from '@/models/Artwork';
 import { getSessionUser } from '@/utils/getSessionUser';
+import cloudinary from '@/config/cloudinary';
 
  
 
@@ -25,11 +26,9 @@ export const POST = async (request) => {
     await connectDB();
    
     const sessionUser = await getSessionUser();
+    const { userId } = sessionUser;
     if (!sessionUser || !sessionUser.userId) {
       return new Response('User ID is required', { status: 401 });
-
-      const { userId } = sessionUser;
-
     }
 
     const formData = await request.formData();
@@ -40,17 +39,24 @@ export const POST = async (request) => {
     //Create artworkData object for database
 
     const artworkData = {
+      admin: userId,
       type: formData.get('type'),    
       name: formData.get('name'),
       description: formData.get('description'),
       price_original: formData.get('price_original'),
-      images
+      original: {
+        available: formData.get('original.available'),
+        price: formData.get('original.price'), 
+      },  
     }
-    console.log(artworkData);
+    const newArtwork = new Artwork(artworkData);
+    await newArtwork.save();
 
-    return new Response(JSON.stringify({ message: 'Success' }), {
-      status: 201,
-    });
+    return Response.redirect(`${process.env.NEXTAUTH_URL}/artworks/${newArtwork._id}`); 
+
+    //return new Response(JSON.stringify({ message: 'Success' }), {
+    //  status: 201,
+    //});
   } catch (error) {
     return new Response('Failed to add artwork', { status: 500 });
   }

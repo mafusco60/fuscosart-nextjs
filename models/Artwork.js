@@ -1,5 +1,6 @@
 import { Schema, model, models } from 'mongoose';
 
+
 const ArtworkSchema = new Schema(
   {
     admin: {

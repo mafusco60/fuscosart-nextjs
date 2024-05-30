@@ -3,9 +3,7 @@ import{ useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import {
-    FaBed,
-    FaBath,
-    FaRulerCombined,
+    
     FaTimes,
     FaCheck,
     FaPaperPlane,
@@ -28,7 +26,7 @@ const ArtworkDetails = ({ artwork }) => {
                   <h1 className='text-3xl font-bold mb-4'>{artwork.name}</h1>
 
                   <h3 className='text-lg font-bold my-6 bg-gray-800 text-white p-2'>
-                    Rates & Options
+                    Prices & Options
                   </h3>
                   <div className='flex flex-col md:flex-row justify-around'>
                     <div className='flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0'>
