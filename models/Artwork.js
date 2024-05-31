@@ -21,7 +21,7 @@ const ArtworkSchema = new Schema(
     },
     descriptive_words: [
     {
-      type: [String],
+      type: String,
     }
   ],
     

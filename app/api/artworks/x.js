@@ -35,10 +35,11 @@ export const POST = async (request) => {
       type: formData.get('type'),
       name: formData.get('name'),
       description: formData.get('description'),
-      original_price: formData.get('original_price'),
-
-      
-     
+      original: {
+        available: formData.get('original.available'),
+        price: formData.get('original_price'),
+      },
+      descriptive_words: formData.get('descriptive_words'),
       admin: userId,
     };
 

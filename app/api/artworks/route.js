@@ -43,12 +43,12 @@ export const POST = async (request) => {
       type: formData.get('type'),    
       name: formData.get('name'),
       description: formData.get('description'),
-      price_original: formData.get('price_original'),
       original: {
         available: formData.get('original.available'),
         price: formData.get('original.price'), 
       },  
-    }
+      descriptive_words: formData.get('descriptive_words'),
+     }
     const newArtwork = new Artwork(artworkData);
     await newArtwork.save();
 

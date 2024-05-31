@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-
 const ArtworkCard = ({ artwork }) => {
 
-
-	const isThereAnOriginal = () => {
+	const  isThereAnOriginal = () => {
 		const { original } = artwork;
-
+	
 		if (original.available === null || artwork.original.price === null) 
 		{
 		  return `${'Original Not Available'}`;
@@ -19,10 +17,11 @@ const ArtworkCard = ({ artwork }) => {
 		} 
 		else  
 		{
-		  	return `${'Original Not Available'}`;
+			  return `${'Original Not Available'}`;
 		} 
-	  };
-
+	
+	}
+	
 
 	return (
 		<div className='rounded-xl shadow-lg bg-rose-100 relative'>

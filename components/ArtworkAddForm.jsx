@@ -5,9 +5,13 @@ const ArtworkAddForm = () => {
     const [mounted, setMounted] = useState(false);
     const [fields, setFields] = useState({
         type: 'Oil Painting',
-        name: 'Tessy',
+        name: 'Dreamy Dancer',
         description: 'Young Lady',
-        price_original: '200',
+        descriptive_words: 'Portrait of a dancer',
+      
+          price: '400',
+          available: 'true',
+        
         images: [],
       });
     
@@ -19,7 +23,6 @@ const ArtworkAddForm = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-       
 
     if (name.includes('.')) {
         const [outerKey, innerKey] = name.split('.');
@@ -43,7 +46,7 @@ const ArtworkAddForm = () => {
     const handleAmenitiesChange = (e) => {
       const { value, checked } = e.target;
 
-      //Clone current a array
+      //Clone current array
       const updatedAmenities = [...fields.amenities];
       if (checked){
         updatedAmenities.push(value);
@@ -154,6 +157,23 @@ const ArtworkAddForm = () => {
                 placeholder='Description of artwork'
                 required
                 value={ fields.description }
+                onChange={ handleChange }
+              ></textarea>
+            </div>
+            <div className='mb-4'>
+              <label
+                htmlFor='descriptive_words'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Descriptive Words
+              </label>
+              <textarea
+                id='descriptive_words'
+                name='descriptive_words'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                rows='4'
+                placeholder='Descriptive Words for artwork'
+                value={ fields.descriptive_words }
                 onChange={ handleChange }
               ></textarea>
             </div>

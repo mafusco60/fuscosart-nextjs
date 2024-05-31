@@ -15,8 +15,12 @@ import {
   import { fetchArtwork } from '@/utils/requests';
   import ArtworkHeaderImage from '@/components/ArtworkHeaderImage';
   
+  
+
 const ArtworkDetails = ({ artwork }) => {
-    
+  
+  
+
     return <>
  <main>
 
