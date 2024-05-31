@@ -18,16 +18,16 @@ const InfoBoxes = () => {
 						Find your dream artwork. Bookmark art pieces.
 					</InfoBox>
 					<InfoBox
-						heading='For Website Admins'
+						heading='Options for Prints'
 						textColor='text-rose-800'
 						backgroundColor='bg-rose-200'
 						buttonInfo={{
-							text: 'Add Artwork',
+							text: 'Browse Pricing Charts',
 							link: '/artworks/add',
 							backgroundColor: 'bg-rose-950',
 						}}
 					>
-						List your artworks and reach potential buyers.
+						Print your favorite art on paper, canvas and even wood.
 					</InfoBox>
 				</div>
 			</div>

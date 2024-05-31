@@ -85,7 +85,7 @@ const Navbar = () => {
 								>
 									Artworks
 								</Link>
-							{session && (
+							{session &&  (
 								
 								<Link
 									href='/artworks/add'
@@ -126,7 +126,7 @@ const Navbar = () => {
 							<Link href='/messages' className='relative group'>
 								<button
 									type='button'
-									className='relative rounded-full bg-rose-800 p-1 text--400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-800'
+									className='relative rounded-full bg-rose-200 p-1 text--400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-rose-800'
 								>
 									<span className='absolute -inset-1.5'></span>
 									<span className='sr-only'>View notifications</span>
@@ -184,11 +184,13 @@ const Navbar = () => {
 										tabIndex='-1'
 									>
 										<Link
+										
 											href='/profile'
 											className='block px-4 py-2 text-sm text-rose-700'
 											role='menuitem'
 											tabIndex='-1'
 											id='user-menu-item-0'
+											onClick={() => setIsProfileMenuOpen(false)}
 										>
 											Your Profile
 										</Link>
@@ -198,6 +200,7 @@ const Navbar = () => {
 											role='menuitem'
 											tabIndex='-1'
 											id='user-menu-item-2'
+											onClick={() => setIsProfileMenuOpen(false)}
 										>
 											Saved Artworks
 										</Link>
@@ -253,7 +256,7 @@ const Navbar = () => {
 						)}
 
 {!session &&
-              providers &&
+              providers && 
               Object.values(providers).map((provider, index) => (
                 <button
                   onClick={() => signIn(provider.id)}

@@ -55,21 +55,19 @@ if (!artwork && !loading) {
 	{!loading && artwork && (
 		<>
 
-		<ArtworkHeaderImage image={artwork.images[0]}/>
-
+    <ArtworkHeaderImage image={artwork.images[0]} />
 		<section>
 
     <div className="container m-auto py-6 px-6">
         <div
           
-          className="text-rose-300 hover:text-rose-600 text-sm text-center"
+          className="text-rose-300 text-xs text-center"
         >
-          <div> Part of this image may be cropped.  See images below for full view.
-        </div>
-        <p className="text-rose-300 hover:text-rose-600 text-center"> 
-        Images may appear pixelated due to lower 
+          
+        <p className="text-rose-300 text-center"> 
+        Some images may appear pixelated due to lower 
         resolution photos to avoid copyright infringement.  
-        Original images are high resolution.
+        Original works and original digital images are high resolution.
         </p>
       </div>
 
@@ -77,7 +75,7 @@ if (!artwork && !loading) {
       <div className="container m-auto py-6 px-6">
         <Link
           href="/artworks"
-          className="text-rose-300 hover:text-rose-600 flex items-center"
+          className="text-rose-600 hover:text-rose-900 flex items-center"
         >
           <FaArrowLeft className="mr-2"></FaArrowLeft> Back to Artworks
         </Link>
@@ -86,7 +84,7 @@ if (!artwork && !loading) {
       
     </section>
 
-	<section className="bg-rose-200">
+	<section className="bg-rose-50">
       <div className="container m-auto py-10 px-6">
         <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
 

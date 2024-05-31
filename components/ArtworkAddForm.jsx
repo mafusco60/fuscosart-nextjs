@@ -8,9 +8,10 @@ const ArtworkAddForm = () => {
         name: '',
         description: '',
         descriptive_words: '',
-      
+        original: {
+          available: '',
           price: '',
-          available: 'true',
+        },
         
         images: [],
       });

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const ArtworkImages = ({ images }) => {
     return (
-      <section className='bg-rose-100 p-4'>
+      <section className='bg-rose-50 p-4'>
         <div className='container mx-auto'>
           {images.length === 1 ? (
             <Image

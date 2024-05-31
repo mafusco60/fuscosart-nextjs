@@ -30,6 +30,7 @@ export const POST = async (request) => {
     if (!sessionUser || !sessionUser.userId) {
       return new Response('User ID is required', { status: 401 });
     }
+    
 
     const formData = await request.formData();
 
