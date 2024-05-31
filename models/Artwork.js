@@ -36,6 +36,7 @@ const ArtworkSchema = new Schema(
         },
         price: {
           type: Number,
+          default: 300,
         },
       },
     

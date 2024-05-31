@@ -169,10 +169,10 @@ const ArtworkAddForm = () => {
               <input
                 type='number'
                 id='price_original'
-                name='price_original'
+                name='original.price'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 placeholder='Original Price'
-                value={ fields.price_original }
+                value={ fields.price }
                 onChange={ handleChange }
               />
             </div>
@@ -184,11 +184,14 @@ const ArtworkAddForm = () => {
                 Original Available?
               </label>
             <input
-                    type='checkbox'
+                    type='boolean'
                     id='original_available'
                     name='original.available'
-                    value= {fields.available}
-                    className='mr-2'
+                    className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                    placeholder='Original Price'
+                    value= {fields.available}    
+                    onChange={ handleChange }
+                    
                   />
 
             </div>

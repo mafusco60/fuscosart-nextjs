@@ -7,10 +7,19 @@ const ArtworkCard = ({ artwork }) => {
 
 	const isThereAnOriginal = () => {
 		const { original } = artwork;
-		if (original.available) {
-		  return `Original - $${original.price.toLocaleString()}`;
-		} else  {
+
+		if (original.available === null || artwork.original.price === null) 
+		{
 		  return `${'Original Not Available'}`;
+		}
+		else if (original.available === true && artwork.original.price !== null) 
+		{
+			return `Original - $${artwork.original.price}`;
+			
+		} 
+		else  
+		{
+		  	return `${'Original Not Available'}`;
 		} 
 	  };
 

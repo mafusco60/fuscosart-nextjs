@@ -25,7 +25,7 @@ const ArtworkDetails = ({ artwork }) => {
                   <div className='text-gray-500 mb-4'>{artwork.type}</div>
                   <h1 className='text-3xl font-bold mb-4'>{artwork.name}</h1>
 
-                  <h3 className='text-lg font-bold my-6 bg-gray-800 text-white p-2'>
+                  <h3 className='text-lg font-bold my-6 bg-rose-800 text-white p-2'>
                     Prices & Options
                   </h3>
                   <div className='flex flex-col md:flex-row justify-around'>
@@ -43,15 +43,23 @@ const ArtworkDetails = ({ artwork }) => {
                         
                       </div>
                     </div>
+
                     <div className='flex items-center justify-center mb-4 pb-4 md:pb-0'>
                       <div className='text-gray-500 mr-2 font-bold'>
                         Monthly
                       </div>
-                      <div className='text-2xl font-bold text-blue-500'>
-                       
-                        
+                      <div className='text-2xl font-bold text-blue-500'>                  
                       </div>
                     </div>
+
+                    <div className='flex items-center justify-center mb-4 pb-4 md:pb-0'>
+                      <div className='text-gray-500 mr-2 font-bold'>
+                        Monthly
+                      </div>
+                      <div className='text-2xl font-bold text-blue-500'>                  
+                      </div>
+                    </div>
+
                   </div>
                 </div>
                 <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
@@ -72,13 +80,7 @@ const ArtworkDetails = ({ artwork }) => {
                 </div>
            
 
-                
-            
-
-
-
-
-                  
+                 
 </main>
     </>
 }
