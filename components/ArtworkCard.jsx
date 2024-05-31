@@ -26,7 +26,7 @@ const ArtworkCard = ({ artwork }) => {
 	return (
 		<div className='rounded-xl shadow-lg bg-rose-100 relative'>
 			<Image
-				src={`/images/artworks/${artwork.images[0]}`}
+				src={artwork.images[0]}
 				alt=''
 				width='0'
 				height='0'

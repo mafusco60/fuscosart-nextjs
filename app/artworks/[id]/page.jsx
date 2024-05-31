@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { FaArrowLeft, FaBookmark, FaShare, FaPaperPlane} from 'react-icons/fa';
 import ArtworkDetails from '@/components/ArtworkDetails';
 import Spinner from '@/components/Spinner';
+import ArtworkImages from '@/components/ArtworkImages';
+
 
 const ArtworkPage = () => {
 
@@ -56,14 +58,32 @@ if (!artwork && !loading) {
 		<ArtworkHeaderImage image={artwork.images[0]}/>
 
 		<section>
+
+    <div className="container m-auto py-6 px-6">
+        <div
+          
+          className="text-rose-300 hover:text-rose-600 text-sm text-center"
+        >
+          <div> Part of this image may be cropped.  See images below for full view.
+        </div>
+        <p className="text-rose-300 hover:text-rose-600 text-center"> 
+        Images may appear pixelated due to lower 
+        resolution photos to avoid copyright infringement.  
+        Original images are high resolution.
+        </p>
+      </div>
+
+
       <div className="container m-auto py-6 px-6">
         <Link
           href="/artworks"
-          className="text-rose-500 hover:text-rose-600 flex items-center"
+          className="text-rose-300 hover:text-rose-600 flex items-center"
         >
           <FaArrowLeft className="mr-2"></FaArrowLeft> Back to Artworks
         </Link>
       </div>
+</div>
+      
     </section>
 
 	<section className="bg-rose-200">
@@ -161,7 +181,7 @@ if (!artwork && !loading) {
               </div>
             </div>
           </section>
-        
+        <ArtworkImages images={artwork.images} />
           </>
       )}
     </>

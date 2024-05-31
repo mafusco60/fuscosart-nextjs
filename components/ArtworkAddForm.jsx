@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 const ArtworkAddForm = () => {
     const [mounted, setMounted] = useState(false);
     const [fields, setFields] = useState({
-        type: 'Oil Painting',
-        name: 'Dreamy Dancer',
-        description: 'Young Lady',
-        descriptive_words: 'Portrait of a dancer',
+        type: '',
+        name: '',
+        description: '',
+        descriptive_words: '',
       
-          price: '400',
+          price: '',
           available: 'true',
         
         images: [],
