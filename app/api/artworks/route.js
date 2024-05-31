@@ -34,7 +34,9 @@ export const POST = async (request) => {
     const formData = await request.formData();
 
 //Access all values from  images
-    const images = formData.getAll('images').filter((image) => image.name !== '');
+    const images = formData
+    .getAll('images')
+    .filter((image) => image.name !== '');
 
     //Create artworkData object for database
 
@@ -49,6 +51,33 @@ export const POST = async (request) => {
       },  
       descriptive_words: formData.get('descriptive_words'),
      }
+// Upload images to Cloudinary
+const imageUploadPromises = [];
+
+for (const image of images) {
+  const imageBuffer = await image.arrayBuffer();
+  const imageArray = new Uint8Array(imageBuffer);
+  const imageData = Buffer.from(imageArray);
+
+  // Convert the image data to base64
+  const imageBase64 = imageData.toString('base64');
+
+  // Make request to upload to cloudinary
+  const result = await cloudinary.uploader.upload(
+    `data:image/jpg;base64,${imageBase64}`, {
+      folder: 'fuscosart',
+    });
+
+    imageUploadPromises.push(result.secure_url);
+
+    // Wait for all images to upload
+    const uploadedImages = await Promise.all(imageUploadPromises);
+
+    //Add uploaded images to artworkData
+    artworkData.images = uploadedImages;
+}
+
+     
     const newArtwork = new Artwork(artworkData);
     await newArtwork.save();
 
