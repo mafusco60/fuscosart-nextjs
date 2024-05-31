@@ -31,6 +31,7 @@ export const authOptions = {
         email: profile.email,
           username,
           image: profile.picture,
+          is_admin: false,
         });
     }
       // 4. return true to allow sign in

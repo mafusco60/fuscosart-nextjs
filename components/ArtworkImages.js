@@ -28,7 +28,7 @@ const ArtworkImages = ({ images }) => {
                   <Image
                     src={image}
                     alt=''
-                    className='object-cover  w-full rounded-xl'
+                    className='object-contain  w-full rounded-xl'
                     width={400}
                     height={1000}
                     priority={true}

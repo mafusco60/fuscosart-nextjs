@@ -72,7 +72,7 @@ const Navbar = () => {
 								<Link
 									href='/'
 									className={`${
-										pathname === '/' ? 'text-rose-600' : 'text-white'
+										pathname === '/' ? 'text-rose-400' : 'text-white'
 									} hover:bg-rose-900 hover:text-white rounded-md px-3 py-2`}
 								>
 									Home
@@ -80,8 +80,8 @@ const Navbar = () => {
 								<Link
 									href='/artworks'
 									className={`${
-										pathname === '/artworks' ? 'text-rose-600' : 'text-white'
-									} hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
+										pathname === '/artworks' ? 'text-rose-400' : 'text-white'
+									} hover:bg-rose-900 hover:text-white rounded-md px-3 py-2`}
 								>
 									Artworks
 								</Link>
@@ -91,9 +91,9 @@ const Navbar = () => {
 									href='/artworks/add'
 									className={`${
 										pathname === '/artworks/add'
-											? 'text-rose-600'
+											? 'text-rose-400'
 											: 'text-white'
-									} hover:bg-rose-700 hover:text-white rounded-md px-3 py-2`}
+									} hover:bg-rose-900 hover:text-white rounded-md px-3 py-2`}
 								>
 									Add Artwork
 								</Link>
