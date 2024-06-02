@@ -21,7 +21,6 @@ const ArtworkPage = () => {
 
   useEffect(() => {
     const fetchArtworkData = async () => {
-      console.log ('id', id)
       if (!id) return;
       try {
         const artwork = await fetchArtwork(id);

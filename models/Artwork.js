@@ -25,18 +25,15 @@ const ArtworkSchema = new Schema(
     }
   ],
     
-    price_original: {
-      type: Number,
-    },
     
     original: {
         available: {
           type: Boolean,
-          default: true,
+          default: false,
         },
         price: {
           type: Number,
-          default: 300,
+          default: 0,
         },
       },
     

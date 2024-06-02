@@ -54,7 +54,6 @@ const ProfilePage = () => {
         method: 'DELETE',
       });
     
-      console.log(res, 'res: page line68');
       
       if (res.status === 200) {
 

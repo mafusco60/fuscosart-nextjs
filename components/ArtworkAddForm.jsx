@@ -98,7 +98,7 @@ const ArtworkAddForm = () => {
             <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
               Add Artwork
             </h2>
-            <div className='mb-4'>
+            {<div className='mb-4'>
               <label
                 htmlFor='artwork_type'
                 className='block text-gray-700 font-bold mb-2'
@@ -128,7 +128,7 @@ const ArtworkAddForm = () => {
                 <option value='Digital Art'>Digital Art</option>
                 <option value='Other'>Other</option>
               </select>
-            </div>
+            </div>}
             <div className='mb-4'>
               <label className='block text-gray-700 font-bold mb-2'>
                 Listing Name
@@ -181,23 +181,7 @@ const ArtworkAddForm = () => {
             </div>
 
 
-            <div className='mb-4'>
-              <label
-                htmlFor='price_original'
-                className='block text-gray-700 font-bold mb-2'
-              >
-                Price for Original Artwork
-              </label>
-              <input
-                type='number'
-                id='price_original'
-                name='original.price'
-                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                placeholder='Original Price'
-                value={ fields.price }
-                onChange={ handleChange }
-              />
-            </div>
+            
             <div className='mb-4'>
               <label
                 htmlFor='original_available'
@@ -210,19 +194,34 @@ const ArtworkAddForm = () => {
                     id='original_available'
                     name='original.available'
                     className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                    placeholder='Original Price'
+                    placeholder='true or false'
+                    
                     value= {fields.available}    
                     onChange={ handleChange }
                     
                   />
 
-            </div>
-
-            
-          
+            </div>         
+            <div className='mb-4'>
+              <label
+                htmlFor='price_original'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Price for Original Artwork
+              </label> 
               
-            
-
+              
+              <input
+                type='number'
+                id='price_original'
+                name='original.price'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                placeholder='Original Price'
+                
+                value={ fields.price }
+                onChange={ handleChange }
+              /> 
+            </div>
 
             <div className='mb-4'>
               <label
