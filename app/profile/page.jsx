@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import profileDefault from '@/assets/images/profile.png';
 import Spinner from '@/components/Spinner';
 import { toast } from 'react-toastify';
+import Searchbar from '@/components/SearchBar';
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -75,7 +76,13 @@ const ProfilePage = () => {
   };
 
   return (
+
+
+
+
+    
     <section className='bg-rose-50'>
+      
       <div className='container m-auto py-24'>
         <div className='bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0'>
           <h1 className='text-3xl font-bold mb-4'>Your Profile</h1>
@@ -96,8 +103,11 @@ const ProfilePage = () => {
               <h2 className='text-1xl mb-8'>
                 <span className='font-bold block'>Email: </span> {profileEmail}
               </h2>
-            </div>
+              </div>
+           
 
+            < Searchbar />
+ 
             <div className='md:w-3/4 md:pl-4'>
               <h2 className='text-xl font-semibold mb-4'>Your Listings</h2>
               {!loading && artworks.length === 0 && (

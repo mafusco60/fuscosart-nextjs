@@ -1,6 +1,6 @@
 import ArtworkCard from '@/components/ArtworkCard';
 import { fetchArtworks } from '@/utils/requests';
-
+import Searchbar from '@/components/SearchBar';
 
 
 const ArtworksPage = async() => {
@@ -12,6 +12,11 @@ const ArtworksPage = async() => {
 
 	return (
 		<section className='px-4 py-6'>
+					
+			<div className='bg-rose-50 py-20'>
+				<h1 className='text-4xl font-extrabold text-rose-900 sm:text-5xl md:text-6xl text-center'>Art Gallery</h1>
+			<Searchbar />
+			</div>
 			<div className='container-xl lg:container m-auto px-4 py-6'>
 				{artworks.length === 0 ? (
 					<p>No artworks found</p>

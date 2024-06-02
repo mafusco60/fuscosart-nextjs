@@ -34,7 +34,7 @@ const Navbar = () => {
 						<button
 							type='button'
 							id='mobile-dropdown-button'
-							className='relative inline-flex items-center justify-center rounded-md p-2 text-rose-900 hover:bg-rose-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white md:hidden'
+							className='relative inline-flex items-center justify-center rounded-md p-2 text-rose-500 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white md:hidden'
 							aria-controls='mobile-menu'
 							aria-expanded='false'
 							onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -83,7 +83,7 @@ const Navbar = () => {
 										pathname === '/artworks' ? 'text-rose-400' : 'text-white'
 									} hover:bg-rose-900 hover:text-white rounded-md px-3 py-2`}
 								>
-									Artworks
+									Art Gallery
 								</Link>
 							{session &&  (
 								
@@ -242,7 +242,7 @@ const Navbar = () => {
 								pathname === '/artworks' ? 'text-rose-600' : ' text-white'
 							} block rounded-md px-3 py-2 text-base font-medium`}
 						>
-							Artworks
+							Art Gallery
 						</Link>
 						{session && (
 							<Link

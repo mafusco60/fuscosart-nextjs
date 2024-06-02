@@ -14,13 +14,11 @@ import {
   } from 'react-icons/fa';
   import { fetchArtwork } from '@/utils/requests';
   import ArtworkHeaderImage from '@/components/ArtworkHeaderImage';
-  
+  import Spinner from '@/components/Spinner';
   
 
 const ArtworkDetails = ({ artwork }) => {
   
-  
-
     return <>
  <main>
 
@@ -29,8 +27,10 @@ const ArtworkDetails = ({ artwork }) => {
                   <div className='text-gray-500 mb-4'>{artwork.type}</div>
                   <h1 className='text-3xl font-bold mb-4'>{artwork.name}</h1>
 
+
                   <h3 className='text-lg font-bold my-6 bg-rose-800 text-white p-2'>
-                    Prices & Options
+                    <Link href={`/artworks/${artwork._id}/options`}>
+                    Prices & Options</Link>
                   </h3>
                   <div className='flex flex-col md:flex-row justify-around'>
                     <div className='flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0'>
