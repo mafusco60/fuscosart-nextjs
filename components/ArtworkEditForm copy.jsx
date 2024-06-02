@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { fetchArtwork } from '@/utils/requests';
 
 
+
 const ArtworkEditForm = () => {
 
     const { id } = useParams();
@@ -67,7 +68,7 @@ const ArtworkEditForm = () => {
       }
     };
 
-
+    
     const handleImageChange = (e) => {
       const { files } = e.target;
 
@@ -87,19 +88,19 @@ const ArtworkEditForm = () => {
     
       
     };
-
-    
 const handleSubmit = async () => {
+    e.preventDefault();
 
 }
 
-    return mounted && (
+    return (
+        mounted && !loading && (
     
     <form onSubmit={handleSubmit}>
 
 
             <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
-              Update Artwork
+              Edit Artwork
             </h2>
             <div className='mb-4'>
               <label
@@ -213,7 +214,7 @@ const handleSubmit = async () => {
                     id='original_available'
                     name='original.available'
                     className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                    placeholder='Original Price'
+                    placeholder='true or false'
                     value= {fields.available}    
                     onChange={ handleChange }
                     
@@ -253,14 +254,14 @@ const handleSubmit = async () => {
                 className='bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline'
                 type='submit'
               >
-                <i className='fas fa-plus-circle mr-2'></i> Edit Artwork
+                <i className='fas fa-plus-circle mr-2'></i> Update Artwork
               </button>
             </div>
             
           
     </form>
     
-  )               
+  ) )              
     
 }
 
