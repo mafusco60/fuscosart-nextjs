@@ -34,7 +34,7 @@ export const GET = async (request, { params }) => {
       status: 200,
     });
   } catch (error) {
-    console.log(error);
+
     return new Response('Something Went Wrong', { status: 500 });
   }
 };
@@ -60,7 +60,7 @@ export const DELETE = async (request, { params }) => {
     if (!artwork) return new Response('Artwork Not Found', { status: 404 });
 
     // Verify ownership
-    if (artwork.owner.toString() !== userId) {
+    if (artwork.admin.toString() !== userId) {
       return new Response('Unauthorized', { status: 401 });
     }
 

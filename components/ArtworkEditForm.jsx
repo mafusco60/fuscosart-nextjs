@@ -1,7 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react';
+import { useRouter, useParams } from 'next/router';
+import { toast } from 'react-toastify';
+import { fetchArtwork } from 'next-auth/client/_utils';
 
-const ArtworkAddForm = () => {
+
+const ArtworkEditForm = () => {
     const [mounted, setMounted] = useState(false);
     const [fields, setFields] = useState({
         type: '',
@@ -73,7 +77,7 @@ const ArtworkAddForm = () => {
       // Clone the current images array
       const updatedImages = [...fields.images];
     
-      // Add the new files to the array
+      // Edit the new files to the array
       for (const file of files) {
         updatedImages.push(file);
       }
@@ -86,17 +90,17 @@ const ArtworkAddForm = () => {
     
       
     };
-  return mounted && (
+const handleSubmit = async () => {
+
+}
+
+    return mounted && (
     
-    <form 
-    
-        action="/api/artworks" 
-        method="POST" 
-        encType='multipart/form-data'>
+    <form onSubmit={handleSubmit}>
 
 
             <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
-              Add Artwork
+              Update Artwork
             </h2>
             <div className='mb-4'>
               <label
@@ -250,7 +254,7 @@ const ArtworkAddForm = () => {
                 className='bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline'
                 type='submit'
               >
-                <i className='fas fa-plus-circle mr-2'></i> Add Artwork
+                <i className='fas fa-plus-circle mr-2'></i> Edit Artwork
               </button>
             </div>
             
@@ -262,4 +266,4 @@ const ArtworkAddForm = () => {
 }
 
 
-export default ArtworkAddForm;
+export default ArtworkEditForm;

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import profileDefault from '@/assets/images/profile.png';
 import Spinner from '@/components/Spinner';
+import { toast } from 'react-toastify';
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -17,7 +18,6 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const fetchUserArtworks = async (userId) => {
-      console.log(userId, 'userId: page line31');
       if (!userId) {
         return;
       }
@@ -28,10 +28,8 @@ const ProfilePage = () => {
         if (res.status === 200) {
           const data = await res.json();
           setArtworks(data);
-          console.log(data, 'data: page line41');
         }
       } catch (error) {
-        console.log(error, 'catch error: page line44');
       } finally {
         setLoading(false);
       }
@@ -67,13 +65,13 @@ const ProfilePage = () => {
 
         setArtworks(updatedArtworks);
 
-        //toast.success('Artwork Deleted');
+        toast.success('Artwork Deleted');
       } else {
-        //toast.error('Failed to delete artwork');
+        toast.error('Failed to delete artwork');
       }
     } catch (error) {
       console.log(error);
-      //toast.error('Failed to delete artwork');
+      toast.error('Failed to delete artwork');
     }
   };
 
@@ -96,7 +94,7 @@ const ProfilePage = () => {
               <h2 className='text-1xl mb-4'>
                 <span className='font-bold block'>Name: </span> {profileName}
               </h2>
-              <h2 className='text-1xl'>
+              <h2 className='text-1xl mb-8'>
                 <span className='font-bold block'>Email: </span> {profileEmail}
               </h2>
             </div>
