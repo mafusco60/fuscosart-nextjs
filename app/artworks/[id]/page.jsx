@@ -10,43 +10,48 @@ import Spinner from '@/components/Spinner';
 import ArtworkImages from '@/components/ArtworkImages';
 
 
+
+
+
 const ArtworkPage = () => {
+  const { id } = useParams();
+
+  const [artwork, setArtwork] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArtworkData = async () => {
+      console.log ('id', id)
+      if (!id) return;
+      try {
+        const artwork = await fetchArtwork(id);
+        setArtwork(artwork);
+        console.log(artwork);
+      } catch (error) {
+        console.error('Error fetching artwork:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (artwork === null) {
+      console.log(artwork, 'artwork')
+      fetchArtworkData();
+      console.log(artwork, 'artwork fetched')
+    }
+  }, [id, artwork]);
+
+  if (!artwork && !loading) {
+    return (
+      <h1 className='text-center text-2xl font-bold mt-10'>
+        Artwork Not Found
+      </h1>
+    );
+  }
 
 
-	const { id } = useParams();
-	const [artwork, setArtwork] = useState(null);
-	const [loading, setLoading] = useState(true);
 
-	useEffect (() =>{
-		const fetchArtworkData = async () => {
-			if (!id) return;
-			try {
-				const artwork = await fetchArtwork(id);
-				setArtwork(artwork);
-
-			} catch (error) {
-				console.error('Failed to fetch artwork data', error);
-			} finally {
-				setLoading(false);
-			};
-
-
-
-		}
-		if (artwork === null) {
-			fetchArtworkData();
-
-		}
-	}, [id, artwork]
-);
-if (!artwork && !loading) {	
-	return (
-		<h1 classNameName='text-center text-2xl font-bold mt-10'>
-			Artwork Not Found
-		</h1>
-	)
-
-	}
+	
 
 
 	return <>
@@ -66,8 +71,8 @@ if (!artwork && !loading) {
           
         <p className="text-rose-300 text-center"> 
         Some images may appear pixelated due to lower 
-        resolution photos to avoid copyright infringement.  
-        Original works and original digital images are high resolution.
+        resolution photos to discourage copyright infringement.  
+        Original artworks and original digital images are high resolution.
         </p>
       </div>
 

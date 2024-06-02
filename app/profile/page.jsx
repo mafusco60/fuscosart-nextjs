@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import profileDefault from '@/assets/images/profile.png';
 import Spinner from '@/components/Spinner';
-import { toast } from 'react-toastify';
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -18,6 +17,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const fetchUserArtworks = async (userId) => {
+      console.log(userId, 'userId: page line31');
       if (!userId) {
         return;
       }
@@ -28,9 +28,10 @@ const ProfilePage = () => {
         if (res.status === 200) {
           const data = await res.json();
           setArtworks(data);
+          console.log(data, 'data: page line41');
         }
       } catch (error) {
-        console.log(error);
+        console.log(error, 'catch error: page line44');
       } finally {
         setLoading(false);
       }
@@ -39,22 +40,26 @@ const ProfilePage = () => {
     // Fetch user artworks when session is available
     if (session?.user?.id) {
       fetchUserArtworks(session.user.id);
+      
+
     }
   }, [session]);
 
   const handleDeleteArtwork = async (artworkId) => {
     const confirmed = window.confirm(
-      'Are you sure you want to delete this artwork?'
+      `Are you sure you want to delete ${artworkId}?`
     );
 
     if (!confirmed) return;
-
     try {
       const res = await fetch(`/api/artworks/${artworkId}`, {
         method: 'DELETE',
       });
-
+    
+      console.log(res, 'res: page line68');
+      
       if (res.status === 200) {
+
         // Remove the artwork from state
         const updatedArtworks = artworks.filter(
           (artwork) => artwork._id !== artworkId
@@ -62,13 +67,13 @@ const ProfilePage = () => {
 
         setArtworks(updatedArtworks);
 
-        toast.success('Artwork Deleted');
+        //toast.success('Artwork Deleted');
       } else {
-        toast.error('Failed to delete artwork');
+        //toast.error('Failed to delete artwork');
       }
     } catch (error) {
       console.log(error);
-      toast.error('Failed to delete artwork');
+      //toast.error('Failed to delete artwork');
     }
   };
 
@@ -123,7 +128,7 @@ const ProfilePage = () => {
                     <div className='mt-2'>
                       <Link
                         href={`/artworks/${artwork._id}/edit`}
-                        className='bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-rose-600'
+                        className='bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600'
                       >
                         Edit
                       </Link>

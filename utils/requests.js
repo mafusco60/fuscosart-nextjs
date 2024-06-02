@@ -25,9 +25,11 @@ async function fetchArtwork(id) {
     try {
         //Handle the case where the domain is not available yet
         if (!apiDomain) {
+          console.log('apiDomain', apiDomain)
             return null;
         }
         const res = await fetch(`${apiDomain}/artworks/${id}`);
+        console.log(apiDomain, 'apiDomain')
         if (!res.ok) {
             throw new Error('Failed to fetch data');
         }
@@ -37,9 +39,6 @@ async function fetchArtwork(id) {
         return null;
     }
 }
-
-
-
 
 
   export { fetchArtworks, fetchArtwork }
