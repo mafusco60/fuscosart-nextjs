@@ -27,7 +27,7 @@ const ArtworkPage = () => {
       try {
         const artwork = await fetchArtwork(id);
         setArtwork(artwork);
-        console.log(artwork);
+
       } catch (error) {
         console.error('Error fetching artwork:', error);
       } finally {
@@ -36,9 +36,8 @@ const ArtworkPage = () => {
     };
 
     if (artwork === null) {
-      console.log(artwork, 'artwork')
       fetchArtworkData();
-      console.log(artwork, 'artwork fetched')
+      
     }
   }, [id, artwork]);
 

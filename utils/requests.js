@@ -29,7 +29,7 @@ async function fetchArtwork(id) {
             return null;
         }
         const res = await fetch(`${apiDomain}/artworks/${id}`);
-        console.log(apiDomain, 'apiDomain')
+
         if (!res.ok) {
             throw new Error('Failed to fetch data');
         }
