@@ -45,7 +45,7 @@ const BookmarkButton = ({ artwork }) => {
 
   const handleClick = async () => {
     if (!userId) {
-      toast.error('You need to sign in to bookmark a artwork');
+      toast.error('You need to sign in to bookmark an artwork');
       return;
     }
 

@@ -30,7 +30,9 @@ const BookmarkButton = ({ artwork }) => {
                 
             } catch (error) {
                 console.log(error);
-            } 
+            } finally {
+                setLoading(false);
+            }
         };
         checkBookmarkStatus();
     },[artwork._id, userId]);
@@ -62,6 +64,7 @@ const BookmarkButton = ({ artwork }) => {
         }
     }
 
+if(loading) return <p className = 'text-center'> Loading ...</p>
 
 return isBookmarked ? (
     <button 

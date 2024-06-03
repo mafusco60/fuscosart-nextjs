@@ -27,7 +27,7 @@ export const POST = async (request) => {
         //Check if artwork is bookmarked
         let isBookmarked = user.bookmarks.includes(artworkId);
         
-        return new Response(JSON.stringify({ message, isBookmarked }), 
+        return new Response(JSON.stringify({  isBookmarked }), 
         { status: 200 });
 
     } catch (error) {
