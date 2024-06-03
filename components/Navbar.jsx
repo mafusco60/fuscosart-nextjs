@@ -195,7 +195,7 @@ const Navbar = () => {
 											Your Profile
 										</Link>
 										<Link
-											href='/Artworks/saved'
+											href='/artworks/saved'
 											className='block px-4 py-2 text-sm text-rose-700'
 											role='menuitem'
 											tabIndex='-1'
