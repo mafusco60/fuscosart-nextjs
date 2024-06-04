@@ -49,6 +49,8 @@ export const POST = async (request) => {
       original: {
         available: formData.get('original.available'),
         price: formData.get('original.price'), 
+        substrate: formData.get('original.substrate'),
+        dimensions: formData.get('original.dimensions'),
       },  
       descriptive_words: formData.get('descriptive_words'),
      }

@@ -30,11 +30,6 @@ const ArtworkSchema = new Schema(
         available: {
           type: Boolean,
           default: false,
-          required: true,
-        },
-        price: {
-          type: Number,
-          default: 0,
         },
         substrate: {
           type: String,
@@ -43,6 +38,10 @@ const ArtworkSchema = new Schema(
         dimensions: {
           type: String,
           default: '',
+        },
+        price: {
+          type: Number,
+          default: 0,
         },
       },
     

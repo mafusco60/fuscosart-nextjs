@@ -46,28 +46,6 @@ const ArtworkAddForm = () => {
       }
     };
 
-    const handleAmenitiesChange = (e) => {
-      const { value, checked } = e.target;
-
-      //Clone current array
-      const updatedAmenities = [...fields.amenities];
-      if (checked){
-        updatedAmenities.push(value);
-      }
-      else {
-        //Remove the value from the array
-        const index = updatedAmenities.indexOf(value);
-        if (index !== -1){
-          updatedAmenities.splice(index, 1);
-
-        }
-      }
-      //Update the state with the updated array of amenities
-      setFields((prevFields) => ({
-        ...prevFields,
-        amenities: updatedAmenities,
-      }))
-    }
 
     const handleImageChange = (e) => {
       const { files } = e.target;
@@ -108,6 +86,7 @@ const ArtworkAddForm = () => {
                 Artwork Type
               </label>
               <select
+                type='string'
                 id='type'
                 name='type'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -137,7 +116,7 @@ const ArtworkAddForm = () => {
                 Listing Name
               </label>
               <input
-                type='text'
+                type='string'
                 id='name'
                 name='name'
                 className='border rounded w-full py-2 px-3 mb-2 focus:outline-rose-900 focus:shadow-outline'
@@ -156,6 +135,7 @@ const ArtworkAddForm = () => {
                 Description
               </label>
               <textarea
+                type='string'
                 id='description'
                 name='description'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -175,6 +155,7 @@ const ArtworkAddForm = () => {
                 Descriptive Words
               </label>
               <textarea
+                type='string'
                 id='descriptive_words'
                 name='descriptive_words'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -195,6 +176,7 @@ const ArtworkAddForm = () => {
                 Original Available
               </label>
               <select
+              type='boolean'
                 id='original_available'
                 name='original.available'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -215,9 +197,7 @@ const ArtworkAddForm = () => {
                 className='block text-gray-700 font-bold mb-2'
               >
                 Price for Original Artwork
-              </label> 
-              
-              
+              </label>            
               <input
                 type='number'
                 id='price_original'
@@ -236,25 +216,27 @@ const ArtworkAddForm = () => {
                 htmlFor='substrate'
                 className='block text-gray-700 font-bold mb-2'
               >
-                Substrate
+                Original Substrate
               </label>
               <select
-                type='text'
+                type='string'
                 id='substrate'
-                name='original.subtrate'
+                name='original.substrate'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 value={ fields.substrate }
+                
                 onChange={ handleChange }
+
               >
-                <option value='N/A'>N/A</option>
-                <option value='Canvas Panel'>Canvas Panel</option>
-                <option value='Stretched Canvas'>Stretched Canvas</option>
-                <option value='Artist Paper'>Artist Paper</option>
-                <option value='Wood'>Wood</option>
-                <option value='Metal'>Metal</option>
-                <option value='Cardboard'>Cardboard</option>
-                <option value='Glass'>Glass</option>
-                <option value='Other'>Other</option>
+                <option value='artist paper'>Artist Paper</option>
+                <option value='canvas board'>Canvas Board</option>
+                <option value='stretched canvas'>Stretched Canvas</option>
+                <option value='wood'>Wood</option>
+                <option value='metal'>Metal</option>
+                <option value='glass'>Glass</option>
+                <option value='acrylic'>Acrylic</option>
+                <option value='other'>Other</option>
+                
               </select>
             </div>}
 
@@ -267,7 +249,8 @@ const ArtworkAddForm = () => {
                 Dimensions
               </label> 
               <select
-                id='string'
+                type='string'
+                id='dimensions'
                 name='original.dimensions'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 defaultValue={'N/A'}

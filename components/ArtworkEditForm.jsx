@@ -112,7 +112,7 @@ const handleSubmit = async (e) => {
     
     <form onSubmit={handleSubmit}>
           <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
-              Update Artwork
+              Edit Artwork
           </h2>
 
 
@@ -250,66 +250,6 @@ const handleSubmit = async (e) => {
             </div>}
 
 
-            <div className='mb-4'>
-              <label className='block text-gray-700 font-bold mb-2'>
-                Listing Name
-              </label>
-              <textarea
-                type='text'
-                id='name'
-                name='name'
-                className='border rounded w-full py-2 px-3 mb-2
-               focus:outline-rose-900 focus:shadow-outline'
-                placeholder='eg. Poppy Field'
-                required
-                value={ fields.name }
-                onChange={ handleChange }
-              ></textarea>
-            </div>
-            
-            
-            <div className='mb-4'>
-              <label
-                htmlFor='description'
-                className='block text-gray-700 font-bold mb-2'
-              >
-                Description
-              </label>
-              <textarea
-                type='text'
-                id='description'
-                name='description'
-                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                rows='4'
-                placeholder='Description of artwork'
-                required
-                value={ fields.description }
-                onChange={ handleChange }
-              ></textarea>
-            </div>
-
-            
-            <div className='mb-4'>
-              <label
-                htmlFor='descriptive_words'
-                className='block text-gray-700 font-bold mb-2'
-              >
-                Descriptive Words
-              </label>
-              <textarea
-                type='string'
-                id='descriptive_words'
-                name='descriptive_words'
-                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                rows='4'
-                placeholder='Descriptive Words for artwork'
-                value={ fields.descriptive_words }
-                onChange={ handleChange }
-              ></textarea>
-            </div>
-
-
-
             {<div className='mb-4'>
               <label
                 htmlFor='substrate'
@@ -338,9 +278,7 @@ const handleSubmit = async (e) => {
               </select>
             </div>}
 
-              
-                   
-
+            
 
           <div className='mb-4'>
            
