@@ -67,8 +67,8 @@ const ArtworkPage = () => {
           
         <p className="text-rose-300 text-center"> 
         Some images may appear pixelated due to lower 
-        resolution photos to discourage copyright infringement.  
-        Original artworks and original digital images are high resolution.
+        resolution photos to discourage copyright infringement. </p> 
+        <p>Original artworks and original digital images are high resolution.
         </p>
       </div>
 
@@ -78,9 +78,12 @@ const ArtworkPage = () => {
           href="/artworks"
           className="text-rose-600 hover:text-rose-900 flex items-center"
         >
-          <FaArrowLeft className="mr-2"></FaArrowLeft> Back to Artworks
+          <FaArrowLeft className="mr-2"></FaArrowLeft> 
+          Back to Artworks
         </Link>
       </div>
+
+      
 </div>
       
     </section>

@@ -15,7 +15,11 @@ const ArtworksPage = async() => {
 					
 			<div className='bg-rose-50 py-20'>
 				<h1 className='text-4xl font-extrabold text-rose-900 sm:text-5xl md:text-6xl text-center'>Art Gallery</h1>
-			<Searchbar />
+				<p className='text-lg text-center text-gray-700 mt-4'>Explore our collection of beautiful artworks</p>
+
+				<div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center'>
+
+			<Searchbar /></div>
 			</div>
 			<div className='container-xl lg:container m-auto px-4 py-6'>
 				{artworks.length === 0 ? (

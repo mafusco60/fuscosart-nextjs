@@ -1,20 +1,32 @@
-import React from 'react'
+'use client'
+import { useState } from "react"
+import { FaSearch } from "react-icons/fa"
 
 const Searchbar = () => {
+    const [artworkType, setArtworkType] = useState('All')
+    const [keywords, setKeywords] = useState('')
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('Keywords:', keywords)
+        console.log('Artwork Type:', artworkType)
+    }
+
   return (
     <div><form className='mt-3 mx-auto max-w-2xl w-full flex flex-col md:flex-row items-center'>
-    <div className='w-full md:w-3/5 md:pr-2 mb-4 md:mb-0'>
-        <label htmlFor='media' className='sr-only'>
-            Location
+    <div className='w-full md:w-1/3 md:pr-2 mb-4 md:mb-0'>
+        <label htmlFor='keywords' className='sr-only'>
+            Keywords
         </label>
         <input
             type='text'
-            id='location'
-            placeholder='Enter Keyword'
+            id='keywords'
+            placeholder= 'Search by Keywords'
+               
+                
             className='w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-rose-500'
         />
     </div>
-    <div className='w-full md:w-2/5 md:pl-2'>
+    <div className='w-full md:w-1/3 md:pl-2 '>
         <label htmlFor='artwork-type' className='sr-only'>
             Artwork Type
         </label>
@@ -41,7 +53,7 @@ const Searchbar = () => {
     <button
         type='submit'
         className='md:ml-4 mt-4 md:mt-0 w-full md:w-auto px-6 py-3 rounded-lg bg-rose-800 text-white hover:bg-rose-600 focus:outline-none focus:ring focus:ring-rose-500'
-    >
+    ><span> <FaSearch className='inline-block mr-2' /> </span>
         Search
     </button>
 </form></div>

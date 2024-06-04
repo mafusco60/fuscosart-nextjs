@@ -30,10 +30,19 @@ const ArtworkSchema = new Schema(
         available: {
           type: Boolean,
           default: false,
+          required: true,
         },
         price: {
           type: Number,
           default: 0,
+        },
+        substrate: {
+          type: String,
+          default: '',
+        },
+        dimensions: {
+          type: String,
+          default: '',
         },
       },
     
