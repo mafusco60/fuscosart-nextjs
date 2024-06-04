@@ -23,11 +23,11 @@ const InfoBoxes = () => {
 						backgroundColor='bg-rose-200'
 						buttonInfo={{
 							text: 'Browse Pricing Charts',
-							link: '/artworks/add',
+							link: '/artworks/options',
 							backgroundColor: 'bg-rose-950',
 						}}
 					>
-						Print your favorite art on paper, canvas and even wood.
+						Get your favorite artwork as a print.
 					</InfoBox>
 				</div>
 			</div>

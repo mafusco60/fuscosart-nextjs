@@ -5,14 +5,16 @@ import { FaSearch } from "react-icons/fa"
 const Searchbar = () => {
     const [artworkType, setArtworkType] = useState('All')
     const [keywords, setKeywords] = useState('')
+
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('Keywords:', keywords)
         console.log('Artwork Type:', artworkType)
     }
 
+
   return (
-    <div><form className='mt-3 mx-auto max-w-2xl w-full flex flex-col md:flex-row items-center'>
+    <div><form onSubmit={ handleSubmit } className='mt-3 mx-auto max-w-2xl w-full flex flex-col md:flex-row items-center'>
     <div className='w-full md:w-1/3 md:pr-2 mb-4 md:mb-0'>
         <label htmlFor='keywords' className='sr-only'>
             Keywords
@@ -21,10 +23,12 @@ const Searchbar = () => {
             type='text'
             id='keywords'
             placeholder= 'Search by Keywords'
-               
                 
             className='w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-rose-500'
         />
+        {/* value={keywords}
+        onChange={(e) => setKeywords(e.target.value)} */}
+
     </div>
     <div className='w-full md:w-1/3 md:pl-2 '>
         <label htmlFor='artwork-type' className='sr-only'>
@@ -34,6 +38,9 @@ const Searchbar = () => {
             id='artwork-type'
             className='w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-rose-500'
         >
+           {/*  value={artworkType}
+            onChange={(e) => setArtworkType(e.target.value)} */}
+        
             <option value='All'>All</option>
             <option value='Acrylic'>Acrylic Painting</option>
             <option value='Oil Painting'>Oil Painting</option>

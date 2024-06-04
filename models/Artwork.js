@@ -19,11 +19,11 @@ const ArtworkSchema = new Schema(
     description: {
       type: String,
     },
-    descriptive_words: [
+    descriptive_words: 
     {
       type: String,
     }
-  ],
+  ,
     
     
     original: {

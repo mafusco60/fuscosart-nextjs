@@ -19,6 +19,8 @@ const ArtworkEditForm = () => {
         original: {
           available: '',
           price: '',
+          substrate: '',
+          dimensions: '',
         },
       }); 
       const [loading, setLoading] = useState(true);
@@ -112,14 +114,16 @@ const handleSubmit = async (e) => {
           <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
               Update Artwork
           </h2>
-          <div className='mb-4'>
-            <label
+
+
+          {<div className='mb-4'>
+              <label
                 htmlFor='artwork_type'
                 className='block text-gray-700 font-bold mb-2'
               >
                 Artwork Type
-            </label>
-            <select
+              </label>
+              <select
                 id='type'
                 name='type'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -142,22 +146,27 @@ const handleSubmit = async (e) => {
                 <option value='Digital Art'>Digital Art</option>
                 <option value='Other'>Other</option>
               </select>
-            </div>
+            </div>}
+
+
             <div className='mb-4'>
               <label className='block text-gray-700 font-bold mb-2'>
                 Listing Name
               </label>
-              <input
+              <textarea
                 type='text'
                 id='name'
                 name='name'
-                className='border rounded w-full py-2 px-3 mb-2 focus:outline-rose-900 focus:shadow-outline'
+                className='border rounded w-full py-2 px-3 mb-2
+               focus:outline-rose-900 focus:shadow-outline'
                 placeholder='eg. Poppy Field'
                 required
                 value={ fields.name }
                 onChange={ handleChange }
-              />
+              ></textarea>
             </div>
+            
+            
             <div className='mb-4'>
               <label
                 htmlFor='description'
@@ -178,6 +187,7 @@ const handleSubmit = async (e) => {
               ></textarea>
             </div>
 
+            
             <div className='mb-4'>
               <label
                 htmlFor='descriptive_words'
@@ -186,7 +196,7 @@ const handleSubmit = async (e) => {
                 Descriptive Words
               </label>
               <textarea
-                type='text'
+                type='string'
                 id='descriptive_words'
                 name='descriptive_words'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -205,53 +215,153 @@ const handleSubmit = async (e) => {
               >
                 Price for Original Artwork
               </label>
-              <input
+              <textarea
                 type='number'
                 id='price_original'
                 name='original.price'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 placeholder='Original Price'
                 value={ fields.original.price }
-                onChange={ handleChange }
-              />
+                onChange={ handleChange }>
+                </textarea>
             </div>
-            <div className='mb-4'>
+
+
+            {<div className='mb-4'>
               <label
                 htmlFor='original_available'
                 className='block text-gray-700 font-bold mb-2'
               >
-                Original Available?
+                Original Available
               </label>
-            <input
-                    type='boolean'
-                    id='original_available'
-                    name='original.available'
-                    className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                    placeholder='true or false'
-                    value= {fields.original.available}    
-                    onChange={ handleChange }
-                    
-                  />
+              <select
+                id='original_available'
+                name='original.available'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                required
+                value={ fields.available }
+                onChange={ handleChange }
 
+              >
+                <option value='true'>True</option>
+                <option value='false'>False</option>
+                
+              </select>
+            </div>}
+
+
+            <div className='mb-4'>
+              <label className='block text-gray-700 font-bold mb-2'>
+                Listing Name
+              </label>
+              <textarea
+                type='text'
+                id='name'
+                name='name'
+                className='border rounded w-full py-2 px-3 mb-2
+               focus:outline-rose-900 focus:shadow-outline'
+                placeholder='eg. Poppy Field'
+                required
+                value={ fields.name }
+                onChange={ handleChange }
+              ></textarea>
+            </div>
+            
+            
+            <div className='mb-4'>
+              <label
+                htmlFor='description'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Description
+              </label>
+              <textarea
+                type='text'
+                id='description'
+                name='description'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                rows='4'
+                placeholder='Description of artwork'
+                required
+                value={ fields.description }
+                onChange={ handleChange }
+              ></textarea>
             </div>
 
             
-            <div>
+            <div className='mb-4'>
+              <label
+                htmlFor='descriptive_words'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Descriptive Words
+              </label>
+              <textarea
+                type='string'
+                id='descriptive_words'
+                name='descriptive_words'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                rows='4'
+                placeholder='Descriptive Words for artwork'
+                value={ fields.descriptive_words }
+                onChange={ handleChange }
+              ></textarea>
+            </div>
+
+
+
+            {<div className='mb-4'>
+              <label
+                htmlFor='substrate'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Substrate
+              </label>
+              <select
+                id='substrate'
+                name='original.subtrate'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                required
+                value={ fields.substrate }
+                onChange={ handleChange }
+
+              >
+                <option value='N/A'>N/A</option>
+                <option value='Canvas Panel'>Canvas Panel</option>
+                <option value='Stretched Canvas'>Stretched Canvas</option>
+                <option value='Artist Paper'>Artist Pape</option>
+                <option value='Wood'>Wood</option>
+                <option value='Metal'>Metal</option>
+                <option value='Cardboard'>Cardboard</option>
+                <option value='Glass'>Glass</option>
+                <option value='Other'>Other</option>
+              </select>
+            </div>}
+
+              
+                   
+
+
+          <div className='mb-4'>
+           
               <button
                 className='bg-rose-500 hover:bg-rose-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline'
                 type='submit'
               >
                 Update Artwork
-{/*                 <i className='fas fa-plus-circle mr-2'></i> Edit Artwork
- */}              </button>
+             </button>
             </div>
-            
           
     </form>
+    )
+    );
+};
+
+     
     
-  ) )              
+              
     
-}
+
 
 
 export default ArtworkEditForm;

@@ -11,6 +11,8 @@ const ArtworkAddForm = () => {
         original: {
           available: '',
           price: '',
+          substrate: '',
+          dimensions: '',
         },
         
         images: [],
@@ -129,7 +131,8 @@ const ArtworkAddForm = () => {
                 <option value='Other'>Other</option>
               </select>
             </div>}
-            <div className='mb-4'>
+
+            {<div className='mb-4'>
               <label className='block text-gray-700 font-bold mb-2'>
                 Listing Name
               </label>
@@ -143,8 +146,9 @@ const ArtworkAddForm = () => {
                 value={ fields.name }
                 onChange={ handleChange }
               />
-            </div>
-            <div className='mb-4'>
+            </div>}
+
+            {<div className='mb-4'>
               <label
                 htmlFor='description'
                 className='block text-gray-700 font-bold mb-2'
@@ -161,8 +165,9 @@ const ArtworkAddForm = () => {
                 value={ fields.description }
                 onChange={ handleChange }
               ></textarea>
-            </div>
-            <div className='mb-4'>
+            </div>}
+
+            {<div className='mb-4'>
               <label
                 htmlFor='descriptive_words'
                 className='block text-gray-700 font-bold mb-2'
@@ -178,31 +183,33 @@ const ArtworkAddForm = () => {
                 value={ fields.descriptive_words }
                 onChange={ handleChange }
               ></textarea>
-            </div>
+            </div>}
 
 
             
-            <div className='mb-4'>
+            {<div className='mb-4'>
               <label
                 htmlFor='original_available'
                 className='block text-gray-700 font-bold mb-2'
               >
-                Original Available?
+                Original Available
               </label>
-            <input
-                    type='boolean'
-                    id='original_available'
-                    name='original.available'
-                    className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                    placeholder='true or false'
-                    defaultValue={false}
-                    value= {fields.available}    
-                    onChange={ handleChange }
-                   
-                  />
+              <select
+                id='original_available'
+                name='original.available'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                required
+                value={ fields.available }
+                onChange={ handleChange }
 
-            </div>         
-            <div className='mb-4'>
+              >
+                <option value='true'>True</option>
+                <option value='false'>False</option>
+                
+              </select>
+            </div>}
+
+            {<div className='mb-4'>
               <label
                 htmlFor='price_original'
                 className='block text-gray-700 font-bold mb-2'
@@ -222,45 +229,46 @@ const ArtworkAddForm = () => {
                 value={ fields.price }
                 onChange={ handleChange }
               /> 
-            </div>
-            <div className='mb-4'>
+            </div>}
+
+            {<div className='mb-4'>
               <label
-                htmlFor='Substrate'
+                htmlFor='substrate'
                 className='block text-gray-700 font-bold mb-2'
               >
                 Substrate
-              </label> 
-            <select
-                id='string'
-                name='substrate'
+              </label>
+              <select
+                type='text'
+                id='substrate'
+                name='original.subtrate'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                defaultValue={'N/A'}
                 value={ fields.substrate }
                 onChange={ handleChange }
-
               >
                 <option value='N/A'>N/A</option>
                 <option value='Canvas Panel'>Canvas Panel</option>
                 <option value='Stretched Canvas'>Stretched Canvas</option>
-                <option value='Artist Paper'>Artist Pape</option>
+                <option value='Artist Paper'>Artist Paper</option>
                 <option value='Wood'>Wood</option>
                 <option value='Metal'>Metal</option>
                 <option value='Cardboard'>Cardboard</option>
                 <option value='Glass'>Glass</option>
                 <option value='Other'>Other</option>
-                
               </select>
-</div>
-<div className='mb-4'>
+            </div>}
+
+
+          {<div className='mb-4'>
               <label
-                htmlFor='Substrate'
+                htmlFor='Dimensions'
                 className='block text-gray-700 font-bold mb-2'
               >
                 Dimensions
               </label> 
               <select
                 id='string'
-                name='dimensions'
+                name='original.dimensions'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 defaultValue={'N/A'}
                 value={ fields.dimensions }
@@ -285,9 +293,9 @@ const ArtworkAddForm = () => {
                 <option value='60"x72"'>60"x72"</option>
                 <option value='Other'>Other</option>
               </select>
-</div>
+            </div>}
 
-            <div className='mb-4'>
+            {<div className='mb-4'>
               <label
                 htmlFor='images'
                 className='block text-gray-700 font-bold mb-2'
@@ -304,7 +312,7 @@ const ArtworkAddForm = () => {
                 required
                 onChange={ handleImageChange }
               />
-            </div>
+            </div>}
            
 
 
