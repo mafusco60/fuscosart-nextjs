@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { fetchArtwork } from '@/utils/requests';
 import { toast } from 'react-toastify';
-
+import ArtworkHeaderImage from './ArtworkHeaderImage';
 
 const ArtworkEditForm = () => {
-
+  
     const { id } = useParams();
     const router = useRouter();
 
@@ -32,17 +32,6 @@ const ArtworkEditForm = () => {
         const fetchArtworkData = async () => {
             try {
                 const artworkData = await fetchArtwork(id);
-
-               /*  // Check if Original price is null, if so make empty string
-                if (artworkData.original.price === null) {
-                    setFields((prevFields) => ({
-                        ...prevFields,
-                        original: {
-                            ...prevFields.original,
-                            price: '',
-                        },
-                    }));
-                } */
 
                 setFields(artworkData);
 
@@ -96,7 +85,7 @@ const handleSubmit = async (e) => {
       router.push(`/artworks/${id}`);
     } else if (res.status === 401 || res.status === 403) {
       toast.error('Permission Denied');
-      //toast.success('Artwork updated successfully');
+      toast.success('Artwork updated successfully');
     } else {
       toast.error('Something went wrong');
     }
@@ -114,7 +103,7 @@ const handleSubmit = async (e) => {
           <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
               Edit Artwork
           </h2>
-
+          <ArtworkHeaderImage image={fields.images} />
 
           {<div className='mb-4'>
               <label
@@ -235,6 +224,7 @@ const handleSubmit = async (e) => {
                 Original Available
               </label>
               <select
+              type='type'
                 id='original_available'
                 name='original.available'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -255,30 +245,71 @@ const handleSubmit = async (e) => {
                 htmlFor='substrate'
                 className='block text-gray-700 font-bold mb-2'
               >
-                Substrate
+                Original Substrate
               </label>
               <select
+                type='type'
                 id='substrate'
-                name='original.subtrate'
+                name='original.substrate'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                required
                 value={ fields.substrate }
+                
                 onChange={ handleChange }
 
               >
                 <option value='N/A'>N/A</option>
-                <option value='Canvas Panel'>Canvas Panel</option>
-                <option value='Stretched Canvas'>Stretched Canvas</option>
-                <option value='Artist Paper'>Artist Pape</option>
-                <option value='Wood'>Wood</option>
-                <option value='Metal'>Metal</option>
-                <option value='Cardboard'>Cardboard</option>
-                <option value='Glass'>Glass</option>
+                <option value='artist paper'>Artist Paper</option>
+                <option value='canvas board'>Canvas Board</option>
+                <option value='stretched canvas'>Stretched Canvas</option>
+                <option value='wood'>Wood</option>
+                <option value='metal'>Metal</option>
+                <option value='glass'>Glass</option>
+                <option value='acrylic'>Acrylic</option>
+                <option value='other'>Other</option>
+                
+              </select>
+            </div>}
+
+
+          {<div className='mb-4'>
+              <label
+                htmlFor='Dimensions'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Dimensions
+              </label> 
+              <select
+                type='type'
+                id='dimensions'
+                name='original.dimensions'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                defaultValue={'N/A'}
+                value={ fields.dimensions }
+                onChange={ handleChange }
+
+              >
+                <option value='N/A'>N/A</option>
+                <option value='4"x6"'>4"x6"</option>
+                <option value='5"x7"'>5"x7"</option>
+                <option value='8"x10"'>8"x10"</option>
+                <option value='8"x12"'>8"x12"</option>
+                <option value='9"x12"'>9"x12"</option>
+                <option value='11"x14"'>11"x14"</option>
+                <option value='12"x16"'>12"x16"</option>
+                <option value='16"x20"'>16"x20"</option>
+                <option value='18"x24"'>18"x24"</option>
+                <option value='24"x36"'>24"x36"</option>
+                <option value='30"x40"'>30"x40"</option>
+                <option value='36"x48"'>36"x48"</option>
+                <option value='48"x60"'>48"x60"</option>
+                <option value='48"x72"'>48"x72"</option>
+                <option value='60"x72"'>60"x72"</option>
                 <option value='Other'>Other</option>
               </select>
             </div>}
 
             
+           
 
           <div className='mb-4'>
            

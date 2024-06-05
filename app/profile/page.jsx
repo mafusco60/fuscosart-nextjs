@@ -77,11 +77,7 @@ const ProfilePage = () => {
 
   return (
 
-
-
-
-    
-    <section className='bg-rose-50'>
+   <section className='bg-rose-50'>
       
       <div className='container m-auto py-24'>
         <div className='bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0'>
