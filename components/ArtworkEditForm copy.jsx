@@ -34,17 +34,6 @@ const ArtworkEditForm = () => {
                 const artworkData = await fetchArtwork(id);
 
                 setFields(artworkData);
-                /* setFields ({
-                    
-                       
-                          available: artworkData.original.available,
-                          price: artworkData.original.price,
-                          substrate: artworkData.original.substrate,
-                          dimensions: artworkData.original.dimensions,
-                       
-                        }) */
-
-
 
             } catch (error) {
               console.error(error);  
@@ -240,7 +229,7 @@ const handleSubmit = async (e) => {
                 name='original.available'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 required
-                value={ fields.original.available }
+                value={ fields.available }
                 onChange={ handleChange }
 
               >
@@ -263,7 +252,7 @@ const handleSubmit = async (e) => {
                 id='substrate'
                 name='original.substrate'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                value={ fields.original.substrate }
+                value={ fields.substrate }
                 
                 onChange={ handleChange }
 
@@ -295,7 +284,7 @@ const handleSubmit = async (e) => {
                 name='original.dimensions'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 defaultValue={'N/A'}
-                value={ fields.original.dimensions }
+                value={ fields.dimensions }
                 onChange={ handleChange }
 
               >
