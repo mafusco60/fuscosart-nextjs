@@ -1,16 +1,26 @@
 'use client'
 import { useState } from "react"
 import { FaSearch } from "react-icons/fa"
+import { useRouter} from 'next/navigation'
 
 const Searchbar = () => {
-    const [artworkType, setArtworkType] = useState('All')
+    const [artworkType , setArtworkType] = useState('All')
     const [keywords, setKeywords] = useState('')
 
+    const router = useRouter()
+
     const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log('Keywords:', keywords)
-        console.log('Artwork Type:', artworkType)
-    }
+        e.preventDefault();
+
+if (keywords === '' && artworkType === 'All') {
+    router.push('/artworks');
+
+} else {
+    const query = `?keywords= ${keywords }&artworkType=${artworkType}`;
+    router.push('/artworks/search-results(query)');
+}
+    };  
+    
 
 
   return (
@@ -25,10 +35,10 @@ const Searchbar = () => {
             placeholder= 'Search by Keywords'
                 
             className='w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-rose-500'
-        />
-        {/* value={keywords}
-        onChange={(e) => setKeywords(e.target.value)} */}
-
+        
+            value={keywords}
+            onChange={(e) => setKeywords(e.target.value)} 
+/>
     </div>
     <div className='w-full md:w-1/3 md:pl-2 '>
         <label htmlFor='artwork-type' className='sr-only'>
@@ -36,10 +46,12 @@ const Searchbar = () => {
         </label>
         <select
             id='artwork-type'
-            className='w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-rose-500'
-        >
-           {/*  value={artworkType}
-            onChange={(e) => setArtworkType(e.target.value)} */}
+            className='w-full px-4 py-3 rounded-lg bg-white 
+            text-gray-800 focus:outline-none focus:ring 
+            focus:ring-rose-500'
+        
+            value={artworkType}
+            onChange={(e) => setArtworkType(e.target.value)} >
         
             <option value='All'>All</option>
             <option value='Acrylic'>Acrylic Painting</option>

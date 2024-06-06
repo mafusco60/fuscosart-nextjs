@@ -4,6 +4,9 @@ import { useRouter, useParams } from 'next/navigation';
 import { fetchArtwork } from '@/utils/requests';
 import { toast } from 'react-toastify';
 import ArtworkHeaderImage from './ArtworkHeaderImage';
+import Image from 'next/image';
+import { Link } from 'react-router-dom';
+
 
 const ArtworkEditForm = () => {
   
@@ -22,6 +25,7 @@ const ArtworkEditForm = () => {
           substrate: '',
           dimensions: '',
         },
+        images: [],
       }); 
       const [loading, setLoading] = useState(true);
 
@@ -34,15 +38,7 @@ const ArtworkEditForm = () => {
                 const artworkData = await fetchArtwork(id);
 
                 setFields(artworkData);
-                /* setFields ({
-                    
-                       
-                          available: artworkData.original.available,
-                          price: artworkData.original.price,
-                          substrate: artworkData.original.substrate,
-                          dimensions: artworkData.original.dimensions,
-                       
-                        }) */
+                
 
 
 
@@ -107,21 +103,47 @@ const handleSubmit = async (e) => {
   }
 }
 
+
     return (
       mounted && !loading && (
     
     <form onSubmit={handleSubmit}>
-          <h2 className='text-3xl text-center font-semibold mb-6 text-rose-950'>
+          <h2 className='text-3xl text-center 
+          font-semibold mb-6 text-rose-950'>
               Edit Artwork
           </h2>
-          <ArtworkHeaderImage image={fields.images} />
+          
+          
 
-          {<div className='mb-4'>
+<div className='rounded-xl shadow-lg bg-rose-100 relative p-10'> 
+			<Image
+				src={fields.images[0]}
+				alt=''
+				width='0'
+				height='0'
+				sizes='100vw'
+				className=' h-full w-auto self-center  rounded-t-xl mx-auto'
+			/></div>
+             
+      
               <label
                 htmlFor='artwork_type'
-                className='block text-gray-700 font-bold mb-2'
+                className='block text-gray-700 font-bold mb-2 mt-5' 
+              >
+                Image can be updated at this link: LINK
+                
+              </label>
+              
+              
+        
+
+          <div className='mb-4'>
+              <label
+                htmlFor='artwork_type'
+                className='block text-gray-700 font-bold mb-2 mt-8' 
               >
                 Artwork Type
+                
               </label>
               <select
                 id='type'
@@ -146,7 +168,7 @@ const handleSubmit = async (e) => {
                 <option value='Digital Art'>Digital Art</option>
                 <option value='Other'>Other</option>
               </select>
-            </div>}
+            </div>
 
 
             <div className='mb-4'>
