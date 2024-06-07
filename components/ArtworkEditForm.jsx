@@ -154,6 +154,7 @@ const handleSubmit = async (e) => {
                 onChange={ handleChange }
 
               >
+                <option value='N/A'>N/A</option>
                 <option value='Graphite Drawing'>Graphite Drawing</option>
                 <option value='Colored Pencil Drawing'>Colored Pencil</option>
                 <option value='Charcoal Drawing'>Charcoal Drawing</option>

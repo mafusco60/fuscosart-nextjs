@@ -21,10 +21,6 @@ try {
       {description: keywordsPattern},
       {descriptive_words: keywordsPattern},
       {type: keywordsPattern},
-      /* {'original.price': keywordsPattern},
-      {'original.dimensions': keywordsPattern},
-      {'original.substrate': keywordsPattern},
-      {'original.available': keywordsPattern}, */
     ],
     
   };
