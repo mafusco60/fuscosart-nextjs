@@ -17,9 +17,8 @@ const Navbar = () => {
 	const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 	const [providers, setProviders] = useState(null);
 	const pathname = usePathname();
+
 	const isAdmin = useState(true);
-
-
 
 	useEffect(() => {
 		const setAuthProviders = async () => {
@@ -171,7 +170,7 @@ const Navbar = () => {
 										<span className='absolute -inset-1.5'></span>
 										<span className='sr-only'>Open user menu</span>
 										<Image
-											className='h-8 w-8 rounded-full'
+											className='h-8 w-auto rounded-full'
 											src={profileImage || profileDefault}
 											alt=''
 											width={40}

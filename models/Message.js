@@ -7,16 +7,11 @@ const MessageSchema = new Schema(
             ref: 'User',
             required: true
         },
-        recipient: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
-        },
         
         artwork: {
             type: Schema.Types.ObjectId,
             ref: 'Artwork',
-            required: true
+            required: true,
         },
         name: {
             type: String,
@@ -24,7 +19,7 @@ const MessageSchema = new Schema(
         },
         email: {
             type: String,
-            default: [true, 'Email is required!'],
+            required: [true, 'Email is required!'],
         },
 
         phone: {
@@ -33,7 +28,6 @@ const MessageSchema = new Schema(
         
         body: {
             type: String,
-            required: [true, 'Message is required!'],
         },
         read: {
             type: Boolean,
