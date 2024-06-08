@@ -40,8 +40,6 @@ const ArtworkEditForm = () => {
                 setFields(artworkData);
                 
 
-
-
             } catch (error) {
               console.error(error);  
             }   finally {

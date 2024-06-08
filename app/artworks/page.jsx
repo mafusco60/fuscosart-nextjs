@@ -1,6 +1,6 @@
 import ArtworkCard from '@/components/ArtworkCard';
 import { fetchArtworks } from '@/utils/requests';
-import Searchbar from '@/components/SearchBar';
+import Searchbar from '@/components/Searchbar';
 
 
 const ArtworksPage = async() => {

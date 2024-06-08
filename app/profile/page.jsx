@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import profileDefault from '@/assets/images/profile.png';
 import Spinner from '@/components/Spinner';
 import { toast } from 'react-toastify';
-import Searchbar from '@/components/SearchBar';
+import Searchbar from '@/components/Searchbar';
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -134,7 +134,7 @@ const ProfilePage = () => {
                     <div className='mt-2'>
                       <Link
                         href={`/artworks/${artwork._id}/edit`}
-                        className='bg-blue-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600'
+                        className='bg-rose-500 text-white px-3 py-3 rounded-md mr-2 hover:bg-blue-600'
                       >
                         Edit
                       </Link>

@@ -10,7 +10,7 @@ import BookmarkButton from '@/components/BookmarkButton';
 import ArtworkContactForm from '@/components/ArtworkContactForm';
 import ShareButtons from '@/components/ShareButtons';
 import Spinner from '@/components/Spinner';
-import { FaArrowLeft } from 'react-icons/fa';
+import { FaArrowAltCircleLeft, FaArrowCircleLeft } from 'react-icons/fa';
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -49,19 +49,20 @@ const ArtworkPage = () => {
       {loading && <Spinner loading={loading} />}
       {!loading && artwork && (
         <>
-          <ArtworkHeaderImage image={artwork.images[0]} />
+       <ArtworkHeaderImage image={artwork.images[0]} /> 
+          
           <section>
             <div className='container m-auto py-6 px-6'>
               <Link
                 href='/artworks'
-                className='text-blue-500 hover:text-blue-600 flex items-center'
+                className='text-rose-500 hover:text-rose-600 flex items-center'
               >
-                <FaArrowLeft className='mr-2' /> Back to Artworks
+                <FaArrowAltCircleLeft className='mr-2' /> Back to Artworks
               </Link>
             </div>
           </section>
 
-          <section className='bg-blue-50'>
+          <section className='bg-rose-50'>
             <div className='container m-auto py-10 px-6'>
               <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
                 <ArtworkDetails artwork={artwork} />

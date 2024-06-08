@@ -1,4 +1,6 @@
 import Image from 'next/image';
+/* import { Gallery, Item } from 'react-photoswipe-gallery';
+ */
 
 
 const ArtworkImages = ({ images }) => {
