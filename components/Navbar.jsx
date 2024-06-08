@@ -9,6 +9,7 @@ import { FaGoogle, FaSleigh } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 
+
 const Navbar = () => {
 	const { data: session } = useSession(); 
 	const profileImage = session?.user?.image;
@@ -16,6 +17,9 @@ const Navbar = () => {
 	const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 	const [providers, setProviders] = useState(null);
 	const pathname = usePathname();
+	const isAdmin = useState(true);
+
+
 
 	useEffect(() => {
 		const setAuthProviders = async () => {
@@ -34,7 +38,10 @@ const Navbar = () => {
 						<button
 							type='button'
 							id='mobile-dropdown-button'
-							className='relative inline-flex items-center justify-center rounded-md p-2 text-rose-500 hover:bg-rose-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white md:hidden'
+							className='relative inline-flex items-center justify-center rounded-md p-2 
+							text-rose-500 hover:bg-rose-700 
+							hover:text-white focus:outline-none focus:ring-2 focus:ring-inset 
+							focus:ring-white md:hidden'
 							aria-controls='mobile-menu'
 							aria-expanded='false'
 							onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -63,7 +70,7 @@ const Navbar = () => {
 							<Image className='h-10 w-auto' src={logo} alt='Palette' />
 
 							<span className='hidden md:block  text-white text-2xl font-bold ml-2 '>
-								Fusco's Art Gallery
+								Fusco's Art
 							</span>
 						</Link>
 						{/* <!-- Desktop Menu Hidden below md screens --> */}
@@ -85,7 +92,7 @@ const Navbar = () => {
 								>
 									Art Gallery
 								</Link>
-							{session &&  (
+							{session && isAdmin &&(
 								
 								<Link
 									href='/artworks/add'
@@ -244,14 +251,14 @@ const Navbar = () => {
 						>
 							Art Gallery
 						</Link>
-						{session && (
+						{session && isAdmin &&(
 							<Link
 								href='/artworks/add'
 								className={`${
 									pathname === '/artworks/add' ? 'text-rose-600' : ' text-white'
 								} block rounded-md px-3 py-2 text-base font-medium`}
 							>
-								Add Artworks
+								Add Artwork
 							</Link>
 						)}
 

@@ -4,7 +4,13 @@ const ArtworkContactForm = () => {
   return (
            
     <div className="bg-white p-6 rounded-lg shadow-md">
-    <h3 className="text-xl font-bold mb-6">Contact Artist</h3>
+    <h3 className="text-xl font-bold mb-6 text-center">
+      Contact the artist, Mary Anne Fusco, about this artwork</h3>
+
+    
+    <p className="text-gray-500 mb-4 text-center">
+       Negotiable Digital Licensing is Available.
+    </p>
     <form>
     <div className='mb-4'>
       <label
@@ -63,6 +69,11 @@ const ArtworkContactForm = () => {
           placeholder="Enter your message"
         ></textarea>
       </div>
+      <p className="text-gray-500 text-center text-sm">
+      If you are interested in something similar to this piece</p>
+      <p className="text-gray-500 text-sm mb-4 text-center">
+       use this contact form to inquire about commissioning options.
+    </p>
       <div>
         <button
           className="bg-rose-900 hover:bg-rose-800 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline flex items-center justify-center"
