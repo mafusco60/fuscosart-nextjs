@@ -22,10 +22,7 @@ const ArtworkSchema = new Schema(
     descriptive_words: 
     {
       type: String,
-    }
-  ,
-    
-    
+    },
     original: {
         available: {
           type: Boolean,
