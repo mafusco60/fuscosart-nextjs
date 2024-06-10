@@ -47,3 +47,60 @@
                 </div>
               </div>
             </div>
+
+
+//getAdminStatus//
+//export const getAdminStatus = async () => {
+
+    //const session = await getServerSession(authOptions);
+   
+
+    /* if (!session || !session.user) {
+      return null;
+    } */
+   /*  await
+    connectDB (); */
+
+   // const profile = session?.user;
+            // 1. Connect to database
+             // await connectDB();
+            // 2. Check if user exists in database
+             /*  const isUserAdmin = await User.findOne({ id: profile });
+              console.log(isUserAdmin, 'isUserAdmin');
+           const admin = isUserAdmin.is_admin;
+              console.log(admin, 'admin'); */
+      
+    
+    // if database is already connected, don't connect again
+    
+    /* if ( connected){
+        console.log('MongoDB is already connected...');
+        return; 
+        
+     } else {
+        try {
+            await mongoose.connect(process.env.MONGODB_URI)
+            connected = true;
+            console.log('MongoDB is connected...');
+        
+        } catch (error) {
+            console.log('error connecting to MongoDB: ', error);
+         */
+        /* const userId = await session?.user?.id;
+        const isAdmin = await User.userId;
+        console.log(isAdmin, 'isAdmin-getAdminStatus');
+        console.log(userId, 'userId-getAdminStatus');
+        const admin = await User.findOne({ id: userId });
+        console.log(admin, 'admin-getAdminStatus');
+
+        //console.log(userId, 'console userId');
+        return ({userId} ); */
+      
+
+
+    
+ 
+  
+
+
+

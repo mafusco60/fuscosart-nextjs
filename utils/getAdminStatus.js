@@ -1,8 +1,10 @@
-import { getSessionUser } from '@/utils/getSessionUser';
+import connectDB from "@/config/database";
 
-const getAdminStatus = async () => {
-    user = await getSessionUser(userId)
-    const isAdmin = user.is_admin;
-return (isAdmin)}
-
-export default getAdminStatus
+export const getAdminStatus = async () => {
+    await connectDB();
+    const User = require("@/models/User");
+    const user = await User.findOne({ role: "admin" });
+    
+    console.log(user);
+    return user;
+};
