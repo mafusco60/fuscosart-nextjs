@@ -9,10 +9,22 @@ import cloudinary from '@/config/cloudinary';
 export const GET = async (request) => {
   try {
     await connectDB();
+    const page = request.nextUrl.searchParams.get('page') || 1;
+    const pageSize = request.nextUrl.searchParams.get('pageSize') || 6;
+    
+    const skip = (page - 1) * pageSize;
 
-    const artworks = await Artwork.find({});
+    const total = await Artwork.countDocuments({});
 
-    return new Response(JSON.stringify(artworks), {
+    const artworks = await Artwork.find({}).skip(skip).limit(pageSize);
+
+    const result = {
+      total,
+      artworks
+    }
+
+
+    return new Response(JSON.stringify(result), {
       status: 200,
     });
   } catch (error) {
