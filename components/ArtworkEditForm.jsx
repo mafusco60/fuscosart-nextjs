@@ -5,6 +5,7 @@ import { fetchArtwork } from '@/utils/requests';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { Link } from 'react-router-dom';
+import ArtworkHeaderImage from './ArtworkHeaderImage';
 
 
 const ArtworkEditForm = () => {
@@ -113,14 +114,9 @@ const handleSubmit = async (e) => {
           
 
 <div className='rounded-xl shadow-lg bg-rose-100 relative p-10'> 
-			<Image
-				src={fields.images[0]}
-				alt=''
-				width='0'
-				height='0'
-				sizes='100vw'
-				className=' h-full w-auto self-center  rounded-t-xl mx-auto'
-			/></div>
+  <ArtworkHeaderImage image={fields.images[0]} />
+			
+      </div>
              
       
               <label

@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar';
 import { ToastContainer } from 'react-toastify';
 import { GlobalProvider } from '@/context/GlobalContext';
 import 'react-toastify/dist/ReactToastify.css';
+import 'photoswipe/dist/photoswipe.css';
+
 
 
 

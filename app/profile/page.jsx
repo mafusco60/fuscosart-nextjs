@@ -7,6 +7,7 @@ import profileDefault from '@/assets/images/profile.png';
 import Spinner from '@/components/Spinner';
 import { toast } from 'react-toastify';
 import Searchbar from '@/components/Searchbar';
+import ArtworkHeaderImage from '@/components/ArtworkHeaderImage';
 
 const ProfilePage = () => {
   const { data: session } = useSession();
@@ -118,14 +119,9 @@ const ProfilePage = () => {
                 artworks.map((artwork) => (
                   <div key={artwork._id} className='mb-10'>
                     <Link href={`/artworks/${artwork._id}`}>
-                      <Image
-                        className='h-32  rounded-md object-cover'
-                        src={artwork.images[0]}
-                        alt=''
-                        width={500}
-                        height={100}
-                        priority={true}
-                      />
+                     
+
+                      <ArtworkHeaderImage image={artwork.images[0]} />  
                     </Link>
                     <div className='mt-2'>
                       <p className='text-lg font-semibold'>{artwork.name}</p>

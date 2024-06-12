@@ -11,6 +11,8 @@ import ArtworkContactForm from '@/components/ArtworkContactForm';
 import ShareButtons from '@/components/ShareButtons';
 import Spinner from '@/components/Spinner';
 import { FaArrowAltCircleLeft, FaArrowCircleLeft } from 'react-icons/fa';
+import ArtworkThumbnails from '@/components/ArtworkThumbnails';
+
 
 const ArtworkPage = () => {
   const { id } = useParams();
@@ -55,16 +57,20 @@ const ArtworkPage = () => {
             <div className='container m-auto py-6 px-6'>
               <Link
                 href='/artworks'
-                className='text-rose-500 hover:text-rose-600 flex items-center'
+                className='text-rose-500 
+                hover:text-rose-600 flex items-center'
               >
-                <FaArrowAltCircleLeft className='mr-2' /> Back to Artworks
+                <FaArrowAltCircleLeft className='mr-2' />
+                 Back to Artworks
               </Link>
             </div>
           </section>
 
           <section className='bg-rose-50'>
             <div className='container m-auto py-10 px-6'>
-              <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
+
+              <div className='grid grid-cols-1 md:grid-cols-70/30 
+              w-full gap-6'>
                 <ArtworkDetails artwork={artwork} />
                 <aside className='space-y-4'>
                   <BookmarkButton artwork={artwork} />
@@ -74,8 +80,8 @@ const ArtworkPage = () => {
               </div>
             </div>
           </section>
-          <ArtworkImages images={artwork.images} />
-        </>
+<ArtworkThumbnails images={artwork.images} /> 
+      </>
       )}
     </>
   );

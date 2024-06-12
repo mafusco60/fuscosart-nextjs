@@ -3,7 +3,7 @@ import { Gallery, Item } from 'react-photoswipe-gallery';
 
 
 
-const ArtworkImages = ({ images }) => {
+const ArtworkThumbnails = ({ images }) => {
     return (
       <Gallery>
       <section className='bg-rose-50 p-4'>
@@ -11,8 +11,8 @@ const ArtworkImages = ({ images }) => {
           {images.length === 1 ? (
             <Item original={images[0]}
             thumbnail={images[0]}
-            width='1000'
-            height='600'
+            width='150'
+            height='200'
             >
               {({ref, open}) => (
                 <Image
@@ -21,8 +21,8 @@ const ArtworkImages = ({ images }) => {
               src={images[0]}
               alt=''
               className='object-cover  mx-auto rounded-xl'
-              width={400}
-              height={1000}
+              width={150}
+              height={200}
               priority={true}
             />
               )}
@@ -41,8 +41,8 @@ const ArtworkImages = ({ images }) => {
                 >
                   <Item original={image}
                 thumbnail={image}
-                width='800'
-                height='1000'
+                width='150'
+                height='200'
             >
               {({ref, open}) => (
                 <Image
@@ -51,8 +51,8 @@ const ArtworkImages = ({ images }) => {
                 src={image}
                 alt=''
                 className='object-contain  w-full rounded-xl'
-                width={400}
-                height={1000}
+                width={150}
+                height={200}
                 priority={true}
               />
               )}
@@ -68,4 +68,4 @@ const ArtworkImages = ({ images }) => {
     );
   };
   
-  export default ArtworkImages;
+  export default ArtworkThumbnails;

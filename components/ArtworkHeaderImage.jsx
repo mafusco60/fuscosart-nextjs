@@ -9,9 +9,10 @@ const ArtworkHeaderImage = ({ image }) => {
             <Image
               src={image}
               alt=""
-              className="object-contain h-auto w-full"
+              className="object-contain h-25 w-auto 
+              m-auto xl:h-25"
               width={0}
-              height={0}
+              height={200}
             sizes='100vw'
             priority={true}
             />
