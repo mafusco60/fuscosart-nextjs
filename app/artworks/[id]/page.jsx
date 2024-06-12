@@ -69,19 +69,24 @@ const ArtworkPage = () => {
           <section className='bg-rose-50'>
             <div className='container m-auto py-10 px-6'>
 
-              <div className='grid grid-cols-1 md:grid-cols-70/30 
+              <div className='grid grid-cols-1 md:grid-cols-65/35 
               w-full gap-6'>
+
                 <ArtworkDetails artwork={artwork} />
+                
                 <aside className='space-y-4'>
                   <BookmarkButton artwork={artwork} />
                   <ShareButtons artwork={artwork} />
                   <ArtworkContactForm artwork={artwork} />
                 </aside>
+                
+                                <ArtworkImages images={artwork.images} />
+
               </div>
             </div>
           </section>
-<ArtworkThumbnails images={artwork.images} /> 
-      </>
+        
+     </>
       )}
     </>
   );

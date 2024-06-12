@@ -16,6 +16,9 @@ module.exports = {
 			gridTemplateColumns: {
 				'70/30': '70% 28%',
 			},
+			gridTemplateColumns: {
+				'65/35': '65% 32%',
+			},
 		},
 	},
 	plugins: [],

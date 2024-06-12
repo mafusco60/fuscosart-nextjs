@@ -60,17 +60,17 @@ const ArtworkDetails = ({ artwork }) => {
 
 
 
-                  <h3 className='text-lg font-bold my-10 bg-rose-800 text-white p-4'>
-                    <Link href={`/artworks/${artwork._id}/options`}>
-                    Prints: Prices & Options</Link>
-                  </h3>
-                  <div className='flex flex-col md:flex-row justify-around'>
-                    <div className='flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0'>
+                  
 
-                    
-                      <div className='text-2xl font-bold text-rose-500'>                  
+
+
+                   <div className='flex flex-col md:flex-row justify-around'>
+                    <div className='flex items-center justify-center mb-4 
+                    border-b border-gray-200 md:border-b-0 pb-4 md:pb-0'> 
+
+                  <div className='text-2xl font-bold text-rose-500'>                  
                       </div>
-                    </div>
+                    </div> 
 
                   </div>
                 </div>
@@ -78,8 +78,14 @@ const ArtworkDetails = ({ artwork }) => {
 
                  
 
-                <div className='bg-white p-6 rounded-lg shadow-md mt-6'>
-                </div>
+                {<div className='bg-white p-20 rounded-lg shadow-md 
+                mt-6'>
+                  <h3 className='text-lg text-center font-bold my-10 bg-rose-800 
+                  text-white p-4 rounded-lg' >
+                    <Link href={`/artworks/${artwork._id}/options`}>
+                    Prints: Prices & Options</Link>
+                  </h3>
+                </div>}
            
 
                  
