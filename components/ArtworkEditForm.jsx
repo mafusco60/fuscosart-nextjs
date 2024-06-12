@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { fetchArtwork } from '@/utils/requests';
 import { toast } from 'react-toastify';
-import Image from 'next/image';
-import { Link } from 'react-router-dom';
 import ArtworkHeaderImage from './ArtworkHeaderImage';
 
 
