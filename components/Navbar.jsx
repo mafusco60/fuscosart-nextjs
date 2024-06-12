@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { FaGoogle, FaSleigh } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
-import UnreadMessageCount from './UnreadMessageCount';
+import UnreadMessageCount from '@/components/UnreadMessageCount';
 
 
 const Navbar = () => {

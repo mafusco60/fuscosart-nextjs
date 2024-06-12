@@ -1,4 +1,4 @@
-import Hero from '../components/Hero';
+import Hero from '@/components/Hero';
 import InfoBoxes from '@/components/InfoBoxes';
 import HomeArtworks from '@/components/HomeArtworks';
 import Footer from '@/components/Footer';

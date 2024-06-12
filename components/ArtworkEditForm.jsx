@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { fetchArtwork } from '@/utils/requests';
 import { toast } from 'react-toastify';
-import ArtworkHeaderImage from './ArtworkHeaderImage';
+import ArtworkHeaderImage from '@/components/ArtworkHeaderImage';
 
 
 const ArtworkEditForm = () => {
