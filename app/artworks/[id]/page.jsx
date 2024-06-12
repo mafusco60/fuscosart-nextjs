@@ -11,7 +11,6 @@ import ArtworkContactForm from '@/components/ArtworkContactForm';
 import ShareButtons from '@/components/ShareButtons';
 import Spinner from '@/components/Spinner';
 import { FaArrowAltCircleLeft, FaArrowCircleLeft } from 'react-icons/fa';
-import ArtworkThumbnails from '@/components/ArtworkThumbnails';
 
 
 const ArtworkPage = () => {
