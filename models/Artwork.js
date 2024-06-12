@@ -18,23 +18,25 @@ const ArtworkSchema = new Schema(
     },
     description: {
       type: String,
+      default: '',
     },
     descriptive_words: 
     {
       type: String,
+      default: '',
     },
     original: {
         available: {
           type: Boolean,
-          default: false,
+          
         },
         substrate: {
           type: String,
-          default: '',
+         
         },
         dimensions: {
           type: String,
-          default: '',
+        
         },
         price: {
           type: Number,
@@ -46,11 +48,12 @@ const ArtworkSchema = new Schema(
     images: [
       {
         type: String,
+        default: '',
       },
     ],
     is_featured: {
       type: Boolean,
-      default: false,
+     
     },
   },
   {

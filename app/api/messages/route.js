@@ -61,12 +61,12 @@ export const POST = async (request) => {
     const { user } = sessionUser;
 
     // Can not send message to self
-    if (user.id === recipient) {
+    /* if (user.id === recipient) {
       return new Response(
         JSON.stringify({ message: 'Can not send a message to yourself' }),
         { status: 400 }
       );
-    }
+    } */
 
     const newMessage = new Message({
       sender: user.id,

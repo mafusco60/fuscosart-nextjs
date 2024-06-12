@@ -41,8 +41,11 @@ const ArtworkCard = ({ artwork }) => {
 					<div className='border border-gray-100 mb-5'></div>
 					<Link
 						href={`/artworks/${artwork._id}`}
-						className='h-[36px] bg-rose-950 hover:bg-rose-700 text-white px-4 py-2 rounded-lg text-center right text-sm'
-					>
+						className='h-[36px] bg-rose-950 hover:bg-rose-700 
+						text-white px-4 py-2 rounded-lg text-center 
+						right text-sm'
+						>
+					
 						Details
 					</Link>
 				</div>

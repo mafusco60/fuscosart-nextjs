@@ -34,12 +34,12 @@ const FeaturedArtworkCard = ({ artwork }) => {
         <div className="border border-gray-200 mb-5"></div> 
 
         <div className="flex flex-col lg:flex-row justify-between">
-          <div className="flex align-middle gap-2 mb-4 lg:mb-0">
+          {/* <div className="flex align-middle gap-2 mb-4 lg:mb-0">
             <i
             ></i>
-            <span className="text-blue-700"> 
-              {artwork.description} </span>
-          </div>
+            {<span className="text-blue-700"> 
+              {artwork.description} </span>}
+          </div> */}
           <Link
             href={`/artworks/${artwork._id}`}
             className="absolute bottom-[20px] right-[30px] 
@@ -52,8 +52,8 @@ const FeaturedArtworkCard = ({ artwork }) => {
       </div>
     </div>
   
+        )  }
+  
 
-  );
-};
 
 export default FeaturedArtworkCard

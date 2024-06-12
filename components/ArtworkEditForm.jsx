@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { fetchArtwork } from '@/utils/requests';
 import { toast } from 'react-toastify';
-import ArtworkHeaderImage from '@/components/ArtworkHeaderImage';
-
+import ArtworkImages from '@/components/ArtworkImages';
 
 const ArtworkEditForm = () => {
   
@@ -17,13 +16,13 @@ const ArtworkEditForm = () => {
         name: '',
         description: '',
         descriptive_words: '',
-        original: {
+       /*  original: {
           available: '',
           price: '',
           substrate: '',
           dimensions: '',
-        },
-        images: [],
+        }, */
+        
       }); 
       const [loading, setLoading] = useState(true);
 
@@ -112,13 +111,13 @@ const handleSubmit = async (e) => {
           
 
 <div className='rounded-xl shadow-lg bg-rose-100 relative p-10'> 
-  <ArtworkHeaderImage image={fields.images[0]} />
+  <ArtworkImages images={fields.images} />
 			
       </div>
              
       
               <label
-                htmlFor='artwork_type'
+                htmlFor='Image'
                 className='block text-gray-700 font-bold mb-2 mt-5' 
               >
                 Image can be updated at this link: LINK
@@ -222,7 +221,7 @@ const handleSubmit = async (e) => {
             </div>
 
 
-            <div className='mb-4'>
+            {/* <div className='mb-4'>
               <label
                 htmlFor='price_original'
                 className='block text-gray-700 font-bold mb-2'
@@ -239,9 +238,9 @@ const handleSubmit = async (e) => {
                 onChange={ handleChange }>
                 </textarea>
             </div>
+ */}
 
-
-            {<div className='mb-4'>
+           {/*  {<div className='mb-4'>
               <label
                 htmlFor='original_available'
                 className='block text-gray-700 font-bold mb-2'
@@ -262,10 +261,10 @@ const handleSubmit = async (e) => {
                 <option value='false'>False</option>
                 
               </select>
-            </div>}
+            </div>} */}
 
 
-            {<div className='mb-4'>
+            {/* {<div className='mb-4'>
               <label
                 htmlFor='substrate'
                 className='block text-gray-700 font-bold mb-2'
@@ -293,10 +292,10 @@ const handleSubmit = async (e) => {
                 <option value='other'>Other</option>
                 
               </select>
-            </div>}
+            </div>} */}
 
 
-          {<div className='mb-4'>
+         {/*  {<div className='mb-4'>
               <label
                 htmlFor='Dimensions'
                 className='block text-gray-700 font-bold mb-2'
@@ -333,7 +332,7 @@ const handleSubmit = async (e) => {
               </select>
             </div>}
 
-            
+             */}
            
 
           <div className='mb-4'>

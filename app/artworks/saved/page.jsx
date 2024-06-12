@@ -36,8 +36,6 @@ const SavedArtworksPage = () => {
         fetchSavedArtworks();
     }, []);
 
-    console.log(artworks);  
-
   return loading ? (<Spinner loading={loading}/>
   ) : (
     <section className='px-4 py-6'>
@@ -45,7 +43,7 @@ const SavedArtworksPage = () => {
                     <div className='bg-rose-50 py-20'>
                         <h1 className='text-4xl font-extrabold text-rose-900 sm:text-5xl md:text-6xl text-center'>Saved Artworks</h1>
                         {artworks.length === 0 ? (
-                        <p>No saved artworks</p>
+                        <p className='text-center'>No saved artworks</p>
                         ) : (
                        
                         
