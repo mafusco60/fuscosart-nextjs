@@ -6,13 +6,13 @@ const ArtworkCard = ({ artwork }) => {
 	const  isThereAnOriginal = () => {
 		const { original } = artwork;
 	
-		if (original.available === null || artwork.original.price === null) 
+		if (artwork.orig_avail === null || artwork.orig_price === null) 
 		{
 		  return `${'Original Not Available'}`;
 		}
-		else if (original.available === true && artwork.original.price !== null) 
+		else if (artwork.orig_avail === true && artwork.orig_price !== null) 
 		{
-			return `Original - $${artwork.original.price}`;
+			return `Original - $${artwork.orig_price}`;
 			
 		} 
 		else  
@@ -39,17 +39,31 @@ const ArtworkCard = ({ artwork }) => {
 					<div className='text-gray-600'>{artwork.type}</div>
 					<h3 className='text-xl font-bold'>{artwork.name}</h3>
 					<div className='border border-gray-100 mb-5'></div>
+					
+					<div className=''>
 					<Link
 						href={`/artworks/${artwork._id}`}
-						className='h-[36px] bg-rose-950 hover:bg-rose-700 
-						text-white px-4 py-2 rounded-lg text-center 
+						className='flex flex-col lg:flex-row 
+					justify-between h-[36px] bg-rose-950 hover:bg-rose-700 
+						text-white px-4 py-2 mb-4 rounded-lg text-center 
 						right text-sm'
 						>
 					
 						Details
 					</Link>
 				</div>
+				<Link
+						href={`/artworks/${artwork._id}/edit`}
+						className=' flex flex-col lg:flex-row 
+					justify-between h-[36px] bg-rose-700 hover:bg-rose-800 
+						text-white px-4 py-2 rounded-lg text-center 
+						right text-sm'
+						>
 				
+						Edit
+					</Link>
+				
+				</div>
 				<h3 className='absolute top-[10px] right-[10px] bg-white px-4 py-2 rounded-lg text-rose-950 font-bold text-right md:text-center lg:text-right'>
 					
 					{isThereAnOriginal()}
@@ -57,6 +71,10 @@ const ArtworkCard = ({ artwork }) => {
 				
 				
 			</div>
+
+
+
+			
 		</div>
 	);
 };

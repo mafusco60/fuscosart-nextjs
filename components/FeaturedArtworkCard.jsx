@@ -23,8 +23,8 @@ const FeaturedArtworkCard = ({ artwork }) => {
         <h3
           className="absolute bottom-[10px] left-[10px] bg-white px-4 py-2 rounded-lg 
           text-blue-700 font-bold text-right md:text-center lg:text-right"
-        > { artwork.original.available ? 
-          (`Original: $${artwork.original.price}` 
+        > { artwork.orig_avail ? 
+          (`Original: $${artwork.orig_price}` 
 
           ) : ( 
             'Prints Available')}

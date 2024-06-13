@@ -22,9 +22,9 @@ export const GET = async (request) => {
         { descriptive_words: keywordsPattern },
         { type: keywordsPattern },
         
-       /*  { 'original.substrate': keywordsPattern },
-        { 'original.dimensions': keywordsPattern },
-        { 'original.price': keywordsPattern }, */
+        { 'orig_subst': keywordsPattern },
+        { 'orig_dimen': keywordsPattern },
+        { 'orig_price': keywordsPattern },
       ],
     };
 

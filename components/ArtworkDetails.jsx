@@ -37,7 +37,7 @@ const ArtworkDetails = ({ artwork }) => {
                   </div>
                   <div className='bg-white p-6 rounded-lg shadow-md mt-6 text-center'>
                     <h1 className='text-lg font-bold'></h1>
-                    {!artwork.original.available ? (
+                    {!artwork.orig_avail ? (
                       <div className='flex items-center justify-center gap-4 text-rose-500 mb-4 text-xl'>
                         <FaTimes />
                         <p className='text-gray-500'> Original: Not Available</p>
@@ -48,9 +48,9 @@ const ArtworkDetails = ({ artwork }) => {
                         
                         <FaCheck /><p className='text-gray-500 font-bold' > Original: Available</p>
                          
-                        <p className='text-gray-500'>Price: ${artwork.original.price}</p>
-                        <p className='text-gray-500'>Size: {artwork.original.dimensions}</p>
-                        <p className='text-gray-500 pb-5'> Substrate: {artwork.original.substrate}</p>
+                        <p className='text-gray-500'>Price: ${artwork.orig_price}</p>
+                        <p className='text-gray-500'>Size: {artwork.orig_dimen}</p>
+                        <p className='text-gray-500 pb-5'> Substrate: {artwork.orig_subst}</p>
 
                       </div>
                     )}

@@ -8,12 +8,12 @@ const ArtworkAddForm = () => {
         name: '',
         description: '',
         descriptive_words: '',
-        original: {
-          available: false,
-          price: '0',
-          substrate: 'N/A',
-          dimensions: 'N/A',
-        },
+        
+        /* orig_avail: false,
+        orig_price: 0,
+        orig_subst: '',
+        orig_dimen: '', */
+     
         
         images: [],
       });
@@ -86,7 +86,7 @@ const ArtworkAddForm = () => {
                 Artwork Type
               </label>
               <select
-                type='string'
+                type='text'
                 id='type'
                 name='type'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -117,7 +117,7 @@ const ArtworkAddForm = () => {
                 Listing Name
               </label>
               <input
-                type='string'
+                type='text'
                 id='name'
                 name='name'
                 className='border rounded w-full py-2 px-3 mb-2 focus:outline-rose-900 focus:shadow-outline'
@@ -136,7 +136,7 @@ const ArtworkAddForm = () => {
                 Description
               </label>
               <textarea
-                type='string'
+                type='text'
                 id='description'
                 name='description'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -156,7 +156,7 @@ const ArtworkAddForm = () => {
                 Descriptive Words
               </label>
               <textarea
-                type='string'
+                type='text'
                 id='descriptive_words'
                 name='descriptive_words'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
@@ -179,10 +179,10 @@ const ArtworkAddForm = () => {
               <select
               type='boolean'
                 id='original_available'
-                name='original.available'
+                name='orig_avail'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 required
-                value={ fields.available }
+                value={ fields.orig_avail }
                 onChange={ handleChange }
 
               >
@@ -201,13 +201,13 @@ const ArtworkAddForm = () => {
               </label>            
               <input
                 type='number'
-                id='price_original'
-                name='original.price'
+                id='original_price'
+                name='orig_price'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 placeholder='Price for Original'
                 defaultValue={0}
                 
-                value={ fields.price }
+                value={ fields.orig_price }
                 onChange={ handleChange }
               /> 
             </div>}
@@ -220,11 +220,11 @@ const ArtworkAddForm = () => {
                 Original Substrate
               </label>
               <select
-                type='string'
+                type='text'
                 id='substrate'
-                name='original.substrate'
+                name='orig_subst'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                value={ fields.substrate }
+                value={ fields.orig_subst }
                 
                 onChange={ handleChange }
 
@@ -253,10 +253,10 @@ const ArtworkAddForm = () => {
               <select
                 type='string'
                 id='dimensions'
-                name='original.dimensions'
+                name='orig_dimen'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 defaultValue={'N/A'}
-                value={ fields.dimensions }
+                value={ fields.orig_dimen }
                 onChange={ handleChange }
 
               >

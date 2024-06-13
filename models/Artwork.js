@@ -25,40 +25,38 @@ const ArtworkSchema = new Schema(
       type: String,
       default: '',
     },
-    original: {
-        available: {
-          type: Boolean,
-          
-        },
-        substrate: {
-          type: String,
-         
-        },
-        dimensions: {
-          type: String,
-        
-        },
-        price: {
-          type: Number,
-          default: 0,
-        },
-      },
-    
 
-    images: [
-      {
-        type: String,
-        default: '',
-      },
-    ],
-    is_featured: {
-      type: Boolean,
-     
-    },
+orig_avail: {
+  type: Boolean,
+  default: false,         
+},
+orig_subst: {
+  type: String,
+  default: ''         
+},
+orig_dimen: {
+  type: String,
+  default: ''
+},
+orig_price: {
+  type: Number,
+  default: 0,
+}, 
+  
+images: [
+  {
+    type: String,
+    default: '',
+  },
+],
+is_featured: {
+  type: Boolean,
+  default: false,
+},
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Artwork = models.Artwork || model('Artwork', ArtworkSchema);
