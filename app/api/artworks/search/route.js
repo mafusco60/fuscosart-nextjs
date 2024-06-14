@@ -20,11 +20,6 @@ export const GET = async (request) => {
         { name: keywordsPattern },
         { description: keywordsPattern },
         { descriptive_words: keywordsPattern },
-        { type: keywordsPattern },
-        
-       /*  { 'orig_subst': keywordsPattern },
-        { 'orig_dimen': keywordsPattern },
-        { 'orig_price': keywordsPattern }, */
       ],
     };
 
