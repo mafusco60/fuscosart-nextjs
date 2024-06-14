@@ -7,9 +7,9 @@ const HomeArtworks = async () => {
 	const data = await fetchArtworks();
 
 	const recentArtworks = data.artworks
-		.sort(() => Math.random() - Math.random())
+/* 		.sort(() => Math.random() - Math.random())
 		.slice(0, 3);
-
+ */
 	return (
 		<>
 			<section className='px-4 py-6'>
