@@ -34,8 +34,7 @@ const ArtworkEditForm = () => {
             try {
                 const artworkData = await fetchArtwork(id);
 
-                setFields(artworkData);
-                
+    setFields(artworkData);              
 
             } catch (error) {
               console.error(error);  
@@ -51,25 +50,12 @@ const ArtworkEditForm = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // Check if nested field
-    if (name.includes('.')) {
-        const [outerKey, innerKey] = name.split('.');
-    
-        setFields((prevFields) => ({
-          ...prevFields,
-          [outerKey]: {
-            ...prevFields[outerKey],
-            [innerKey]: value,
-          },
-        }));
-      } else {
-        // Not nested, update directly
         setFields((prevFields) => ({
           ...prevFields,
           [name]: value,
-        }));
-      }
-    };
+      
+      }))};
+    
 
   
 const handleSubmit = async (e) => {
@@ -129,7 +115,7 @@ const handleSubmit = async (e) => {
 
           <div className='mb-4'>
               <label
-                htmlFor='orig_subst'
+                htmlFor='type'
                 className='block text-gray-700 font-bold mb-2 mt-8' 
               >
                 Type
@@ -137,24 +123,23 @@ const handleSubmit = async (e) => {
               </label>
               <select
                 id='type'
-                name='type'
+                name='type' defaultValue={fields.type}
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 required
-                value={ fields.type }
-                onChange={ handleChange }
+/*                 value={ fields.type } 
+ */                onChange={ handleChange }
 
               >
                 <option value='N/A'>N/A</option>
                 <option value='Graphite'>Graphite</option>
-                <option value='Colored Pencil Drawing'>Colored Pencil</option>
-                <option value='Charcoal Drawing'>Charcoal Drawing</option>
+                <option value='Colored Pencil'>Colored Pencil</option>
+                <option value='Charcoal'>Charcoal</option>
+                <option value='Alcohol Markers'>Alcohol Markers</option>
+                <option value='Oil Paint'>Oil Paint</option>
                 <option value='Oil Pastels'>Oil Pastels</option>
                 <option value='Pastels'>Pastels</option>
-                <option value='Alcohol Markers'>Alcohol Markers</option>
-                <option value='Oil Painting'>Oil Painting</option>
-                <option value='Pastels'>Pastels</option>
-                <option value='Acrylic Painting'>Acrylic Painting</option>
-                <option value='Watercolor Painting'>Watercolor</option>
+                <option value='Acrylic'>Acrylic</option>
+                <option value='Watercolor'>Watercolor</option>
                 <option value='Mixed Media'>Mixed Media</option>
                 <option value='Digital Art'>Digital Art</option>
                 <option value='Other'>Other</option>
@@ -222,24 +207,7 @@ const handleSubmit = async (e) => {
             </div>
 
 
-            <div className='mb-4'>
-              <label
-                htmlFor='price_original'
-                className='block text-gray-700 font-bold mb-2'
-              >
-                Price for Original Artwork
-              </label>
-              <textarea
-                type='number'
-                id='price_original'
-                name='orig_price'
-                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                placeholder='Original Price'
-                value={ fields.orig_price }
-                onChange={ handleChange }>
-                </textarea>
-            </div>
-
+            
 
            <div className='mb-4'>
               <label
@@ -248,14 +216,14 @@ const handleSubmit = async (e) => {
               >
                 Original Available
               </label>
-              <select
-              type='type'
+              <select defaultValue={fields.orig_avail}
+                type='type'
                 id='original_available'
                 name='orig_avail'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
                 required
-                value={ fields.orig_avail }
-                onChange={ handleChange }
+/*                 value={ fields.orig_avail }
+ */                onChange={ handleChange }
 
               >
                 <option value='true'>True</option>
@@ -263,6 +231,25 @@ const handleSubmit = async (e) => {
                 
               </select>
             </div>
+
+            <div className='mb-4'>
+              <label
+                htmlFor='price_original'
+                className='block text-gray-700 font-bold mb-2'
+              >
+                Price for Original Artwork
+              </label>
+              <input
+                type='number'
+                id='price_original'
+                name='orig_price'
+                className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
+                placeholder='Original Price'
+                value={ fields.orig_price }
+                onChange={ handleChange }>
+                </input>
+            </div>
+
 
 
             {<div className='mb-4'>
@@ -272,15 +259,15 @@ const handleSubmit = async (e) => {
               >
                 Original Substrate
               </label>
-              <select
+              <select defaultValue={fields.orig_subst}
                 type='type'
                 id='substrate'
                 name='orig_subst'
                 required
                 className='border rounded w-full py-2 px-3 
                 focus:outline-rose-900 focus:shadow-outline'
-                value={ fields.orig_subst }
-                
+/*                 value={ fields.orig_subst }
+ */                
                 onChange={ handleChange }
 
               >
@@ -293,84 +280,53 @@ const handleSubmit = async (e) => {
                 <option value='glass'>Glass</option>
                 <option value='acrylic'>Acrylic</option>
                 <option value='other'>Other</option>
-                
+
               </select>
             </div>}
 
-            <div className='mb-4'>
-              <label className='block text-gray-700 font-bold mb-2'>
-                Dimensions
-              </label>
-              <textarea
-                type='text'
-                id='dimensions'
-                name='orig_dimen'
-                default='N/A'
-                required
-                className='border rounded w-full py-2 px-3 mb-2
-               focus:outline-rose-900 focus:shadow-outline'
-                placeholder='eg. 5x7 inches'
-                value={ fields.orig_dimen }
-                onChange={ handleChange }
-              ></textarea>
-            </div>
-
-            {/* <div className='mb-4'>
+            {<div className='mb-4'>
               <label
-                htmlFor='orig_dimen'
+                htmlFor='Dimensions'
                 className='block text-gray-700 font-bold mb-2'
               >
                 Dimensions
               </label> 
-              <textarea
+              <select defaultValue={fields.orig_dimen}
                 type='text'
-                id='orig_dimen'
+                id='dimensions'
                 name='orig_dimen'
-                required
-                className='border rounded w-full py-2 px-3 
-                focus:outline-rose-900 focus:shadow-outline'
-                value={ fields.orig_dimen }
-                onChange={ handleChange }
-
-              >
-                
-              </textarea>
-            </div>    */}
-
-{/* <div className='mb-4'>
-              <label
-                htmlFor='artwork_type'
-                className='block text-gray-700 font-bold mb-2 mt-8' 
-              >
-                Artwork Type
-                
-              </label>
-              <select
-                id='type'
-                name='orig_subst'
                 className='border rounded w-full py-2 px-3 focus:outline-rose-900 focus:shadow-outline'
-                required
-                value={ fields.orig_subst }
-                onChange={ handleChange }
+/*                 value={ fields.orig_dimen }
+ */                onChange={ handleChange }
 
               >
                 <option value='N/A'>N/A</option>
-                <option value='Graphite Drawing'>Graphite Drawing</option>
-                <option value='Colored Pencil Drawing'>Colored Pencil</option>
-                <option value='Charcoal Drawing'>Charcoal Drawing</option>
-                <option value='Oil Pastels'>Oil Pastels</option>
-                <option value='Pastels'>Pastels</option>
-                <option value='Alcohol Markers'>Alcohol Markers</option>
-                <option value='Oil Painting'>Oil Painting</option>
-                <option value='Pastels'>Pastels</option>
-                <option value='Acrylic Painting'>Acrylic Painting</option>
-                <option value='Watercolor Painting'>Watercolor</option>
-                <option value='Mixed Media'>Mixed Media</option>
-                <option value='Digital Art'>Digital Art</option>
+                <option value='4"x6"'>4"x6"</option>
+                <option value='5"x7"'>5"x7"</option>
+                <option value='8"x10"'>8"x10"</option>
+                <option value='8"x12"'>8"x12"</option>
+                <option value='9"x12"'>9"x12"</option>
+                <option value='11"x14"'>11"x14"</option>
+                <option value='12"x16"'>12"x16"</option>
+                <option value='16"x20"'>16"x20"</option>
+                <option value='18"x24"'>18"x24"</option>
+                <option value='24"x36"'>24"x36"</option>
+                <option value='30"x40"'>30"x40"</option>
+                <option value='36"x48"'>36"x48"</option>
+                <option value='48"x60"'>48"x60"</option>
+                <option value='48"x72"'>48"x72"</option>
+                <option value='60"x72"'>60"x72"</option>
                 <option value='Other'>Other</option>
               </select>
-            </div>
-            */}
+            </div>}
+
+            
+            
+           
+
+           
+
+
 
           <div className='mb-4'>
            

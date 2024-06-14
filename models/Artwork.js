@@ -19,34 +19,41 @@ const ArtworkSchema = new Schema(
     description: {
       type: String,
       default: '',
+      required: true,
     },
     descriptive_words: 
     {
       type: String,
       default: '',
+      required: true,
+
     },
 
-orig_avail: {
-  type: Boolean,
-  default: false,         
-},
-orig_subst: {
-  type: String,
-  default: ''         
-},
-orig_dimen: {
-  type: String,
-  default: ''
-},
-orig_price: {
-  type: Number,
-  default: 0,
-}, 
+    orig_avail: {
+      type: Boolean,
+      required: true,
+
+    },
+    orig_subst: {
+      type: String, 
+      required: true,
+       
+    },
+    orig_dimen: {
+      type: String, 
+      required: true,
+
+    },
+    orig_price: {
+    type: Number,
+    default: 0,
+    }, 
   
 images: [
   {
     type: String,
     default: '',
+    
   },
 ],
 is_featured: {

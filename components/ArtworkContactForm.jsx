@@ -66,10 +66,9 @@ const ArtworkContactForm = ({ artwork }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-    <h3 className="text-xl font-bold mt-5 text-center">
-      Contact the Artist,</h3>
-       <h3 className="text-xl font-bold  text-center">Mary Anne Fusco, </h3>
-       <h3 className="text-xl font-bold mb-6 text-center">about this artwork</h3>
+    
+       <h3 className="text-xl font-bold  text-rose-700 mt-6 text-center">Contact Mary Anne Fusco </h3>
+       <h3 className="text-xl font-bold text-rose-700 mb-6 text-center">about this artwork</h3>
       <p className="text-gray-500 mb-4 text-center">
        Negotiable Digital Licensing is Available.
     </p>
@@ -150,6 +149,9 @@ const ArtworkContactForm = ({ artwork }) => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
+<p className='text-center'>If you'd like something similar to this artwork, please let me know.</p> 
+<p className='text-center'>I'd be happy to create a custom piece for you.</p>
+
           </div>
           <div>
             <button

@@ -55,15 +55,18 @@ const Searchbar = () => {
                 value={artworkType}
                 onChange={(e) => setArtworkType(e.target.value)} >
         
-                <option value='All'>All</option>
-                <option value='Acrylic'>Acrylic</option>
-                <option value='Oil Painting'>Oil</option>
-                <option value='Digital'>Digital</option>
-                <option value='Graphite Pencil'>Graphite Pencil</option>
+        <option value='All'>All</option>
+                <option value='Graphite'>Graphite</option>
                 <option value='Colored Pencil'>Colored Pencil</option>
-                <option value='Pastel Painting'>Pastel</option>
-                <option value='Mixed Media'>Mixed Media</option>
+                <option value='Charcoal'>Charcoal</option>
+                <option value='Alcohol Markers'>Alcohol Markers</option>
+                <option value='Oil Paint'>Oil Paint</option>
+                <option value='Oil Pastels'>Oil Pastels</option>
+                <option value='Pastels'>Pastels</option>
+                <option value='Acrylic'>Acrylic</option>
                 <option value='Watercolor'>Watercolor</option>
+                <option value='Mixed Media'>Mixed Media</option>
+                <option value='Digital Art'>Digital Art</option>
                 <option value='Other'>Other</option>
             </select>
     </div>

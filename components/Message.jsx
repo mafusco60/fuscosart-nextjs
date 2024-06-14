@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Spinner from '@/components/Spinner';
 import { toast } from 'react-toastify';
 import { useGlobalContext } from '@/context/GlobalContext';
+import Link from 'next/link';
 
 const Message = ({ message }) => {
     const [isRead, setIsRead] = useState(message.read);
@@ -10,6 +11,9 @@ const Message = ({ message }) => {
 
     const { setUnreadCount } = useGlobalContext();
 
+
+
+    
     const handleReadClick = async () => {
         try {
             const res = await fetch(`/api/messages/${message._id}`, {
@@ -78,11 +82,20 @@ const Message = ({ message }) => {
         text-white px-2 py-1 rounded-md'>New</div>
     )}
     
-    <h2 className="text-xl mb-4">
+    <h2 className="text-xl mb-2">
       <span className="font-bold">Artwork Inquiry:</span>{' '}
      {message.artwork.name}
     </h2>
-   { <p> { message.body } 
+    
+    <Link 
+    href={`/artworks/${message.artwork._id}`} className='
+    text-blue-500 mb-8' >
+						
+							{message.artwork._id}
+          </Link>
+
+
+   { <p className='mt-4'> { message.body } 
     </p>}
 
     <ul className="mt-4">
@@ -105,6 +118,8 @@ const Message = ({ message }) => {
       <li><strong>Received: </strong>
       {new Date (message.createdAt).toLocaleString()}</li>
     </ul>
+
+   
 
     <button onClick={handleReadClick}
       className={`mt-4 mr-3 ${isRead ? 'bg-gray-300' 
