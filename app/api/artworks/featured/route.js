@@ -1,5 +1,7 @@
-import connectDB from '@/config/database';
-import Artwork from '@/models/Artwork';
+import connectDB from "@/config/database";
+import Artwork from "@/models/Artwork";
+
+export const dynamic = "force-dynamic";
 
 // GET /api/artworks/featured
 export const GET = async () => {
@@ -15,6 +17,6 @@ export const GET = async () => {
     });
   } catch (error) {
     console.log(error);
-    return new Response('Something Went Wrong', { status: 500 });
+    return new Response("Something Went Wrong", { status: 500 });
   }
 };

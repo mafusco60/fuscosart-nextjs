@@ -1,17 +1,17 @@
-import connectDB from '@/config/database';
-import Artwork from '@/models/Artwork';
-import { getSessionUser } from '@/utils/getSessionUser';
-import cloudinary from '@/config/cloudinary';
+import connectDB from "@/config/database";
+import Artwork from "@/models/Artwork";
+import { getSessionUser } from "@/utils/getSessionUser";
+import cloudinary from "@/config/cloudinary";
 
- 
+export const dynamic = "force-dynamic";
 
 // GET /api/artworks
 export const GET = async (request) => {
   try {
     await connectDB();
-    const page = request.nextUrl.searchParams.get('page') || 1;
-    const pageSize = request.nextUrl.searchParams.get('pageSize') || 6;
-    
+    const page = request.nextUrl.searchParams.get("page") || 1;
+    const pageSize = request.nextUrl.searchParams.get("pageSize") || 6;
+
     const skip = (page - 1) * pageSize;
 
     const total = await Artwork.countDocuments({});
@@ -20,88 +20,88 @@ export const GET = async (request) => {
 
     const result = {
       total,
-      artworks
-    }
-
+      artworks,
+    };
 
     return new Response(JSON.stringify(result), {
       status: 200,
     });
   } catch (error) {
-    return new Response('Something went wrong', { status: 500 });
+    return new Response("Something went wrong", { status: 500 });
   }
 };
-
 
 export const POST = async (request) => {
   try {
     await connectDB();
-   
+
     const sessionUser = await getSessionUser();
     const { userId } = sessionUser;
     if (!sessionUser || !sessionUser.userId) {
-      return new Response('User ID is required', { status: 401 });
+      return new Response("User ID is required", { status: 401 });
     }
-    
 
     const formData = await request.formData();
 
-//Access all values from  images
+    //Access all values from  images
     const images = formData
-    .getAll('images')
-    .filter((image) => image.name !== '');
+      .getAll("images")
+      .filter((image) => image.name !== "");
 
     //Create artworkData object for database
 
     const artworkData = {
       admin: userId,
-      type: formData.get('type'),    
-      name: formData.get('name'),
-      description: formData.get('description'),
-      
-        orig_avail: formData.get('orig_avail'),
-        orig_price: formData.get('orig_price'), 
-        orig_subst: formData.get('orig_subst'),
-        orig_dimen: formData.get('orig_dimen'),
-       
-      descriptive_words: formData.get('descriptive_words'),
-     }
-// Upload images to Cloudinary
-const imageUploadPromises = [];
+      type: formData.get("type"),
+      name: formData.get("name"),
+      description: formData.get("description"),
 
-for (const image of images) {
-  const imageBuffer = await image.arrayBuffer();
-  const imageArray = new Uint8Array(imageBuffer);
-  const imageData = Buffer.from(imageArray);
+      orig_avail: formData.get("orig_avail"),
+      orig_price: formData.get("orig_price"),
+      orig_subst: formData.get("orig_subst"),
+      orig_dimen: formData.get("orig_dimen"),
 
-  // Convert the image data to base64
-  const imageBase64 = imageData.toString('base64');
+      descriptive_words: formData.get("descriptive_words"),
+    };
+    // Upload images to Cloudinary
+    const imageUploadPromises = [];
 
-  // Make request to upload to cloudinary
-  const result = await cloudinary.uploader.upload(
-    `data:image/jpg;base64,${imageBase64}`, {
-      folder: 'fuscosart',
-    });
+    for (const image of images) {
+      const imageBuffer = await image.arrayBuffer();
+      const imageArray = new Uint8Array(imageBuffer);
+      const imageData = Buffer.from(imageArray);
 
-    imageUploadPromises.push(result.secure_url);
+      // Convert the image data to base64
+      const imageBase64 = imageData.toString("base64");
 
-    // Wait for all images to upload
-    const uploadedImages = await Promise.all(imageUploadPromises);
+      // Make request to upload to cloudinary
+      const result = await cloudinary.uploader.upload(
+        `data:image/jpg;base64,${imageBase64}`,
+        {
+          folder: "fuscosart",
+        }
+      );
 
-    //Add uploaded images to artworkData
-    artworkData.images = uploadedImages;
-}
+      imageUploadPromises.push(result.secure_url);
 
-     
+      // Wait for all images to upload
+      const uploadedImages = await Promise.all(imageUploadPromises);
+
+      //Add uploaded images to artworkData
+      artworkData.images = uploadedImages;
+    }
+
     const newArtwork = new Artwork(artworkData);
     await newArtwork.save();
 
-    return Response.redirect(`${process.env.NEXTAUTH_URL}/artworks/${newArtwork._id}`); 
+    return Response.redirect(
+      `${process.env.NEXTAUTH_URL}/artworks/${newArtwork._id}`
+    );
 
     //return new Response(JSON.stringify({ message: 'Success' }), {
     //  status: 201,
     //});
   } catch (error) {
-    return new Response('Failed to add artwork', { status: 500 });
+    return new Response("Failed to add artwork", { status: 500 });
   }
 };

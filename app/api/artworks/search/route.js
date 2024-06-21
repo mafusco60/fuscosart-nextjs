@@ -1,7 +1,7 @@
+import connectDB from "@/config/database";
+import Artwork from "@/models/Artwork";
 
-import connectDB from '@/config/database';
-import Artwork from '@/models/Artwork';
-
+export const dynamic = "force-dynamic";
 
 // GET /api/artworks/search
 export const GET = async (request) => {
@@ -9,10 +9,10 @@ export const GET = async (request) => {
     await connectDB();
 
     const { searchParams } = new URL(request.url);
-    const keywords = searchParams.get('keywords');
-    const artworkType = searchParams.get('artworkType');
+    const keywords = searchParams.get("keywords");
+    const artworkType = searchParams.get("artworkType");
 
-    const keywordsPattern = new RegExp(keywords, 'i');
+    const keywordsPattern = new RegExp(keywords, "i");
 
     // Match keywords pattern against database fields
     let query = {
@@ -24,8 +24,8 @@ export const GET = async (request) => {
     };
 
     // Only check for artwork if its not 'All'
-    if (artworkType && artworkType !== 'All') {
-      const typePattern = new RegExp(artworkType, 'i');
+    if (artworkType && artworkType !== "All") {
+      const typePattern = new RegExp(artworkType, "i");
       query.type = typePattern;
     }
 
@@ -36,8 +36,6 @@ export const GET = async (request) => {
     });
   } catch (error) {
     console.log(error);
-    return new Response('Something went wrong', { status: 500 });
+    return new Response("Something went wrong", { status: 500 });
   }
 };
-
-
