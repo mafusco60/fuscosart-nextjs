@@ -2,7 +2,7 @@ import connectDB from '@/config/database';
 import Artwork from '@/models/Artwork';
 
 // GET /api/artworks/featured
-export const GET = async (request) => {
+export const GET = async () => {
   try {
     await connectDB();
 

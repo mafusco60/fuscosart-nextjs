@@ -1,16 +1,15 @@
-import ArtworkEditForm from "@/components/ArtworkEditForm"
+import ArtworkEditForm from "@/components/ArtworkEditForm";
 
+const ArtworkEditPage = () => {
+  return (
+    <section className="bg-cyan-50">
+      <div className="container m-auto max-w-2xl py-24">
+        <div className="bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0">
+          <ArtworkEditForm />
+        </div>
+      </div>
+    </section>
+  );
+};
 
-const ArtworkEditPage= () => {
-    return (
-        <section className='bg-rose-50'>
-          <div className='container m-auto max-w-2xl py-24'>
-            <div className='bg-white px-6 py-8 mb-4 shadow-md rounded-md border m-4 md:m-0'>
-              <ArtworkEditForm />
-            </div>
-          </div>
-        </section>
-      );
-}
-
-export default ArtworkEditPage
+export default ArtworkEditPage;
