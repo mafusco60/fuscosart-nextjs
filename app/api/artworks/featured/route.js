@@ -4,7 +4,7 @@ import Artwork from "@/models/Artwork";
 export const dynamic = "force-dynamic";
 
 // GET /api/artworks/featured
-export const GET = async () => {
+export const GET = async (request) => {
   try {
     await connectDB();
 

@@ -13,7 +13,6 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-
       <FeaturedArtworks />
       <InfoBoxes />
       <HomeArtworks />

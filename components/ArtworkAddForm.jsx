@@ -8,11 +8,11 @@ const ArtworkAddForm = () => {
     name: "",
     description: "",
     descriptive_words: "",
-
-    /* orig_avail: false,
-        orig_price: 0,
-        orig_subst: '',
-        orig_dimen: '', */
+    is_lands: true,
+    orig_avail: true,
+    orig_price: 0,
+    orig_subst: "",
+    orig_dimen: "",
 
     images: [],
   });
@@ -66,6 +66,8 @@ const ArtworkAddForm = () => {
         <h2 className="text-3xl text-center font-semibold mb-6 text-cyan-950">
           Add Artwork
         </h2>
+        {}
+
         {
           <div className="mb-4">
             <label
@@ -161,6 +163,26 @@ const ArtworkAddForm = () => {
           </div>
         }
 
+        <div className="mb-4">
+          <label
+            htmlFor="is_lands"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Is it a Landscape
+          </label>
+          <select
+            type="boolean"
+            id="is_lands"
+            name="is_lands"
+            className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
+            required
+            value={fields.is_lands}
+            onChange={handleChange}
+          >
+            <option value="false">False</option>
+            <option value="true">True</option>
+          </select>
+        </div>
         {
           <div className="mb-4">
             <label

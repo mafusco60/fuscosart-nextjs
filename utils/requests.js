@@ -9,12 +9,12 @@ async function fetchArtworks({ showFeatured = false } = {}) {
     }
 
     const res = await fetch(
-      `${apiDomain}/artworks${showFeatured ? '/featured' : ''}`,
-      { cache: 'no-store' }
+      `${apiDomain}/artworks${showFeatured ? "/featured" : ""}`,
+      { cache: "no-store" }
     );
 
     if (!res.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error("Failed to fetch data");
     }
 
     return res.json();
@@ -33,9 +33,11 @@ async function fetchArtwork(id) {
     }
 
     const res = await fetch(`${apiDomain}/artworks/${id}`);
+
     if (!res.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error("Failed to fetch data");
     }
+
     return res.json();
   } catch (error) {
     console.log(error);

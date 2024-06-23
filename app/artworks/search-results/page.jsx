@@ -41,7 +41,7 @@ const SearchResultsPage = () => {
 
   return (
     <>
-      <section className="bg-cyan-700 py-4">
+      <section className="bg-cyan-100 py-4">
         <div className="max-w-7xl mx-auto px-4 flex flex-col items-start sm:px-6 lg:px-8">
           <Searchbar />
         </div>

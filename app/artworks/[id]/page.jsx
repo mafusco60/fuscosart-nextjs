@@ -71,13 +71,11 @@ const ArtworkPage = () => {
               w-full gap-6"
               >
                 <ArtworkDetails artwork={artwork} />
-
                 <aside className="space-y-4">
                   <BookmarkButton artwork={artwork} />
                   <ShareButtons artwork={artwork} />
                   <ArtworkContactForm artwork={artwork} />
                 </aside>
-
                 <ArtworkImages images={artwork.images} />
               </div>
             </div>

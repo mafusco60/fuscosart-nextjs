@@ -89,7 +89,7 @@ export const PUT = async (request, { params }) => {
       type: formData.get("type"),
       name: formData.get("name"),
       description: formData.get("description"),
-
+      is_lands: formData.get("is_lands"),
       orig_avail: formData.get("orig_avail"),
       orig_price: formData.get("orig_price"),
       orig_subst: formData.get("orig_subst"),

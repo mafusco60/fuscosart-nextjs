@@ -112,6 +112,7 @@ const ProfilePage = () => {
                     <div className="mt-2">
                       <p className="text-lg font-semibold">{artwork.name}</p>
                       <p className="text-sm text-gray-500">{artwork.type}</p>
+                      <p className="text-sm text-gray-500">{artwork._id}</p>
                     </div>
                     <div className="mt-2">
                       <Link

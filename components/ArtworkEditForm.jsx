@@ -15,11 +15,11 @@ const ArtworkEditForm = () => {
     name: "",
     description: "",
     descriptive_words: "",
-
-    orig_avail: false,
+    is_lands: false,
+    /*orig_avail: false,
     orig_price: 0,
     orig_subst: "",
-    orig_dimen: "",
+    orig_dimen: "", */
   });
   const [loading, setLoading] = useState(true);
 
@@ -95,6 +95,7 @@ const ArtworkEditForm = () => {
         >
           Image can be updated at this link: LINK
         </label>
+        {}
 
         <div className="mb-4">
           <label
@@ -185,6 +186,47 @@ const ArtworkEditForm = () => {
           ></textarea>
         </div>
 
+        <div className="mb-4">
+          <label
+            htmlFor="is_landscape"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Is it a Landscape?
+          </label>
+          <select
+            defaultValue={fields.is_lands}
+            type="type"
+            id="is_landscape"
+            name="is_lands"
+            className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
+            required
+            // value={fields.is_lands}
+            onChange={handleChange}
+          >
+            <option value="false">False</option>
+            <option value="true">True</option>
+          </select>
+        </div>
+
+        {/* <div className="mb-4">
+          <label
+            htmlFor="is_landscape"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Is it a Landscape?
+          </label>
+          <input
+            defaultValue={fields.is_lands}
+            type="boolean"
+            id="is_landscape"
+            name="is_lands"
+            className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
+            required
+            value={fields.is_lands}
+            onChange={handleChange}
+          ></input>
+        </div>
+ */}
         <div className="mb-4">
           <label
             htmlFor="original_available"
