@@ -10,7 +10,7 @@ import {
   FaMapMarker,
 } from "react-icons/fa";
 import { fetchArtwork } from "@/utils/requests";
-import ArtworkHeaderImage from "@/components/ArtworkHeaderImage";
+// import ArtworkHeaderImage from "@/components/ArtworkHeaderImage";
 import Spinner from "@/components/Spinner";
 
 const ArtworkDetails = ({ artwork }) => {

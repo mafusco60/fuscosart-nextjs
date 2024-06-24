@@ -25,7 +25,7 @@ const ArtworkCard = ({ artwork }) => {
             width="0"
             height="0"
             sizes="100vw"
-            className="  w-full h-full rounded-t-xl"
+            className="  w-full h-auto rounded-t-xl"
           />
         </div>
 

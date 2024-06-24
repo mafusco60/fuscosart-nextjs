@@ -49,7 +49,10 @@ const ArtworkPage = () => {
       {loading && <Spinner loading={loading} />}
       {!loading && artwork && (
         <>
-          <ArtworkHeaderImage image={artwork.images[0]} />
+          <ArtworkHeaderImage
+            image={artwork.images[0]}
+            orientation={artwork.is_lands}
+          />
 
           <section>
             <div className="container m-auto py-6 px-6">
