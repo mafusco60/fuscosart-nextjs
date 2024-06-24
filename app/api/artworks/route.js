@@ -3,7 +3,7 @@ import Artwork from "@/models/Artwork";
 import { getSessionUser } from "@/utils/getSessionUser";
 import cloudinary from "@/config/cloudinary";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 // GET /api/artworks
 export const GET = async (request) => {

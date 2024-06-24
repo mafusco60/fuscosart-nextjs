@@ -1,7 +1,7 @@
 import connectDB from "@/config/database";
 import Artwork from "@/models/Artwork";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 // GET /api/artworks/featured
 export const GET = async (request) => {
