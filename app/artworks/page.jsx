@@ -1,5 +1,6 @@
 import Searchbar from "@/components/Searchbar";
 import Artworks from "@/components/Artworks";
+export const dynamic = "force-dynamic";
 
 const ArtworksPage = async () => {
   return (

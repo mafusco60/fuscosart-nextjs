@@ -1,5 +1,5 @@
 import ArtworkAddForm from "@/components/ArtworkAddForm";
-
+export const dynamic = "force-dynamic";
 const AddArtworkPage = () => {
   return (
     <section className="bg-cyan-50">

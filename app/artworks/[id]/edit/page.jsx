@@ -1,4 +1,5 @@
 import ArtworkEditForm from "@/components/ArtworkEditForm";
+export const dynamic = "force-dynamic";
 
 const ArtworkEditPage = () => {
   return (

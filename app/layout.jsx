@@ -14,6 +14,7 @@ export const fetchCache = "auto";
 export const runtime = "nodejs";
 export const preferredRegion = "auto";
 export const maxDuration = 5;
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Fusco's Art Gallery",

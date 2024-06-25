@@ -1,8 +1,6 @@
-
+export const dynamic = "force-dynamic";
 const OptionsPage = () => {
-  return (
-    <div>OptionsPage</div>
-  )
-}
+  return <div>OptionsPage</div>;
+};
 
-export default OptionsPage
+export default OptionsPage;

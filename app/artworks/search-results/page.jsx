@@ -6,7 +6,7 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import ArtworkCard from "@/components/ArtworkCard";
 import Searchbar from "@/components/Searchbar";
 import Spinner from "@/components/Spinner";
-
+export const dynamic = "force-dynamic";
 const SearchResultsPage = () => {
   const searchParams = useSearchParams();
 

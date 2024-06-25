@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import Spinner from "@/components/Spinner";
 import ArtworkCard from "@/components/ArtworkCard";
+export const dynamic = "force-dynamic";
 
 const SavedArtworksPage = () => {
   const [artworks, setArtworks] = useState([]);

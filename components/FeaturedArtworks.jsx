@@ -1,5 +1,5 @@
 import { fetchArtworks } from "@/utils/requests";
-import FeaturedArtworkCard from "@/components/FeaturedArtworkCard";
+import FeaturedArtworkCard from "./FeaturedArtworkCard";
 
 const FeaturedArtworks = async () => {
   const artworks = await fetchArtworks({ showFeatured: true });

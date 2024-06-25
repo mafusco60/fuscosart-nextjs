@@ -7,6 +7,7 @@ import profileDefault from "@/assets/images/profile.png";
 import Spinner from "@/components/Spinner";
 import { toast } from "react-toastify";
 import ArtworkImages from "@/components/ArtworkImages";
+export const dynamic = "force-dynamic";
 
 const ProfilePage = () => {
   const { data: session } = useSession();

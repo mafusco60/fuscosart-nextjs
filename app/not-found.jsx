@@ -1,6 +1,6 @@
 import { FaExclamationTriangle } from "react-icons/fa";
 import Link from "next/link";
-
+export const dynamic = "force-dynamic";
 const NotFoundPage = () => {
   return (
     <section className="bg-cyan-50 min-h-screen flex-grow">

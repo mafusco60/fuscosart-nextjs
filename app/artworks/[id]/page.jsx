@@ -11,6 +11,7 @@ import ArtworkContactForm from "@/components/ArtworkContactForm";
 import ShareButtons from "@/components/ShareButtons";
 import Spinner from "@/components/Spinner";
 import { FaArrowAltCircleLeft, FaArrowCircleLeft } from "react-icons/fa";
+export const dynamic = "force-dynamic";
 
 const ArtworkPage = () => {
   const { id } = useParams();

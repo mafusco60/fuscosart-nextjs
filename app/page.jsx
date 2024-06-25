@@ -4,6 +4,8 @@ import HomeArtworks from "@/components/HomeArtworks";
 import Footer from "@/components/Footer";
 import FeaturedArtworks from "@/components/FeaturedArtworks";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Fusco's Art Gallery | Home",
   description: "Find Your Favorite Artwork",
