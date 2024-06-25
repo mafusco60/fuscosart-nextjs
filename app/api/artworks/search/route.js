@@ -31,9 +31,7 @@ export const GET = async (request) => {
 
     const artworks = await Artwork.find(query);
 
-    return new Response(JSON.stringify(artworks), {
-      status: 200,
-    });
+    return Response.json(artworks);
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong", { status: 500 });

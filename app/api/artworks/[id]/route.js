@@ -13,9 +13,7 @@ export const GET = async (request, { params }) => {
 
     if (!artwork) return new Response("Artwork Not Found", { status: 404 });
 
-    return new Response(JSON.stringify(artwork), {
-      status: 200,
-    });
+    return Response.json(artwork);
   } catch (error) {
     return new Response("Something Went Wrong", { status: 500 });
   }
@@ -101,9 +99,7 @@ export const PUT = async (request, { params }) => {
     // Update artwork in database
     const updatedArtwork = await Artwork.findByIdAndUpdate(id, artworkData);
 
-    return new Response(JSON.stringify(updatedArtwork), {
-      status: 200,
-    });
+    return Response.json(updatedArtwork);
   } catch (error) {
     console.error(error);
     return new Response("Failed to add artwork", { status: 500 });

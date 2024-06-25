@@ -18,8 +18,6 @@ const Navbar = () => {
   const [providers, setProviders] = useState(null);
   const pathname = usePathname();
 
-  const isAdmin = useState(true);
-
   useEffect(() => {
     const setAuthProviders = async () => {
       const res = await getProviders();
@@ -42,7 +40,7 @@ const Navbar = () => {
 							hover:text-white focus:outline-none focus:ring-2 focus:ring-inset 
 							focus:ring-white md:hidden"
               aria-controls="mobile-menu"
-              aria-expanded="false"
+              aria-expanded={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             >
               <span className="absolute -inset-0.5"></span>
@@ -94,7 +92,7 @@ const Navbar = () => {
                 >
                   Art Gallery
                 </Link>
-                {session && isAdmin && (
+                {session && (
                   <Link
                     href="/artworks/add"
                     className={`${
@@ -248,7 +246,7 @@ const Navbar = () => {
             >
               Art Gallery
             </Link>
-            {session && isAdmin && (
+            {session && (
               <Link
                 href="/artworks/add"
                 className={`${

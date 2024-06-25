@@ -23,9 +23,7 @@ export const GET = async (request) => {
       artworks,
     };
 
-    return new Response(JSON.stringify(result), {
-      status: 200,
-    });
+    return Response.json(result);
   } catch (error) {
     return new Response("Something went wrong", { status: 500 });
   }

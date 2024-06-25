@@ -1,8 +1,8 @@
-import connectDB from '@/config/database';
-import Message from '@/models/Message';
-import { getSessionUser } from '@/utils/getSessionUser';
+import connectDB from "@/config/database";
+import Message from "@/models/Message";
+import { getSessionUser } from "@/utils/getSessionUser";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 // GET /api/messages/unread-count
 export const GET = async (request) => {
@@ -12,7 +12,7 @@ export const GET = async (request) => {
     const sessionUser = await getSessionUser();
 
     if (!sessionUser || !sessionUser.user) {
-      return new Response('User ID is required', {
+      return new Response("User ID is required", {
         status: 401,
       });
     }
@@ -24,11 +24,9 @@ export const GET = async (request) => {
       read: false,
     });
 
-    return new Response(JSON.stringify(count), {
-      status: 200,
-    });
+    return Response.json(count);
   } catch (error) {
     console.log(error);
-    return new Response('Something went wrong', { status: 500 });
+    return new Response("Something went wrong", { status: 500 });
   }
 };
