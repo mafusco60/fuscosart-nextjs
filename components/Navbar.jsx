@@ -9,6 +9,7 @@ import { FaGoogle, FaSleigh } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import UnreadMessageCount from "@/components/UnreadMessageCount";
+import { fetchUser } from "@/utils/requests";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -17,6 +18,8 @@ const Navbar = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [providers, setProviders] = useState(null);
   const pathname = usePathname();
+  const [user, setUser] = useState(null);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const setAuthProviders = async () => {
@@ -25,6 +28,8 @@ const Navbar = () => {
     };
     setAuthProviders();
   }, []);
+
+  console.log(isAdmin, "isAdmin-fetch");
 
   return (
     <nav className="bg-cyan-800 border-b border-red-950">
@@ -92,18 +97,22 @@ const Navbar = () => {
                 >
                   Art Gallery
                 </Link>
-                {session && (
-                  <Link
-                    href="/artworks/add"
-                    className={`${
-                      pathname === "/artworks/add"
-                        ? "text-cyan-400"
-                        : "text-white"
-                    } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
-                  >
-                    Add Artwork
-                  </Link>
-                )}
+
+                {session &&
+                  isAdmin &&
+                  (console.log(isAdmin, "isAdmin2"),
+                  (
+                    <Link
+                      href="/artworks/add"
+                      className={`${
+                        pathname === "/artworks/add"
+                          ? "text-cyan-400"
+                          : "text-white"
+                      } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
+                    >
+                      Add Artwork
+                    </Link>
+                  ))}
               </div>
             </div>
           </div>
@@ -246,7 +255,7 @@ const Navbar = () => {
             >
               Art Gallery
             </Link>
-            {session && (
+            {session && isAdmin && (
               <Link
                 href="/artworks/add"
                 className={`${

@@ -62,7 +62,7 @@ export const POST = async (request) => {
       descriptive_words: formData.get("descriptive_words"),
     };
     // Upload images to Cloudinary
-    const imageUploadPromises = [];
+    const imageUrls = [];
 
     for (const image of images) {
       const imageBuffer = await image.arrayBuffer();
@@ -80,7 +80,7 @@ export const POST = async (request) => {
         }
       );
 
-      imageUploadPromises.push(result.secure_url);
+      imageUrls.push(result.secure_url);
 
       // Wait for all images to upload
       const uploadedImages = await Promise.all(imageUploadPromises);
