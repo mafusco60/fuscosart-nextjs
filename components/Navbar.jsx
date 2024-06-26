@@ -19,7 +19,7 @@ const Navbar = () => {
   const [providers, setProviders] = useState(null);
   const pathname = usePathname();
   const [user, setUser] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     const setAuthProviders = async () => {
