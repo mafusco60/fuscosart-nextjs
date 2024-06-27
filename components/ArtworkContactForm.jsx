@@ -92,7 +92,7 @@ const ArtworkContactForm = ({ artwork }) => {
               type="text"
               placeholder="Enter your name"
               required
-              autocomplete="name"
+              autoComplete="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -110,7 +110,7 @@ const ArtworkContactForm = ({ artwork }) => {
               type="email"
               placeholder="Enter your email"
               required
-              autocomplete="email"
+              autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -127,7 +127,7 @@ const ArtworkContactForm = ({ artwork }) => {
               id="phone"
               type="text"
               placeholder="Enter your phone number"
-              autocomplete="phone"
+              autoComplete="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />

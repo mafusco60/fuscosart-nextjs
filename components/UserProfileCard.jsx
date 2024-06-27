@@ -8,7 +8,7 @@ const UserProfileCard = ({ user }) => {
         <div>
           <Image
             src={user.image}
-            className="h-26 w-26 rounded-full mx-auto"
+            className="h-26 w-26 mb-2 rounded-full mx-auto"
             width={26}
             height={26}
           />

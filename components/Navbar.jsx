@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "@/assets/images/logo.png";
 import profileDefault from "@/assets/images/profile.png";
@@ -27,6 +27,20 @@ const Navbar = () => {
       setProviders(res);
     };
     setAuthProviders();
+  }, []);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (!session) return;
+      try {
+        const user1 = await fetchUser(session.user.id);
+        setUser(user1);
+        setIsAdmin(user.is_admin);
+        console.log(isAdmin, "isAdmin");
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+    fetchUserData();
   }, []);
 
   return (
@@ -96,8 +110,7 @@ const Navbar = () => {
                   Art Gallery
                 </Link>
 
-                {session &&
-                  isAdmin &&
+                {isAdmin &&
                   (console.log(isAdmin, "isAdmin2"),
                   (
                     <Link
