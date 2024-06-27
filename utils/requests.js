@@ -45,7 +45,7 @@ async function fetchArtwork(id) {
   }
 }
 
-// Fetch single artwork
+// Fetch single user
 async function fetchUser(id) {
   try {
     // Handle the case where the domain is not available yet
@@ -53,7 +53,7 @@ async function fetchUser(id) {
       return null;
     }
 
-    const res = await fetch(`${apiDomain}/user/${id}`);
+    const res = await fetch(`${apiDomain}/users/${id}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");

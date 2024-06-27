@@ -29,8 +29,6 @@ const Navbar = () => {
     setAuthProviders();
   }, []);
 
-  console.log(isAdmin, "isAdmin-fetch");
-
   return (
     <nav className="bg-cyan-800 border-b border-red-950">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
