@@ -35,7 +35,7 @@ const Users = () => {
         {users.length === 0 ? (
           <p>No users found</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {users.map((user, index) => (
               <UserProfileCard user={user} key={index} />
             ))}
