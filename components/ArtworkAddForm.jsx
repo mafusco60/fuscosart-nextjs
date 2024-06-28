@@ -16,12 +16,12 @@ const ArtworkAddForm = () => {
     name: "",
     description: "",
     descriptive_words: "",
-    is_lands: false,
+    /* is_lands: false,
     orig_avail: true,
     orig_price: 0,
     orig_subst: "",
     orig_dimen: "",
-
+ */
     images: [],
   });
 
@@ -47,23 +47,11 @@ const ArtworkAddForm = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name.includes(".")) {
-      const [outerKey, innerKey] = name.split(".");
-
-      setFields((prevFields) => ({
-        ...prevFields,
-        [outerKey]: {
-          ...prevFields[outerKey],
-          [innerKey]: value,
-        },
-      }));
-    } else {
-      // If it's a top-level artwork, update it directly.
-      setFields((prevFields) => ({
-        ...prevFields,
-        [name]: value,
-      }));
-    }
+    // If it's a top-level artwork, update it directly.
+    setFields((prevFields) => ({
+      ...prevFields,
+      [name]: value,
+    }));
   };
 
   const handleImageChange = (e) => {

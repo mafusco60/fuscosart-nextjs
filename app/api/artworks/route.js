@@ -34,10 +34,10 @@ export const POST = async (request) => {
     await connectDB();
 
     const sessionUser = await getSessionUser();
-    const { userId } = sessionUser;
     if (!sessionUser || !sessionUser.userId) {
       return new Response("User ID is required", { status: 401 });
     }
+    const { userId } = sessionUser;
 
     const formData = await request.formData();
 
@@ -62,11 +62,11 @@ export const POST = async (request) => {
       descriptive_words: formData.get("descriptive_words"),
     };
     // Upload images to Cloudinary
-    const imageUrls = [];
+    const imageUploadPromises = [];
 
     for (const image of images) {
       const imageBuffer = await image.arrayBuffer();
-      const imageArray = new Uint8Array(imageBuffer);
+      const imageArray = Array.from(new Uint8Array(imageBuffer));
       const imageData = Buffer.from(imageArray);
 
       // Convert the image data to base64
@@ -74,13 +74,13 @@ export const POST = async (request) => {
 
       // Make request to upload to cloudinary
       const result = await cloudinary.uploader.upload(
-        `data:image/jpg;base64,${imageBase64}`,
+        `data:image/png;base64,${imageBase64}`,
         {
           folder: "fuscosart",
         }
       );
 
-      imageUrls.push(result.secure_url);
+      imageUploadPromises.push(result.secure_url);
 
       // Wait for all images to upload
       const uploadedImages = await Promise.all(imageUploadPromises);
@@ -96,9 +96,9 @@ export const POST = async (request) => {
       `${process.env.NEXTAUTH_URL}/artworks/${newArtwork._id}`
     );
 
-    //return new Response(JSON.stringify({ message: 'Success' }), {
-    //  status: 201,
-    //});
+    /* return new Response(JSON.stringify({ message: "Success" }), {
+      status: 201,
+    }); */
   } catch (error) {
     return new Response("Failed to add artwork", { status: 500 });
   }

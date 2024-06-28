@@ -23,16 +23,18 @@ export const GET = async () => {
     const { userId } = sessionUser;
 
     const readMessages = await Message.find({ recipient: userId, read: true })
-      /*       .sort({ createdAt: -1 }) // Sort read messages in asc order
-       */ .populate("sender", "username")
+      .sort({ createdAt: -1 })
+      // Sort read messages in asc order
+      .populate("sender", "username")
       .populate("artwork", "name");
 
     const unreadMessages = await Message.find({
       recipient: userId,
       read: false,
     })
-      /*        .sort({ createdAt: -1 }) // Sort read messages in asc order
-       */ .populate("sender", "username")
+      .sort({ createdAt: -1 })
+      // Sort read messages in asc order
+      .populate("sender", "username")
       .populate("artwork", "name");
 
     const messages = [...unreadMessages, ...readMessages];

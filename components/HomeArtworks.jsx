@@ -5,9 +5,9 @@ import { fetchArtworks } from "@/utils/requests";
 const HomeArtworks = async () => {
   const data = await fetchArtworks();
 
-  const recentArtworks = data.artworks;
-  /* .sort(() => Math.random() - Math.random())
-    .slice(0, 3); */
+  const recentArtworks = data.artworks
+    .sort(() => Math.random() - Math.random())
+    .slice(0, 3);
 
   return (
     <>
