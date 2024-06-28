@@ -9,7 +9,7 @@ const Hero = () => {
             Find The Perfect Artwork
           </h1>
           <p className="my-4 text-xl text-white">
-            Discover the perfect art that enhances your life.
+            Choose your favorite art to enhance your life.
           </p>
         </div>
         <Searchbar />

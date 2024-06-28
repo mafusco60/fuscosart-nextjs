@@ -46,7 +46,6 @@ const ArtworkEditForm = () => {
         const userData = await fetchUser(session.user.id);
 
         setIsAdmin(userData.is_admin);
-        console.log(userData.is_admin, "isAdmin");
       } catch (error) {
         console.error(error);
       } finally {

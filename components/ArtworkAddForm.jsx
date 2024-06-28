@@ -35,7 +35,6 @@ const ArtworkAddForm = () => {
       try {
         const user = await fetchUser(session.user.id);
         setUser(user);
-        console.log(user, user, "user user1");
         setIsAdmin(user.is_admin);
       } catch (error) {
         console.error("Error fetching user:", error);

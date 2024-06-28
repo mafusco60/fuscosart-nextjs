@@ -89,13 +89,6 @@ const ArtworkDetails = ({ artwork }) => {
             </h3>
           </div>
         }
-
-        <h3
-          className="text-lg text-center font-bold my-10 bg-cyan-800 
-                  text-white p-4 rounded-lg"
-        >
-          <Link href={`/artworks/${artwork._id}/edit`}>Edit</Link>
-        </h3>
       </main>
     </>
   );

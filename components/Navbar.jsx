@@ -107,7 +107,6 @@ const Navbar = () => {
                     Add Artwork
                   </Link>
                 )}
-                )
               </div>
             </div>
           </div>
