@@ -2,19 +2,21 @@
 import { useState, useEffect, use } from "react";
 import { useSession } from "next-auth/react";
 import { fetchUser } from "@/utils/requests";
+import Spinner from "./Spinner";
 
 const ArtworkAddForm = () => {
   const { data: session } = useSession();
-  console.log(session, "session1");
   const [user, setUser] = useState(null);
 
   const [isAdmin, setIsAdmin] = useState(false);
   const [mounted, setMounted] = useState(false);
+
   const [fields, setFields] = useState({
     type: "",
     name: "",
     description: "",
     descriptive_words: "",
+    is_lands: false,
     orig_avail: true,
     orig_price: 0,
     orig_subst: "",
@@ -25,15 +27,16 @@ const ArtworkAddForm = () => {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
 
+  useEffect(() => {
     const fetchUserData = async () => {
-      console.log(session, "session2");
       if (!session) return;
       try {
-        const user1 = await fetchUser(session.user.id);
-        setUser(user1);
-        setIsAdmin(user1.is_admin);
-        console.log("isAdmin", user, isAdmin, "user isAdmin");
+        const user = await fetchUser(session.user.id);
+        setUser(user);
+        console.log(user, user, "user user1");
+        setIsAdmin(user.is_admin);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
@@ -80,13 +83,11 @@ const ArtworkAddForm = () => {
       images: updatedImages,
     }));
   };
-  console.log(isAdmin, "isAdmin", mounted, "mounted");
   return mounted && isAdmin ? (
     <form action="/api/artworks" method="POST" encType="multipart/form-data">
       <h2 className="text-3xl text-center font-semibold mb-6 text-cyan-950">
         Add Artwork
       </h2>
-      {}
 
       {
         <div className="mb-4">
@@ -97,7 +98,6 @@ const ArtworkAddForm = () => {
             Artwork Type
           </label>
           <select
-            type="text"
             id="type"
             name="type"
             className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
@@ -149,13 +149,11 @@ const ArtworkAddForm = () => {
             Description
           </label>
           <textarea
-            type="text"
             id="description"
             name="description"
             className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
             rows="4"
             placeholder="Description of artwork"
-            required
             value={fields.description}
             onChange={handleChange}
           ></textarea>
@@ -171,7 +169,6 @@ const ArtworkAddForm = () => {
             Descriptive Words
           </label>
           <textarea
-            type="text"
             id="descriptive_words"
             name="descriptive_words"
             className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
@@ -183,26 +180,28 @@ const ArtworkAddForm = () => {
         </div>
       }
 
-      <div className="mb-4">
-        <label
-          htmlFor="is_lands"
-          className="block text-gray-700 font-bold mb-2"
-        >
-          Is it a Landscape
-        </label>
-        <select
-          type="boolean"
-          id="is_lands"
-          name="is_lands"
-          className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
-          required
-          value={fields.is_lands}
-          onChange={handleChange}
-        >
-          <option value="false">False</option>
-          <option value="true">True</option>
-        </select>
-      </div>
+      {
+        <div className="mb-4">
+          <label
+            htmlFor="is_lands"
+            className="block text-gray-700 font-bold mb-2"
+          >
+            Is it a Landscape
+          </label>
+          <select
+            type="boolean"
+            id="is_lands"
+            name="is_lands"
+            className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
+            required
+            value={fields.is_lands}
+            onChange={handleChange}
+          >
+            <option value="false">False</option>
+            <option value="true">True</option>
+          </select>
+        </div>
+      }
       {
         <div className="mb-4">
           <label
@@ -216,7 +215,6 @@ const ArtworkAddForm = () => {
             id="original_available"
             name="orig_avail"
             className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
-            required
             value={fields.orig_avail}
             onChange={handleChange}
           >
@@ -240,7 +238,6 @@ const ArtworkAddForm = () => {
             name="orig_price"
             className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
             placeholder="Price for Original"
-            defaultValue={0}
             value={fields.orig_price}
             onChange={handleChange}
           />
@@ -256,7 +253,6 @@ const ArtworkAddForm = () => {
             Original Substrate
           </label>
           <select
-            type="text"
             id="substrate"
             name="orig_subst"
             className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
@@ -285,7 +281,6 @@ const ArtworkAddForm = () => {
             Dimensions
           </label>
           <select
-            type="text"
             id="dimensions"
             name="orig_dimen"
             required
@@ -341,7 +336,7 @@ const ArtworkAddForm = () => {
           className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          <i className="fas fa-plus-circle mr-2"></i> Add Artwork
+          Add Artwork
         </button>
       </div>
     </form>

@@ -1,31 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "@/assets/images/logo.png";
 import profileDefault from "@/assets/images/profile.png";
 import Link from "next/link";
-import { FaGoogle, FaSleigh } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import UnreadMessageCount from "@/components/UnreadMessageCount";
 import { fetchUser } from "@/utils/requests";
+import NavbarMobileMenu from "./NavbarMobileMenu";
 
 const Navbar = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [providers, setProviders] = useState(null);
   const pathname = usePathname();
   const [user, setUser] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     const setAuthProviders = async () => {
       const res = await getProviders();
       setProviders(res);
     };
+
     setAuthProviders();
   }, []);
 
@@ -34,35 +34,8 @@ const Navbar = () => {
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center">
-            {/* <!-- Mobile menu button--> */}
-            <button
-              type="button"
-              id="mobile-dropdown-button"
-              className="relative inline-flex items-center justify-center rounded-md p-2 
-							text-cyan-500 hover:bg-cyan-700 
-							hover:text-white focus:outline-none focus:ring-2 focus:ring-inset 
-							focus:ring-white md:hidden"
-              aria-controls="mobile-menu"
-              aria-expanded={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-            >
-              <span className="absolute -inset-0.5"></span>
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="block h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-            </button>
+            {/*  Mobile Menu Button */}
+            <NavbarMobileMenu />
           </div>
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* <!-- Logo --> */}
@@ -95,22 +68,6 @@ const Navbar = () => {
                 >
                   Art Gallery
                 </Link>
-
-                {session &&
-                  isAdmin &&
-                  (console.log(isAdmin, "isAdmin2"),
-                  (
-                    <Link
-                      href="/artworks/add"
-                      className={`${
-                        pathname === "/artworks/add"
-                          ? "text-cyan-400"
-                          : "text-white"
-                      } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
-                    >
-                      Add Artwork
-                    </Link>
-                  ))}
               </div>
             </div>
           </div>
@@ -203,6 +160,32 @@ const Navbar = () => {
                     >
                       Your Profile
                     </Link>
+                    {isAdmin
+                      ? ((
+                          <Link
+                            href="/users"
+                            className="block px-4 py-2 text-sm text-cyan-700"
+                            role="menuitem"
+                            tabIndex="-1"
+                            id="user-menu-item-2"
+                            onClick={() => setIsProfileMenuOpen(false)}
+                          >
+                            Users
+                          </Link>
+                        ),
+                        (
+                          <Link
+                            href="/artworks/add"
+                            className="block px-4 py-2 text-sm text-cyan-700"
+                            role="menuitem"
+                            tabIndex="-1"
+                            id="user-menu-item-2"
+                            onClick={() => setIsProfileMenuOpen(false)}
+                          >
+                            Add Artwork
+                          </Link>
+                        ))
+                      : null}
                     <Link
                       href="/artworks/saved"
                       className="block px-4 py-2 text-sm text-cyan-700"
@@ -232,52 +215,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {/* <!-- Mobile menu, show/hide based on menu state. --> */}
-
-      {isMobileMenuOpen && (
-        <div id="mobile-menu">
-          <div className="space-y-1 px-2 pb-3 pt-2 lg:hidden">
-            <Link
-              href="/"
-              className={`${
-                pathname === "/" ? "text-cyan-600" : " text-white"
-              } block rounded-md px-3 py-2 text-base font-medium`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/artworks"
-              className={`${
-                pathname === "/artworks" ? "text-cyan-600" : " text-white"
-              } block rounded-md px-3 py-2 text-base font-medium`}
-            >
-              Art Gallery
-            </Link>
-            {session && isAdmin && (
-              <Link
-                href="/artworks/add"
-                className={`${
-                  pathname === "/artworks/add" ? "text-cyan-600" : " text-white"
-                } block rounded-md px-3 py-2 text-base font-medium`}
-              >
-                Add Artwork
-              </Link>
-            )}
-
-            {!session &&
-              providers &&
-              Object.values(providers).map((provider, index) => (
-                <button
-                  onClick={() => signIn(provider.id)}
-                  key={index}
-                  className="flex items-center text-white bg-cyan-600 hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2"
-                >
-                  <span>Login or Register</span>
-                </button>
-              ))}
-          </div>
-        </div>
-      )}
+      )
     </nav>
   );
 };

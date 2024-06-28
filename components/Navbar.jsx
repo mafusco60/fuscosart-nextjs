@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "@/assets/images/logo.png";
 import profileDefault from "@/assets/images/profile.png";
@@ -19,7 +19,7 @@ const Navbar = () => {
   const [providers, setProviders] = useState(null);
   const pathname = usePathname();
   const [user, setUser] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   useEffect(() => {
     const setAuthProviders = async () => {
@@ -27,20 +27,6 @@ const Navbar = () => {
       setProviders(res);
     };
     setAuthProviders();
-  }, []);
-  useEffect(() => {
-    const fetchUserData = async () => {
-      if (!session) return;
-      try {
-        const user1 = await fetchUser(session.user.id);
-        setUser(user1);
-        setIsAdmin(user.is_admin);
-        console.log(isAdmin, "isAdmin");
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    };
-    fetchUserData();
   }, []);
 
   return (
@@ -109,21 +95,19 @@ const Navbar = () => {
                 >
                   Art Gallery
                 </Link>
-
-                {isAdmin &&
-                  (console.log(isAdmin, "isAdmin2"),
-                  (
-                    <Link
-                      href="/artworks/add"
-                      className={`${
-                        pathname === "/artworks/add"
-                          ? "text-cyan-400"
-                          : "text-white"
-                      } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
-                    >
-                      Add Artwork
-                    </Link>
-                  ))}
+                {session && isAdmin && (
+                  <Link
+                    href="/artworks/add"
+                    className={`${
+                      pathname === "/artworks/add"
+                        ? "text-cyan-400"
+                        : "text-white"
+                    } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
+                  >
+                    Add Artwork
+                  </Link>
+                )}
+                )
               </div>
             </div>
           </div>

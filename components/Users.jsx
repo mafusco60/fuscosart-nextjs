@@ -17,7 +17,6 @@ const Users = () => {
         }
         const data = await res.json();
         setUsers(data.users);
-        setTotalItems(data.total);
       } catch (error) {
         console.log(error);
       } finally {
