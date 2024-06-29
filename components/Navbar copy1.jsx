@@ -35,7 +35,6 @@ const Navbar = () => {
         <div className="relative flex h-20 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center">
             {/*  Mobile Menu Button */}
-            <NavbarMobileMenu />
           </div>
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* <!-- Logo --> */}
@@ -117,7 +116,7 @@ const Navbar = () => {
 
                 <UnreadMessageCount session={session} />
               </Link>
-              {/* <!-- Profile dropdown button --> */}
+              {/*  {/* <!-- Profile dropdown button --> */}
               <div className="relative ml-3">
                 <div>
                   <button
@@ -139,7 +138,6 @@ const Navbar = () => {
                     />
                   </button>
                 </div>
-
                 {/* <!-- Profile dropdown --> */}
                 {isProfileMenuOpen && (
                   <div
@@ -209,7 +207,8 @@ const Navbar = () => {
                       Sign Out
                     </button>
                   </div>
-                )}
+                )}{" "}
+                */}
               </div>
             </div>
           )}

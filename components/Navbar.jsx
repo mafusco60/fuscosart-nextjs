@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import UnreadMessageCount from "@/components/UnreadMessageCount";
 import { fetchUser } from "@/utils/requests";
+import NavbarAdminMenu from "./NavbarAdminMenu";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -31,6 +32,8 @@ const Navbar = () => {
 
   return (
     <nav className="bg-cyan-800 border-b border-red-950">
+      <div className=" flex justify-end"></div>
+
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center">
@@ -93,20 +96,17 @@ const Navbar = () => {
                     pathname === "/artworks" ? "text-cyan-400" : "text-white"
                   } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
                 >
-                  Art Gallery
+                  Gallery
                 </Link>
-                {session && isAdmin && (
-                  <Link
-                    href="/artworks/add"
-                    className={`${
-                      pathname === "/artworks/add"
-                        ? "text-cyan-400"
-                        : "text-white"
-                    } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
-                  >
-                    Add Artwork
-                  </Link>
-                )}
+
+                <Link
+                  href="/about"
+                  className={`${
+                    pathname === "/about" ? "text-cyan-400" : "text-white"
+                  } hover:bg-cyan-900 hover:text-white rounded-md px-3 py-2`}
+                >
+                  About
+                </Link>
               </div>
             </div>
           </div>
@@ -131,6 +131,10 @@ const Navbar = () => {
           {/* <!-- Right Side Menu (Logged In) --> */}{" "}
           {session && (
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+              <div className="relative mr-3">
+                <NavbarAdminMenu />
+              </div>
+
               <Link href="/messages" className="relative group">
                 <button
                   type="button"
@@ -178,7 +182,6 @@ const Navbar = () => {
                     />
                   </button>
                 </div>
-
                 {/* <!-- Profile dropdown --> */}
                 {isProfileMenuOpen && (
                   <div
@@ -222,7 +225,7 @@ const Navbar = () => {
                       Sign Out
                     </button>
                   </div>
-                )}
+                )}{" "}
               </div>
             </div>
           )}
@@ -247,18 +250,16 @@ const Navbar = () => {
                 pathname === "/artworks" ? "text-cyan-600" : " text-white"
               } block rounded-md px-3 py-2 text-base font-medium`}
             >
-              Art Gallery
+              Gallery
             </Link>
-            {session && isAdmin && (
-              <Link
-                href="/artworks/add"
-                className={`${
-                  pathname === "/artworks/add" ? "text-cyan-600" : " text-white"
-                } block rounded-md px-3 py-2 text-base font-medium`}
-              >
-                Add Artwork
-              </Link>
-            )}
+            <Link
+              href="/about"
+              className={`${
+                pathname === "/about" ? "text-cyan-600" : " text-white"
+              } block rounded-md px-3 py-2 text-base font-medium`}
+            >
+              About
+            </Link>
 
             {!session &&
               providers &&

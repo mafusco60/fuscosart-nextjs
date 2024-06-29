@@ -18,60 +18,6 @@ const ProfilePage = () => {
   const [artworks, setArtworks] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchUserArtworks = async (userId) => {
-      if (!userId) {
-        return;
-      }
-
-      try {
-        const res = await fetch(`/api/artworks/user/${userId}`);
-
-        if (res.status === 200) {
-          const data = await res.json();
-          setArtworks(data);
-        }
-      } catch (error) {
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    // Fetch user artworks when session is available
-    if (session?.user?.id) {
-      fetchUserArtworks(session.user.id);
-    }
-  }, [session]);
-
-  const handleDeleteArtwork = async (artworkId) => {
-    const confirmed = window.confirm(
-      `Are you sure you want to delete ${artworkId}?`
-    );
-
-    if (!confirmed) return;
-    try {
-      const res = await fetch(`/api/artworks/${artworkId}`, {
-        method: "DELETE",
-      });
-
-      if (res.status === 200) {
-        // Remove the artwork from state
-        const updatedArtworks = artworks.filter(
-          (artwork) => artwork._id !== artworkId
-        );
-
-        setArtworks(updatedArtworks);
-
-        toast.success("Artwork Deleted");
-      } else {
-        toast.error("Failed to delete artwork");
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Failed to delete artwork");
-    }
-  };
-
   return (
     <section className="bg-cyan-50">
       <div className="container m-auto py-24">
@@ -97,7 +43,7 @@ const ProfilePage = () => {
               </h2>
             </div>
 
-            <div className="md:w-3/4 md:pl-4">
+            {/*          <div className="md:w-3/4 md:pl-4">
               <h2 className="text-xl font-semibold mb-4">Your Listings</h2>
               {!loading && artworks.length === 0 && (
                 <p>You have no artwork listings</p>
@@ -133,7 +79,7 @@ const ProfilePage = () => {
                   </div>
                 ))
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
