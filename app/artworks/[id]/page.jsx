@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
@@ -10,7 +9,7 @@ import BookmarkButton from "@/components/BookmarkButton";
 import ArtworkContactForm from "@/components/ArtworkContactForm";
 import ShareButtons from "@/components/ShareButtons";
 import Spinner from "@/components/Spinner";
-import { FaArrowAltCircleLeft, FaArrowCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleLeft } from "react-icons/fa";
 export const dynamic = "force-dynamic";
 
 const ArtworkPage = () => {

@@ -66,4 +66,25 @@ async function fetchUser(id) {
   }
 }
 
-export { fetchArtworks, fetchArtwork, fetchUser };
+// Fetch single user
+async function fetchUsers() {
+  try {
+    // Handle the case where the domain is not available yet
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(`${apiDomain}/users`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export { fetchArtworks, fetchArtwork, fetchUsers, fetchUser };
