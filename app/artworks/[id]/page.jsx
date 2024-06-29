@@ -50,10 +50,12 @@ const ArtworkPage = () => {
       {loading && <Spinner loading={loading} />}
       {!loading && artwork && (
         <>
-          <ArtworkHeaderImage
-            image={artwork.images[0]}
-            orientation={artwork.is_lands}
-          />
+          <div className="mt-20">
+            <ArtworkHeaderImage
+              image={artwork.images[0]}
+              orientation={artwork.is_lands}
+            />
+          </div>
 
           <section>
             <div className="container m-auto py-6 px-6">

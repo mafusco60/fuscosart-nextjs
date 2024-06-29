@@ -3,7 +3,7 @@ import Image from "next/image";
 const ArtworkHeaderImage = ({ image, orientation }) => {
   return (
     <section>
-      <div className="container-sm m-auto bg-cyan-50 py-10 ">
+      <div className="container-sm m-auto bg-cyan-50  ">
         <div className="grid grid-cols-1">
           <Image
             src={image}
