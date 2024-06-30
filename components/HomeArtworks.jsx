@@ -4,7 +4,6 @@ import { fetchArtworks } from "@/utils/requests";
 
 const HomeArtworks = async () => {
   const data = await fetchArtworks();
-  console.log(data, "data");
   const recentArtworks = data.artworks
     .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
     .slice(0, 3);

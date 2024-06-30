@@ -16,6 +16,7 @@ const UsersListing = ({ user }) => {
                 height={200}
                 alt="User"
               />
+
               <span className="font-bold flex ">Name:***</span>
               {user.username}
               <span className="font-bold flex ">__Email:***</span>

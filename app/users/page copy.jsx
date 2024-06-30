@@ -1,14 +1,13 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
-import { fetchUser, fetchUsers } from "@/utils/requests";
+import { fetchUser } from "@/utils/requests";
 import Spinner from "@/components/Spinner";
 import UsersListing from "@/components/UsersListing";
 import Users from "@/components/Users";
-import Link from "next/link";
 export const dynamic = "force-dynamic";
 
-const UsersPage = () => {
+const UsersPage = async () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -31,7 +30,7 @@ const UsersPage = () => {
   }, [session]);
 
   useEffect(() => {
-    const fetchUsersData = async () => {
+    const fetchUsers = async () => {
       try {
         const res = await fetch(`/api/users?`);
 
@@ -46,7 +45,7 @@ const UsersPage = () => {
         setLoading(false);
       }
     };
-    fetchUsersData();
+    fetchUsers();
   }, []);
 
   return (
@@ -67,9 +66,7 @@ const UsersPage = () => {
               ) : (
                 <div className="grid grid-col-1">
                   {users.map((user, index) => (
-                    <Link href={`/users/${user._id}`} key={index}>
-                      <UsersListing user={user} key={index} />
-                    </Link>
+                    <UsersListing user={user} key={index} />
                   ))}
                 </div>
               )}
