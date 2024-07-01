@@ -19,6 +19,7 @@ const UsersListing = ({ user }) => {
 
               <span className="font-bold flex ">Name:***</span>
               {user.username}
+
               <span className="font-bold flex ">__Email:***</span>
               {user.email}
               <span className="font-bold flex ">__ID:***</span>

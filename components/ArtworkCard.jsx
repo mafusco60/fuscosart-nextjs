@@ -10,6 +10,7 @@ const ArtworkCard = ({ artwork }) => {
   const { data: session } = useSession();
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [artworks, setArtworks] = useState([]);
 
   // Check for an original
   const isThereAnOriginal = () => {
@@ -96,10 +97,11 @@ const ArtworkCard = ({ artwork }) => {
           </div>
         ) : (
           // Landscape
+
           <div>
             <Image
               src={artwork.images[0]}
-              alt=""
+              alt="{artwork.name}"
               width="600"
               height="0"
               // sizes="100vw"
@@ -122,10 +124,13 @@ const ArtworkCard = ({ artwork }) => {
           </div>
         )}
         {isAdmin && (
-          <div className="absolute top-0 right-0 p-2 px-4 text-white bg-cyan-800 ">
-            <Link href={`/artworks/${artwork._id}`}>
-              <h2 className="text-md"> Edit </h2>
-            </Link>
+          <>
+            <div className="absolute top-0 right-0 p-1 px-3 text-white bg-cyan-800 rounded-xl border border-white">
+              <Link href={`/artworks/${artwork._id}/edit`}>
+                <h2 className="text-md "> Edit </h2>
+              </Link>
+            </div>
+
             <button
               onClick={() => handleDeleteArtwork(artwork._id)}
               className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
@@ -133,7 +138,8 @@ const ArtworkCard = ({ artwork }) => {
             >
               Delete
             </button>
-          </div>
+            {/* </div> */}
+          </>
         )}
       </div>
     </div>
