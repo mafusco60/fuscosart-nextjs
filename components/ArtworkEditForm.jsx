@@ -112,21 +112,8 @@ const ArtworkEditForm = (user) => {
         {fields.images !== null ? (
           <section>
             <div className="container-sm m-auto bg-cyan-50  ">
-              {/* <div className="grid grid-cols-1 md:grid-cols-3"> */}
-              {/* <Image
-                src={fields.images[0]}
-                alt={fields.name}
-                className="object-contain h-80 w-auto 
-                  m-auto md:h-80 md:w-100"
-                width={0}
-                height={0}
-                sizes="100vw"
-                priority={true}
-              /> */}
-
               <ArtworkHeaderImage image={fields.images[0]} />
             </div>
-            {/* </div> */}
           </section>
         ) : (
           <p>Image not available</p>
@@ -151,7 +138,7 @@ const ArtworkEditForm = (user) => {
         <select
           id="type"
           name="type"
-          defaultValue={fields.type}
+          value={fields.type}
           className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
           required
           /*                 value={ fields.type }
@@ -238,7 +225,7 @@ const ArtworkEditForm = (user) => {
           Is it a Landscape?
         </label>
         <select
-          defaultValue={fields.is_lands}
+          value={fields.is_lands}
           type="type"
           id="is_landscape"
           name="is_lands"
@@ -252,25 +239,25 @@ const ArtworkEditForm = (user) => {
         </select>
       </div>
 
-      {/* <div className="mb-4">
-          <label
-            htmlFor="is_landscape"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Is it a Landscape?
-          </label>
-          <input
-            defaultValue={fields.is_lands}
-            type="boolean"
-            id="is_landscape"
-            name="is_lands"
-            className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
-            required
-            value={fields.is_lands}
-            onChange={handleChange}
-          ></input>
-        </div>
- */}
+      <div className="mb-4">
+        <label
+          htmlFor="is_landscape"
+          className="block text-gray-700 font-bold mb-2"
+        >
+          Is it a Landscape?
+        </label>
+        <input
+          value={fields.is_lands}
+          type="boolean"
+          id="is_landscape"
+          name="is_lands"
+          className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
+          required
+          value={fields.is_lands}
+          onChange={handleChange}
+        ></input>
+      </div>
+
       <div className="mb-4">
         <label
           htmlFor="original_available"
@@ -279,7 +266,7 @@ const ArtworkEditForm = (user) => {
           Original Available
         </label>
         <select
-          defaultValue={fields.orig_avail}
+          value={fields.orig_avail}
           type="type"
           id="original_available"
           name="orig_avail"
@@ -320,7 +307,7 @@ const ArtworkEditForm = (user) => {
             Original Substrate
           </label>
           <select
-            defaultValue={fields.orig_subst}
+            value={fields.orig_subst}
             type="type"
             id="substrate"
             name="orig_subst"
@@ -353,7 +340,7 @@ const ArtworkEditForm = (user) => {
             Dimensions
           </label>
           <select
-            defaultValue={fields.orig_dimen}
+            value={fields.orig_dimen}
             type="text"
             id="dimensions"
             name="orig_dimen"

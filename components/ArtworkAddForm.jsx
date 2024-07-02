@@ -225,7 +225,7 @@ const ArtworkAddForm = () => {
             name="orig_price"
             className="border rounded w-full py-2 px-3 focus:outline-cyan-900 focus:shadow-outline"
             placeholder="Price for Original"
-            value={fields.orig_price}
+            defaultValue={fields.orig_price}
             onChange={handleChange}
           />
         </div>

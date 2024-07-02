@@ -19,12 +19,10 @@ const ArtworkSchema = new Schema(
     },
     description: {
       type: String,
-      default: "",
       required: true,
     },
     descriptive_words: {
       type: String,
-      default: "",
       required: true,
     },
     is_lands: {
@@ -46,18 +44,16 @@ const ArtworkSchema = new Schema(
     },
     orig_price: {
       type: Number,
-      default: 0,
     },
 
     images: [
       {
         type: String,
-        default: "",
+        required: true,
       },
     ],
     is_featured: {
       type: Boolean,
-      default: false,
     },
   },
   {
