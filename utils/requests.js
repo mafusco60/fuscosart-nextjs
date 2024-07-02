@@ -87,4 +87,24 @@ async function fetchUsers() {
   }
 }
 
-export { fetchArtworks, fetchArtwork, fetchUsers, fetchUser };
+async function fetchBookmark() {
+  try {
+    // Handle the case where the domain is not available yet
+    if (!apiDomain) {
+      return null;
+    }
+
+    const res = await fetch(`${apiDomain}/bookmarks/:user.id`);
+    console.log(res, "res-req");
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+export { fetchArtworks, fetchArtwork, fetchUsers, fetchUser, fetchBookmark };

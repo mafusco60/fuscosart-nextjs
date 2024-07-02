@@ -9,7 +9,7 @@ const FeaturedArtworkCard = ({ artwork }) => {
     >
       <Image
         src={artwork.images[0]}
-        alt=""
+        alt={artwork.name}
         className="object-cover  rounded-t-xl md:rounded-tr-none 
         md:rounded-l-xl w-full md:w-2/5"
         width={200}

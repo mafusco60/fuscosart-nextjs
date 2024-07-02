@@ -7,18 +7,23 @@ import ArtworkHeaderImage from "./ArtworkHeaderImage";
 import { useParams } from "react-router-dom";
 import Image from "next/image";
 import Link from "next/link";
-
+import { fetchBookmark } from "@/utils/requests";
 export const dynamic = "force-dynamic";
 
 const UserProfileCard = ({ user }) => {
   const [artworks, setArtworks] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const { user } = useParams();
+  // const { userId } = useParams();
 
   useEffect(() => {
     const fetchSavedArtworks = async () => {
       try {
-        const res = await fetch("/api/bookmarks/:user.id");
+        console.log(artworks, "artworks");
+        console.log(user, "user");
+        console.log(user._id, "user._id");
+
+        const res = await fetch(`/api/bookmarks/${user._id}`);
+        console.log(res, "res");
 
         if (res.status === 200) {
           const data = await res.json();
@@ -46,7 +51,7 @@ const UserProfileCard = ({ user }) => {
             className="h-26 w-26 mb-2 rounded-full mx-auto"
             width={150}
             height={150}
-            alt="User"
+            alt={user.name}
           />
         </div>
 
@@ -57,13 +62,12 @@ const UserProfileCard = ({ user }) => {
               {user.email}
             </a>
           </p>
-          <Link href={`/users/${user._id}`}>
-            <p className="text-xs mt-2 text-cyan-600">{user._id}</p>
-          </Link>
 
-          {<p className="text-sm text-cyan-400">Admin</p>}
+          <p className="text-xs mt-2 text-cyan-600">{user._id}</p>
+
+          {/* {<p className="text-sm text-cyan-400">Admin</p>} */}
           <section className="">
-            <div className="bg-cyan-50 py-10">
+            <div className="bg-cyan-50 pt-8">
               <h1 className="text-xl font-extrabold text-cyan-900 sm:text-xl md:text-xl text-center">
                 Saved Artworks
               </h1>
@@ -71,14 +75,18 @@ const UserProfileCard = ({ user }) => {
                 <p>No saved artworks</p>
               ) : (
                 <>
-                  {artworks.map((artwork) => (
-                    <ArtworkHeaderImage
-                      image={artwork.images[0]}
-                      // orientation={artwork.is_lands}
-                      key={artwork._id}
-                      alt={artwork.name}
-                    />
-                  ))}
+                  {" "}
+                  <div className="grid grid-cols-3 gap-2">
+                    {artworks.map((artwork) => (
+                      <Image
+                        src={artwork.images[0]}
+                        className="h-26 w-26 mb-2 "
+                        width={150}
+                        height={150}
+                        alt={artwork.name}
+                      />
+                    ))}
+                  </div>
                 </>
               )}
             </div>

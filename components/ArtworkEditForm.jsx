@@ -7,8 +7,9 @@ import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
 import ArtworkImages from "@/components/ArtworkImages";
 import ArtworkHeaderImage from "./ArtworkHeaderImage";
+import { Image } from "next/image";
 
-const ArtworkEditForm = () => {
+const ArtworkEditForm = (user) => {
   const { id } = useParams();
   const router = useRouter();
   const [isAdmin, setIsAdmin] = useState(false);
@@ -30,8 +31,10 @@ const ArtworkEditForm = () => {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
 
-    // Fetch the artwork data for form prefill
+  // Fetch the artwork data for form prefill
+  useEffect(() => {
     const fetchArtworkData = async () => {
       try {
         const artworkData = await fetchArtwork(id);
@@ -43,11 +46,17 @@ const ArtworkEditForm = () => {
         setLoading(false);
       }
     };
+    fetchArtworkData();
+  }, [id]);
+
+  useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userData = await fetchUser(session.user.id);
+        if (session) {
+          const userData = await fetchUser(session.user.id);
 
-        setIsAdmin(userData.is_admin);
+          setIsAdmin(userData.is_admin);
+        }
       } catch (error) {
         console.error(error);
       } finally {
@@ -55,7 +64,6 @@ const ArtworkEditForm = () => {
       }
     };
     fetchUserData();
-    fetchArtworkData();
   }, [session, id]);
 
   const handleChange = (e) => {
@@ -102,7 +110,24 @@ const ArtworkEditForm = () => {
 
       <div className="rounded-xl shadow-lg bg-cyan-100 relative p-10">
         {fields.images !== null ? (
-          <ArtworkHeaderImage image={fields.images[0]} />
+          <section>
+            <div className="container-sm m-auto bg-cyan-50  ">
+              {/* <div className="grid grid-cols-1 md:grid-cols-3"> */}
+              {/* <Image
+                src={fields.images[0]}
+                alt={fields.name}
+                className="object-contain h-80 w-auto 
+                  m-auto md:h-80 md:w-100"
+                width={0}
+                height={0}
+                sizes="100vw"
+                priority={true}
+              /> */}
+
+              <ArtworkHeaderImage image={fields.images[0]} />
+            </div>
+            {/* </div> */}
+          </section>
         ) : (
           <p>Image not available</p>
         )}

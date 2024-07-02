@@ -74,7 +74,7 @@ const ArtworkCard = ({ artwork }) => {
           <div>
             <Image
               src={artwork.images[0]}
-              alt=""
+              alt="{artwork.name}"
               width="0"
               height="0"
               sizes="100vw"
