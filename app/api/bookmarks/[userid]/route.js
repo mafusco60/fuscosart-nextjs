@@ -1,19 +1,18 @@
 import connectDB from "@/config/database";
 import User from "@/models/User";
-import { getSessionUser } from "@/utils/getSessionUser";
+import Artwork from "@/models/Artwork";
 
 export const dynamic = "force-dynamic";
 
-// GET /api/users/:id
+// GET /api/bookmarks/:userid
 export const GET = async (request, { params }) => {
   try {
     await connectDB();
 
-    const user = await User.findById(params.id);
+    const user = await User.findById(params.userid);
+    const bookmarks = await Artwork.find({ _id: { $in: user.bookmarks } });
 
-    if (!user) return new Response("User Not Found", { status: 404 });
-
-    return Response.json(user);
+    return Response.json(bookmarks);
   } catch (error) {
     return new Response("Something Went Wrong", { status: 500 });
   }

@@ -6,6 +6,7 @@ import { fetchUser } from "@/utils/requests";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
 import ArtworkImages from "@/components/ArtworkImages";
+import ArtworkHeaderImage from "./ArtworkHeaderImage";
 
 const ArtworkEditForm = () => {
   const { id } = useParams();
@@ -23,6 +24,7 @@ const ArtworkEditForm = () => {
     orig_price: 0,
     orig_subst: "",
     orig_dimen: "", */
+    images: [],
   });
   const [loading, setLoading] = useState(true);
 
@@ -99,7 +101,11 @@ const ArtworkEditForm = () => {
       </h2>
 
       <div className="rounded-xl shadow-lg bg-cyan-100 relative p-10">
-        <ArtworkImages images={fields.images} />
+        {fields.images !== null ? (
+          <ArtworkHeaderImage image={fields.images[0]} />
+        ) : (
+          <p>Image not available</p>
+        )}
       </div>
 
       <label

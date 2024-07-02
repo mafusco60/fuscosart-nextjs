@@ -54,7 +54,7 @@ const UsersPage = () => {
       {isAdmin ? (
         <section className="px-4 py-6">
           <div className="bg-white py-20">
-            <h1 className="text-4xl font-extrabold text-cyan-900 sm:text-xl md:text-2xl text-center">
+            <h1 className="text-4xl font-extrabold text-cyan-900 sm:text-xl md:text-2xl ">
               Users
             </h1>
 
@@ -65,10 +65,10 @@ const UsersPage = () => {
               {users.length === 0 ? (
                 <p>No users found</p>
               ) : (
-                <div className="grid grid-col-1">
+                <div className="grid grid-cols-1 md:grid-cols-3">
                   {users.map((user, index) => (
                     <Link href={`/users/${user._id}`} key={index}>
-                      <UsersListing user={user} key={index} />
+                      <UsersListing user={user} admin={isAdmin} key={index} />
                     </Link>
                   ))}
                 </div>

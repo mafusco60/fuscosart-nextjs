@@ -4,16 +4,18 @@ import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import Spinner from "@/components/Spinner";
 import ArtworkHeaderImage from "./ArtworkHeaderImage";
+import { useParams } from "react-router-dom";
 export const dynamic = "force-dynamic";
 
-const ArtworksSaved = (userId) => {
+const ArtworksSaved = () => {
   const [artworks, setArtworks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { user } = useParams();
 
   useEffect(() => {
     const fetchSavedArtworks = async () => {
       try {
-        const res = await fetch("/api/bookmarks");
+        const res = await fetch("/api/bookmarks/:user.id");
 
         if (res.status === 200) {
           const data = await res.json();
@@ -30,7 +32,7 @@ const ArtworksSaved = (userId) => {
       }
     };
     fetchSavedArtworks();
-  }, []);
+  }, [user]);
 
   return loading ? (
     <Spinner loading={loading} />
@@ -47,7 +49,7 @@ const ArtworksSaved = (userId) => {
             {artworks.map((artwork) => (
               <ArtworkHeaderImage
                 image={artwork.images[0]}
-                orientation={artwork.is_lands}
+                // orientation={artwork.is_lands}
                 key={artwork._id}
                 alt={artwork.name}
               />

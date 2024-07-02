@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-const ArtworkHeaderImage = ({ image, orientation }) => {
+const ArtworkHeaderImage = ({ image }) => {
   return (
     <section>
       <div className="container-sm m-auto bg-cyan-50  ">
-        <div className="grid grid-cols-1">
+        <div className="grid grid-cols-1 md:grid-cols-3">
           <Image
             src={image}
             alt="Artwork"
