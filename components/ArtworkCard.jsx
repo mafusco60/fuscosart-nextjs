@@ -74,7 +74,7 @@ const ArtworkCard = ({ artwork }) => {
           <div>
             <Image
               src={artwork.images[0]}
-              alt="{artwork.name}"
+              alt="artwork image"
               width="0"
               height="0"
               sizes="100vw"
@@ -101,7 +101,7 @@ const ArtworkCard = ({ artwork }) => {
           <div>
             <Image
               src={artwork.images[0]}
-              alt="{artwork.name}"
+              alt="artwork image"
               width="600"
               height="0"
               // sizes="100vw"

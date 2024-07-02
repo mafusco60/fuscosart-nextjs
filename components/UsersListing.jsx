@@ -15,7 +15,7 @@ const UsersListing = ({ user, admin }) => {
                   src={user.image || profileDefault}
                   width={200}
                   height={200}
-                  alt={user.username}
+                  alt="profile image"
                 />
               </div>
 

@@ -132,7 +132,7 @@ const Navbar = () => {
                     <Image
                       className="h-8 w-auto rounded-full"
                       src={profileImage || profileDefault}
-                      alt=""
+                      alt="image of user"
                       width={40}
                       height={40}
                     />

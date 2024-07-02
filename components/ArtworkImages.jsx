@@ -18,7 +18,7 @@ const ArtworkImages = ({ images }) => {
                   ref={ref}
                   onClick={open}
                   src={images[0]}
-                  alt=""
+                  alt="artwork image"
                   className="object-cover h-[400px] mx-auto rounded-xl"
                   width="500"
                   height="600"
@@ -50,7 +50,7 @@ const ArtworkImages = ({ images }) => {
                         ref={ref}
                         onClick={open}
                         src={image}
-                        alt=""
+                        alt="image"
                         className="object-cover  rounded-xl"
                         width="500"
                         height="600"

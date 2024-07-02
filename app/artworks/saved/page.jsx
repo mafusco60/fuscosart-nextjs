@@ -52,7 +52,7 @@ const SavedArtworksPage = () => {
                 image={artwork.images[0]}
                 // orientation={artwork.is_lands}
                 key={artwork._id}
-                alt={artwork.name}
+                alt="artwork image"
               />
             ))}
           </div>

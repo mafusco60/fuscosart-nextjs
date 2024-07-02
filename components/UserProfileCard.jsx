@@ -18,12 +18,7 @@ const UserProfileCard = ({ user }) => {
   useEffect(() => {
     const fetchSavedArtworks = async () => {
       try {
-        console.log(artworks, "artworks");
-        console.log(user, "user");
-        console.log(user._id, "user._id");
-
         const res = await fetch(`/api/bookmarks/${user._id}`);
-        console.log(res, "res");
 
         if (res.status === 200) {
           const data = await res.json();
@@ -51,7 +46,7 @@ const UserProfileCard = ({ user }) => {
             className="h-26 w-26 mb-2 rounded-full mx-auto"
             width={150}
             height={150}
-            alt={user.name}
+            alt="Profile image"
           />
         </div>
 
@@ -77,13 +72,15 @@ const UserProfileCard = ({ user }) => {
                 <>
                   {" "}
                   <div className="grid grid-cols-3 gap-2">
-                    {artworks.map((artwork) => (
+                    {artworks.map((artwork, index) => (
                       <Image
                         src={artwork.images[0]}
                         className="h-26 w-26 mb-2 "
                         width={150}
                         height={150}
-                        alt={artwork.name}
+                        alt="Artwork image"
+                        key={index}
+                        priority={true}
                       />
                     ))}
                   </div>
