@@ -105,6 +105,7 @@ const ArtworkCard = ({ artwork }) => {
               width="600"
               height="0"
               // sizes="100vw"
+              priority={true}
               className="   absolute top-[70px]  rounded-t-xl"
             />
             <div className="container h-[200px]">
@@ -127,7 +128,7 @@ const ArtworkCard = ({ artwork }) => {
         )}
         {isAdmin && (
           <>
-            <div className="absolute top-0 right-0 p-1 px-3 text-white bg-cyan-800 rounded-xl border border-white">
+            <div className="absolute top-0 right-0 p-1 px-3 text-white bg-cyan-800 rounded-lg border border-white">
               <Link href={`/artworks/${artwork._id}/edit`}>
                 <h2 className="text-md "> Edit </h2>
               </Link>
@@ -135,7 +136,7 @@ const ArtworkCard = ({ artwork }) => {
 
             <button
               onClick={() => handleDeleteArtwork(artwork._id)}
-              className=" absolute top-0 left-0 bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
+              className=" absolute top-0 left-0 bg-rose-500 text-white px-3 py-1 rounded-md hover:bg-rose-600 border border-white"
               type="button"
             >
               Delete

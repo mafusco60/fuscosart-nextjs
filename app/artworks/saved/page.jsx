@@ -1,12 +1,11 @@
 "use client";
 
-"use client";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
 import Spinner from "@/components/Spinner";
 import ArtworkHeaderImage from "@/components/ArtworkHeaderImage";
-import { useParams } from "react-router-dom";
+
 export const dynamic = "force-dynamic";
 
 const SavedArtworksPage = () => {

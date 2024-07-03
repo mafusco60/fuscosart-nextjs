@@ -1,13 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import { toast } from "react-toastify";
-import Spinner from "@/components/Spinner";
-import ArtworkHeaderImage from "./ArtworkHeaderImage";
-import { useParams } from "react-router-dom";
+
 import Image from "next/image";
-import Link from "next/link";
-import { fetchBookmark } from "@/utils/requests";
+
 export const dynamic = "force-dynamic";
 
 const UserProfileCard = ({ user }) => {
