@@ -4,9 +4,9 @@ import { fetchArtworks } from "@/utils/requests";
 
 const HomeArtworks = async () => {
   const data = await fetchArtworks();
-  const recentArtworks = data.artworks
-    .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-    .slice(0, 3);
+  const recentArtworks = data.artworks;
+  /* .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+    .slice(0, 3); */
   /* .sort(() => Math.random() - Math.random())
     .slice(0, 3); */
 
