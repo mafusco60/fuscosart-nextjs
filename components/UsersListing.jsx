@@ -29,7 +29,7 @@ const UsersListing = ({ user, admin }) => {
               <div className=" grid grid-cols-subgrid gap-4 col-span-5 ">
                 {user._id}
               </div>
-              <div>Bookmarks: {user.bookmarks.length}</div>
+              {/* <div>Bookmarks: {user.bookmarks.length}</div> */}
             </div>
           </div>
         </div>

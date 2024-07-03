@@ -5,6 +5,7 @@ const FeaturedArtworks = async () => {
   const artworks = await fetchArtworks({ showFeatured: true });
 
   return (
+    artworks &&
     artworks.length > 0 && (
       <section className="bg-blue-50 px-4 pt-6 pb-10">
         <div className="container-xl lg:container m-auto">

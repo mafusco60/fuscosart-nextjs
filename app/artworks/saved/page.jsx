@@ -42,7 +42,7 @@ const SavedArtworksPage = () => {
         <h1 className="text-xl font-extrabold text-cyan-900 sm:text-xl md:text-xl text-center">
           Saved Artworks
         </h1>
-        {artworks.length === 0 ? (
+        {artworks && artworks.length === 0 ? (
           <p>No saved artworks</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -62,7 +62,7 @@ const UsersPage = () => {
               className="max-w-7xl mx-auto  flex flex-col-1
 				 items-start justify-start"
             >
-              {users.length === 0 ? (
+              {users && users.length === 0 ? (
                 <p>No users found</p>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-3">

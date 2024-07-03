@@ -6,7 +6,7 @@ const ArtworkImages = ({ images }) => {
     <Gallery>
       <section className="bg-blue-50 p-4">
         <div className="container mx-auto">
-          {images.length === 1 ? (
+          {images && images.length === 1 ? (
             <Item
               original={images[0]}
               thumbnail={images[0]}
@@ -33,7 +33,7 @@ const ArtworkImages = ({ images }) => {
                   key={index}
                   className={`
                   ${
-                    images.length === 3 && index === 2
+                    images && images.length === 3 && index === 2
                       ? "col-span-2"
                       : "col-span-1"
                   }

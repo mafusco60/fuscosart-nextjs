@@ -18,7 +18,7 @@ const HomeArtworks = async () => {
             Recent Artworks
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {recentArtworks.length === 0 ? (
+            {recentArtworks && recentArtworks.length === 0 ? (
               <p>No Artworks Found</p>
             ) : (
               recentArtworks.map((artwork) => (
