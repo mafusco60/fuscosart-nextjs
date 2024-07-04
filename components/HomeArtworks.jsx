@@ -17,22 +17,24 @@ const HomeArtworks = async () => {
 
   return (
     <>
-      <section className="px-4 py-6">
-        <div className="container-xl lg:container m-auto">
-          <h2 className="text-3xl font-bold text-cyan-500 mb-6 text-center">
-            Recent Artworks
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {recentArtworks && recentArtworks.length === 0 ? (
-              <p>No Artworks Found</p>
-            ) : (
-              recentArtworks.map((artwork) => (
-                <ArtworkCard key={artwork._id} artwork={artwork} />
-              ))
-            )}
+      {recentArtworks && (
+        <section className="px-4 py-6">
+          <div className="container-xl lg:container m-auto">
+            <h2 className="text-3xl font-bold text-cyan-500 mb-6 text-center">
+              Recent Artworks
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {recentArtworks && recentArtworks.length === 0 ? (
+                <p>No Artworks Found</p>
+              ) : (
+                recentArtworks.map((artwork) => (
+                  <ArtworkCard key={artwork._id} artwork={artwork} />
+                ))
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="m-auto max-w-lg my-10 px-6">
         <Link
