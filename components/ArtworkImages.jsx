@@ -28,39 +28,40 @@ const ArtworkImages = ({ images }) => {
             </Item>
           ) : (
             <div className="grid grid-cols-2 gap-4">
-              {images.map((image, index) => (
-                <div
-                  key={index}
-                  className={`
+              {images &&
+                images.map((image, index) => (
+                  <div
+                    key={index}
+                    className={`
                   ${
                     images && images.length === 3 && index === 2
                       ? "col-span-2"
                       : "col-span-1"
                   }
                 `}
-                >
-                  <Item
-                    original={image}
-                    thumbnail={image}
-                    width="500"
-                    height="600"
                   >
-                    {({ ref, open }) => (
-                      <Image
-                        ref={ref}
-                        onClick={open}
-                        src={image}
-                        alt="image"
-                        className="object-cover  rounded-xl"
-                        width="500"
-                        height="600"
-                        sizes="100vw"
-                        priority={true}
-                      />
-                    )}
-                  </Item>
-                </div>
-              ))}
+                    <Item
+                      original={image}
+                      thumbnail={image}
+                      width="500"
+                      height="600"
+                    >
+                      {({ ref, open }) => (
+                        <Image
+                          ref={ref}
+                          onClick={open}
+                          src={image}
+                          alt="image"
+                          className="object-cover  rounded-xl"
+                          width="500"
+                          height="600"
+                          sizes="100vw"
+                          priority={true}
+                        />
+                      )}
+                    </Item>
+                  </div>
+                ))}
             </div>
           )}
         </div>

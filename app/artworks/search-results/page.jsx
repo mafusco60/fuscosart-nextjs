@@ -62,9 +62,10 @@ const SearchResultsPage = () => {
               <p>No search results found</p>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {artworks.map((artwork) => (
-                  <ArtworkCard key={artwork._id} artwork={artwork} />
-                ))}
+                {artworks &&
+                  artworks.map((artwork) => (
+                    <ArtworkCard key={artwork._id} artwork={artwork} />
+                  ))}
               </div>
             )}
           </div>

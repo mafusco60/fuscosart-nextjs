@@ -46,9 +46,10 @@ const Artworks = () => {
           <p>No artworks found</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {artworks.map((artwork, index) => (
-              <ArtworkCard artwork={artwork} key={index} />
-            ))}
+            {artworks &&
+              artworks.map((artwork, index) => (
+                <ArtworkCard artwork={artwork} key={index} />
+              ))}
           </div>
         )}
 

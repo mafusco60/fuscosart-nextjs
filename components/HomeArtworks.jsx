@@ -1,12 +1,17 @@
 import Link from "next/link";
 import ArtworkCard from "@/components/ArtworkCard";
 import { fetchArtworks } from "@/utils/requests";
+export const dynamic = "force-dynamic";
 
 const HomeArtworks = async () => {
   const data = await fetchArtworks();
   const recentArtworks = data.artworks;
-  /* .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-    .slice(0, 3); */
+  {
+    recentArtworks &&
+      recentArtworks
+        .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+        .slice(0, 3);
+  }
   /* .sort(() => Math.random() - Math.random())
     .slice(0, 3); */
 

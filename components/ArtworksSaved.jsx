@@ -46,14 +46,15 @@ const ArtworksSaved = () => {
           <p>No saved artworks</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {artworks.map((artwork) => (
-              <ArtworkHeaderImage
-                image={artwork.images[0]}
-                // orientation={artwork.is_lands}
-                key={artwork._id}
-                alt="{artwork.name}"
-              />
-            ))}
+            {artworks &&
+              artworks.map((artwork) => (
+                <ArtworkHeaderImage
+                  image={artwork.images[0]}
+                  // orientation={artwork.is_lands}
+                  key={artwork._id}
+                  alt="{artwork.name}"
+                />
+              ))}
           </div>
         )}
       </div>

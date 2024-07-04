@@ -66,11 +66,12 @@ const UsersPage = () => {
                 <p>No users found</p>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-3">
-                  {users.map((user, index) => (
-                    <Link href={`/users/${user._id}`} key={index}>
-                      <UsersListing user={user} admin={isAdmin} key={index} />
-                    </Link>
-                  ))}
+                  {users &&
+                    users.map((user, index) => (
+                      <Link href={`/users/${user._id}`} key={index}>
+                        <UsersListing user={user} admin={isAdmin} key={index} />
+                      </Link>
+                    ))}
                 </div>
               )}
             </div>
