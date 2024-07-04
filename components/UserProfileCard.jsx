@@ -68,17 +68,18 @@ const UserProfileCard = ({ user }) => {
                 <>
                   {" "}
                   <div className="grid grid-cols-3 gap-2">
-                    {artworks.map((artwork, index) => (
-                      <Image
-                        src={artwork.images[0]}
-                        className="h-26 w-26 mb-2 "
-                        width={150}
-                        height={150}
-                        alt="Artwork image"
-                        key={index}
-                        priority={true}
-                      />
-                    ))}
+                    {artworks &&
+                      artworks.map((artwork, index) => (
+                        <Image
+                          src={artwork.images[0]}
+                          className="h-26 w-26 mb-2 "
+                          width={150}
+                          height={150}
+                          alt="Artwork image"
+                          key={index}
+                          priority={true}
+                        />
+                      ))}
                   </div>
                 </>
               )}

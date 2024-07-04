@@ -13,9 +13,10 @@ const FeaturedArtworks = async () => {
             Featured Artworks
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {artworks.map((artwork) => (
-              <FeaturedArtworkCard artwork={artwork} key={artwork._id} />
-            ))}
+            {artworks &&
+              artworks.map((artwork) => (
+                <FeaturedArtworkCard artwork={artwork} key={artwork._id} />
+              ))}
           </div>
         </div>
       </section>
