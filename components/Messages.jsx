@@ -1,9 +1,8 @@
 "use client";
-import { use } from "react";
 import { useState, useEffect } from "react";
 import Spinner from "@/components/Spinner";
 import Message from "@/components/Message";
-
+export const dynamic = "force-dynamic";
 const Messages = () => {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(true);

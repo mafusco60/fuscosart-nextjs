@@ -11,7 +11,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import UnreadMessageCount from "@/components/UnreadMessageCount";
 import { fetchUser } from "@/utils/requests";
 import NavbarAdminMenu from "./NavbarAdminMenu";
-
+export const dynamic = "force-dynamic";
 const Navbar = () => {
   const { data: session } = useSession();
   const profileImage = session?.user?.image;

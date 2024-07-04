@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import UserProfileCard from "@/components/UserProfileCard";
 import Spinner from "@/components/Spinner";
+export const dynamic = "force-dynamic";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -36,7 +37,7 @@ const Users = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {users &&
-              users.map((user, index) => (
+              users((user, index) => (
                 <UserProfileCard user={user} key={index} />
               ))}
           </div>

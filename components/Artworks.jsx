@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ArtworkCard from "@/components/ArtworkCard";
 import Spinner from "@/components/Spinner";
 import Pagination from "@/components/Pagination";
-
+export const dynamic = "force-dynamic";
 const Artworks = () => {
   const [artworks, setArtworks] = useState([]);
   const [loading, setLoading] = useState(true);

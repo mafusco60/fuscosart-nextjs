@@ -1,6 +1,6 @@
 import { fetchArtworks } from "@/utils/requests";
 import FeaturedArtworkCard from "./FeaturedArtworkCard";
-
+export const dynamic = "force-dynamic";
 const FeaturedArtworks = async () => {
   const artworks = await fetchArtworks({ showFeatured: true });
 

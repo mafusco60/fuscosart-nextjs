@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Gallery, Item } from "react-photoswipe-gallery";
+export const dynamic = "force-dynamic";
 
 const ArtworkImages = ({ images }) => {
   return (

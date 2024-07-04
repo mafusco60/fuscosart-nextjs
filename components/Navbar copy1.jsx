@@ -9,8 +9,7 @@ import { FaGoogle } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import UnreadMessageCount from "@/components/UnreadMessageCount";
-import { fetchUser } from "@/utils/requests";
-import NavbarMobileMenu from "./NavbarMobileMenu";
+export const dynamic = "force-dynamic";
 
 const Navbar = () => {
   const { data: session } = useSession();
