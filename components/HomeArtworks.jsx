@@ -7,10 +7,9 @@ const HomeArtworks = async () => {
   const data = await fetchArtworks();
   const recentArtworks = data.artworks;
   {
-    recentArtworks &&
-      recentArtworks
-        .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
-        .slice(0, 3);
+    recentArtworks
+      .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+      .slice(0, 3);
   }
   /* .sort(() => Math.random() - Math.random())
     .slice(0, 3); */
